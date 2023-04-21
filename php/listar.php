@@ -4,10 +4,8 @@
 // incluir a conexão
 include("conexao.php");
 
-
 // sql
 $sql = " SELECT * FROM cursos "; 
-
 
 // executar
 $executar = mysqli_query($conexao, $sql);
@@ -31,11 +29,6 @@ while($linha = mysqli_fetch_assoc($executar)) {
 //guarda no JSON
 json_encode(['cursos' => $cursos]);
 
-
-
-
-
-
-
+var_dump($cursos)
 
 ?>

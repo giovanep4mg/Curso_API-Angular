@@ -12,6 +12,7 @@
         <section class="aula">
             <header class="title"><h1> O que é um API</h1></header>
             <section class="description">
+                <h2>
                 Sistema desenvolvido em qualquer linguagem web, para que aplicações de terceiros consigam ter acesso.<br>
                 <br>
                 Desenvolvimento de uma estrutura onde seja possivel realizar integrações com banco de dados.<br>
@@ -24,12 +25,14 @@
                 <b>PUT</b> => " Alterar dados ".<br>
                 <b>DELETE</b> => "Remover dados ".<br>
                 <br>
+                </h2>
             </section>
         </section>
         <br>
         <section class="aula">
             <header class="title"><h1> Quais software serão usados ?</h1></header>
             <section class="description">
+            <h2>
                 Para o banco de dados usaremos:<br>
                 <br>
                 <b>Xampp</b> que é para trabalhar com banco de dados, usando o mysql, junto com PHP.<br>
@@ -40,6 +43,209 @@
                 <br>
                 <b>VScode</b> que é o editor, pode ser usado outro mas aqui será usado o VScode.<br>
                 <br>
+            </h2>    
+            </section>
+        </section>
+        <br>
+        <section class="aula">
+            <header class="title"><h1> Configurar o ambiente de trabalho !</h1></header>
+            <section class="description">
+            <h2>
+                Localize o "xampp" que foi instalado no seu computador, normalmente fica no disco "C" com o nome <b>xampp</b>. <br>
+                <br>
+                Precisa ativar o <b>Xampp-Control</b>, clica nele e ativa os dois primeiros "Apache" e o "MySQL".<br>
+                <br>
+                <div class="image">
+                    <img src="./imagens/inicializar-Xampp-Control.png" alt="print do código">
+                </div>
+                <br>
+                Dentro da pasta "xampp", encontre a pasta <b>htdocs</b>, e dentro dessa pasta crie outra pasta com o nome <b>api</b>.<br>
+                Que onde vamos criar nosso api.<br>
+                <br>
+                Agora abra o VScode, vai em arquivo e escolha "Abrir pasta" e escolha a pasta que acabamos de criar.<br>
+                <br>
+                Abra o terminal do VScode, e coloque esse comando <b>ng new projeto-api</b>, vai criar esse novo projeto.<br>
+                Vai te pedir para escolher se deseja adicionar "rotas", escolha sim => "y", clique em enter.<br>
+                Vai pedir para escolher qual padrão de estilo você quer, escolha "CSS", clique em enter.<br>
+                <br>
+                Agora sim ele vai começar a criar o projeto, pode demorar de acordo com sua internet.<br>
+                <br>
+                <br>
+            </h2>        
+            </section>
+        </section>
+        <br>
+        <section class="aula">
+            <header class="title"><h1> Configurar o <b>htacess</b> !</h1></header>
+            <section class="description">
+            <h2>
+                Dentro da pasta desse projeto "blocoNotas", tem uma pasta com o nome "htaccess",<br>
+                copie o arquivo que está dentro dela <b>.htaccess</b>.<br>
+                <br>
+                Abra a pasta que criamos "htdocs", dentro da pasta "api", agora terá outra pasta lá dentro do nosso projeto <b>projeto-api</b>.<br>
+                Crie outra pasta com o nome <b>php</b>, abra ela e cole/coloque o arquivo ".htaccess" dentro dela.<br> 
+                <br>
+                Esse arquivo vai liberar em nosso servidor as requisições:<br>
+                <b>POST</b>, <b>GET</b>, <b>OPTIONS</b>, <b>DELETE</b>, <b>PUT</b> .<br>
+                <br>
+                E vai poder usar o PHP puro sem frameWork.<br>
+                <br>
+                <br>
+            </h2>    
+            </section>
+        </section>
+        <br>
+        <section class="aula">
+            <header class="title"><h1> Configurar o <b>banco de dados</b> !</h1></header>
+            <section class="description">
+                <h2>
+                    Na barra de navegação digite: <b>localhost</b> clique em enter.<br>
+                    Abrirá a página de boas vindas do "Xampp", no canto superior clique em <b>PhpMyAdmin</b>.<br>
+                    <div class="image">
+                        <img src="./imagens/banco-de-dados-1.png" alt="print do código">
+                    </div>
+                    <br>
+                    Vai abrir a interface gráfica dele, para manipular base de dados e tabelas.<br>
+                    Assim que abrir, clique em <b>Base de Dados</b>.<br>
+                    <div class="image">
+                        <img src="./imagens/banco-de-dados-2.png" alt="print do código">
+                    </div>
+                    <br>
+                    Crie uma nova "Base de Dados", com o nome => <b>api</b>.<br>
+                    <div class="image">
+                        <img src="./imagens/banco-de-dados-3.png" alt="print do código">
+                    </div>
+                    <br>
+                    Dentro dessa base de dados, vai no botão <b>SQL</b> e vamos criar a tabela,<br>
+                    <div class="image">
+                        <img src="./imagens/banco-de-dados-4.png" alt="print do código">
+                    </div>
+                    <br>
+                    Para fazer o teste vê se está tudo certo, vamos adicionar um curso, clique em "SQL".<br>
+                    <div class="image">
+                        <img src="./imagens/banco-de-dados-5.png" alt="print do código">
+                    </div>
+                    <br>
+                    Depois clique na tabela curso, emcima ou do lado esquerdo, e veja como deveria ficar:<br>
+                    <div class="image">
+                        <img src="./imagens/banco-de-dados-6.png" alt="print do código">
+                    </div>
+                    <br>
+                    Prontinho nossa estrutura, nossa tabela de banco de dados foi criada.<br>
+                    Agora só implementar com o PHP.<br>
+                    <br>
+                </h2>
+            </section>
+        </section>
+        <br>
+        <section class="aula">
+            <header class="title"><h1> Conexão entre o PHP e o banco de dados MySQL</h1></header>
+            <section class="description">
+                <h2>
+                    Abra o VScode, e dentro da pasta <b>php</b> crie um novo arquivo, com o nome de <b>conexao.php</b>,<br>
+                    <br>
+                    No arquivo, abra e feche o "php", dentro dele adicione as variáveis:<br>
+                    // que vai receber o "localhost", endereço de acesso.<br>
+                    <b>$url = " localhost " ;</b> <br>
+                    // recebe o "root" nome de usuário padrão.<br>
+                    <b>$usuario = " root " ; </b>  <br>
+                    // recebe a senha "vazia" que é o padrão também.<br>
+                    <b>$senha = " " ; </b> <br>
+                    // a base que criamos antes <br>
+                    <b>$base = " api " ;</b> <br>
+                    <br>
+                    <br>
+                    // PARA REALIZAR A CONEXÃO <br>
+                    <b>$conexao = mysqli_connect ( * )</b> <br>
+                    <br>
+                    * Dentro do parenteses, tem que passar uns parâmetros, ficando assim:<br>
+                    <b>$conexao = mysqli_connect ( $url, $usuario, $senha, $base ) ;</b> <br>
+                    <br>
+                    Veja como é o código:<br>
+                    <div class="image">
+                        <img src="./imagens/conexao-banco-de-dados.png" alt="print do código">
+                    </div>
+                    <br>
+                    <br>
+                    Com esse arquivo teremos acesso ao nosso banco de dados,<br>
+                    ou melhor dizendo a nossa base <b>api</b>, que está no banco de dados.<br>
+                    <br>
+                    <br>
+                </h2>
+            </section>
+        </section>
+        <br>
+        <section class="aula">
+            <header class="title"><h1> Listar os cursos no banco de dados</h1></header>
+            <section class="description">
+                <h2>
+                    Abra o VScode, e dentro da pasta <b>php</b> crie um novo arquivo, com o nome de <b>listar.php</b>,<br>
+                    iremos fazer a exibição de um <b>JSON</b> para alimentar nosso banco de dados,<br>
+                    ultilizando o "Angular".<br>
+                    <br>
+                    No arquivo, abra  e feche o "php", dentro dele primeiro:<br>
+                    Vamos incluir a conexão, que criamos na aula anterior.<br>
+                    <br>
+                    // incluir a conexão<br>
+                    <b>incluide ( " conexao.php " ) ;</b> <br>
+                    <br>
+                    // prepara o comando SQL<br>
+                    <b>$sql = " SELECT * FROM cursos " ; </b>  <br>
+                    <br>
+                    // para executar esse comando  <br>
+                    <b>$executar = mysqli_query( * );</b> <br>
+                    * Dentro do parenteses, tem que passar uns parâmetros, ficando assim:<br>
+                    <b>$executar = mysqli_query ( $conexao, $sql ) ;</b> <br>
+                    <br>
+                    Agora temos que fazer um laço de repetição,<br>
+                    para pode adicionar num "JSON" :<br>
+                    <br>
+                    // vetor para amarzenar os cursos e seus dados<br>
+                    <b>$cursos = [] </b> <br>
+                    <br>
+                    // indice para saber qual posição será adicionado o conteúdo <br>
+                    <b>$indice = 0 </b> <br>
+                    <br>
+                    // laço <br>
+                    // vai passar linha por linha <br>
+                    <b>while ( $linha == mysqli_fetch_assoc( $executar ) ) *abre chaves </b> <br>
+                    ____$cursos[$indice]['idCurso'] = $linha['idCurso']; <br>
+                    ____$cursos[$indice]['nomeCurso'] = $linha['nomeCurso']; <br>
+                    ____$cursos[$indice]['valorCurso'] = $linha['valorCurso']; <br>
+                    <br>
+                        $indice++;</b> <br>
+                    <b>* fecha a chaves</b> <br>
+                    <br>
+                    Agora tem que encapsula num "JSON"<br>
+                    //JSON <br>
+                    <b>json_encode = (['cursos' => $cursos ]);</b> <br>
+                    <br>
+                    Veja como é o código, separei em duas imagens:<br>
+                    <div class="image">
+                        <img src="./imagens/json-1.png" alt="print do código">
+                    </div>
+                    <br>
+                    <div class="image">
+                        <img src="./imagens/json-2.png" alt="print do código">
+                    </div>
+                    <br>
+                    <br>
+                    Para fazer  o teste, vê se está funcionando, coloque essa variável:<br>
+                    // variável para teste<br>
+                    <b>var_dump( $cursos );</b> <br>
+                    <br>
+                    Abra navegador, digite o <b>localhost/api</b> ou <b>localhost:8080/api</b>,<br>
+                    clique em "php", depois em "listar" e veja se aparece uma lista para você.<br>
+                    <div class="image">
+                        <img class="img" src="./imagens/json-3.png" alt="print do código" >
+                    </div>
+                    <br>
+                    <br>
+                    Se apareceu a lista, deu tudo certo e pode apagar o <b>var_dump( $cursos );</b> <br>
+                    Se não aparece verifique seu código, algo está errado!<br>
+                    <br>
+                    <br>
+                </h2>
             </section>
         </section>
     </main>

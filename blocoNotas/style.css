@@ -1,6 +1,11 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 5px;
+}
 .todaPagina{
-    margin: 10px;
-    padding: 10px;
+    margin: 5px;
+    padding: 5px;
     border: 1px solid black;
     background-color: rgba(0, 255, 255, 0.383);
     font-family: 'Courier New', Courier, monospace;
@@ -17,9 +22,8 @@
 }
 
 .title{
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
     color: blue;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 25px;
@@ -27,8 +31,8 @@
 }
 
 .description{
-    margin: 10px;
-    padding: 10px;
+    margin: 5px;
+    padding: 15px;
     border: 1px solid black;
     background-color: rgba(8, 211, 45, 0.515);
     font-family: sans-serif;
@@ -36,5 +40,15 @@
 }
 
 b{
-    color: red;
+    color: rgba(255, 0, 0, 0.763);
+}
+.image {
+    border: 1px solid black;
+    width: 100% ;
+    box-sizing: content-box;
+    
+}
+.image img{
+   
+    width: auto;
 }
