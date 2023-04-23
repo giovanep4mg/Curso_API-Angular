@@ -1,6 +1,4 @@
 <?php
-
-
 // incluir a conexão
 include("conexao.php");
 
@@ -16,6 +14,4 @@ $idCurso = $extrair->cursos->idCurso;
 // sql
 $sql = " DELETE FROM cursos Where idCurso = $idCurso";
 mysqli_query($conexao, $sql);
-
-
 ?>

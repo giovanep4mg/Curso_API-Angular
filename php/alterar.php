@@ -1,6 +1,5 @@
 <?php
 
-
 // incluir a conexão
 include("conexao.php");
 
@@ -20,7 +19,6 @@ $sql = " UPDATE cursos SET nomeCursos = '$nomeCurso', valorCurso = $valorCurso W
 mysqli_query($conexao, $sql);
 
 
-
 // exporta os dados cadatrados
 $curso = [
     'idCurso' => $idCurso,
@@ -29,7 +27,5 @@ $curso = [
 ]
 
 json_encode(["curso"] => $curso);
-
-
 
 ?>

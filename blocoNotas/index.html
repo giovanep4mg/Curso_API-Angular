@@ -9,8 +9,9 @@
 </head>
 <body>
     <main class="todaPagina">
+        <!--O que é uma API-->
         <section class="aula">
-            <header class="title"><h1> O que é um API</h1></header>
+            <header class="title"><h1> O que é uma API</h1></header>
             <section class="description">
                 <h2>
                 Sistema desenvolvido em qualquer linguagem web, para que aplicações de terceiros consigam ter acesso.<br>
@@ -29,6 +30,7 @@
             </section>
         </section>
         <br>
+        <!--Quais softwares serão usados-->
         <section class="aula">
             <header class="title"><h1> Quais software serão usados ?</h1></header>
             <section class="description">
@@ -47,6 +49,7 @@
             </section>
         </section>
         <br>
+        <!--Configurar ambiente de trabalho-->
         <section class="aula">
             <header class="title"><h1> Configurar o ambiente de trabalho !</h1></header>
             <section class="description">
@@ -75,6 +78,7 @@
             </section>
         </section>
         <br>
+        <!--configurar o htacess-->
         <section class="aula">
             <header class="title"><h1> Configurar o <b>htacess</b> !</h1></header>
             <section class="description">
@@ -95,6 +99,7 @@
             </section>
         </section>
         <br>
+        <!--Configurar o banco de dados-->
         <section class="aula">
             <header class="title"><h1> Configurar o <b>banco de dados</b> !</h1></header>
             <section class="description">
@@ -138,6 +143,7 @@
             </section>
         </section>
         <br>
+        <!--Conexão entre o PHP e o Banco de Dados-->
         <section class="aula">
             <header class="title"><h1> Conexão entre o PHP e o banco de dados MySQL</h1></header>
             <section class="description">
@@ -175,6 +181,7 @@
             </section>
         </section>
         <br>
+        <!--Listar dados no banco de dados-->
         <section class="aula">
             <header class="title"><h1> Listar os cursos no banco de dados</h1></header>
             <section class="description">
@@ -243,6 +250,215 @@
                     <br>
                     Se apareceu a lista, deu tudo certo e pode apagar o <b>var_dump( $cursos );</b> <br>
                     Se não aparece verifique seu código, algo está errado!<br>
+                    <br>
+                    <br>
+                </h2>
+            </section>
+        </section>
+        <br>
+        <!--Back-End para cadastrar os cursos-->
+        <section class="aula">
+            <header class="title"><h1> Back-End para cadastrar os cursos</h1></header>
+            <section class="description">
+                <h2>
+                    Abra o VScode, e dentro da pasta <b>php</b> crie um novo arquivo, com o nome de <b>cadastrar.php</b>,<br>
+                    <br>
+                    No arquivo, abra  e feche o "php", dentro dele primeiro:<br>
+                    <br>
+                    Vamos incluir a conexão, para se conectar ao banco de dados "api".<br>
+                    <br>
+                    // incluir a conexão<br>
+                    <b>incluide ( " conexao.php " ) ;</b> <br>
+                    <br>
+                    * aqui irá receber as informações como "JSON", <br>
+                    ai te que colocar como serão recebidas essas informções.<br>
+                    <br>
+                    // Obter dados, através de um "input" e será manipulado em php<br>
+                    <b>$obterDados = file_get_contents( " php://input ") ;</b>  <br>
+                    <br>
+                    // extrair os dados do JSON  <br>
+                    <b>$extrair = json_decode( $obterDados ) ;</b> <br>
+                    <br>
+                    Para transformar dados em JSON usamos o "json_encode".<br>
+                    Para transformar JSON em dados usamos o "json_decode"
+                    <br>
+                    Agora temos que separar os dados do JSON<br>
+                    <br>
+                    // separar dados do JSON <br>
+                    <b>$nomeCurso = $extrair-> cursos-> nomeCurso ;   </b> <br>
+                    <b>$valorCurso = $extrair-> cursos-> valorCurso ;</b> <br>
+                    <br>
+                    // Explicando o significado desse comando:<br>
+                    <br>
+                    <b>$extrair </b> é o que vai pegar os dados do JSON.<br>
+                    <b>cursos </b> é o nome do JSON que criamos a lista.<br>
+                    <b>nomeCurso</b> é uma caracteristica. <br> 
+                    <br>
+                    Veja como é o código, primeira imagem :<br>
+                    <div class="image">
+                        <img src="./imagens/cadastrar-1.png" alt="print do código">
+                    </div>
+                    <br>
+                    <br>
+                    Para cadastrar os dados no banco de dados<br>
+                    <b>$sql = "INSERT INTO cursos (nomeCurso, valorCurso) VALUES ('nomeCurso', $valorCurso)";</b> <br>
+                    // para executar o cadastramento 
+                    <b>mysqli_query($conexao, $sql);</b> <br>
+                    <br>
+                    // Exporta os dados cadastrados, para fazer alguma verificação... <br>
+                    __<b> $cursos = [ <br>
+                    ___________'nomeCurso' => $nomeCurso, <br>
+                    ___________'valorCurso' => $valorCurso <br>
+                    __ ]</br>
+                    </b>
+                    <br>
+                    <br>
+                    // Retorna o nome do curso e seu valor <br>
+                    <b> json_encode( [ 'cursos' ] => $curso ) ; </b> <br>
+                    <br>
+                    <br>
+                    Veja como é o código, segunda imagem:<br>
+                    <div class="image">
+                        <img src="./imagens/cadastrar-2.png" alt="print do código">
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </h2>
+            </section>
+        </section>
+        <br>
+        <!--UPDATE para fazer alterações no banco de dados-->
+        <section class="aula">
+            <header class="title"><h1> UPDATE para fazer alterações </h1></header>
+            <section class="description">
+                <h2>
+                    Abra o VScode, e dentro da pasta <b>php</b> crie um novo arquivo, com o nome de <b>alterar.php</b>,<br>
+                    <br>
+                    E quase igual o cadastrar, só terá algumas modificações,<br>
+                    precisa pegar o id do "objeto"  que você deseja alterar. <br>
+                    <br>
+                    No arquivo, abra  e feche o "php", dentro dele primeiro:<br>
+                    <br>
+                    Vamos incluir a conexão, para se conectar ao banco de dados "api".<br>
+                    <br>
+                    // incluir a conexão<br>
+                    <b>incluide ( " conexao.php " ) ;</b> <br>
+                    <br>
+                    * aqui irá receber as informações como "JSON", <br>
+                    ai te que colocar como serão recebidas essas informções.<br>
+                    <br>
+                    // Obter dados, através de um "input" e será manipulado em php<br>
+                    <b>$obterDados = file_get_contents( " php://input ") ;</b>  <br>
+                    <br>
+                    // extrair os dados do JSON  <br>
+                    <b>$extrair = json_decode( $obterDados ) ;</b> <br>
+                    <br>
+                    Para transformar dados em JSON usamos o "json_encode".<br>
+                    Para transformar JSON em dados usamos o "json_decode"
+                    <br>
+                    Agora temos que separar os dados do JSON<br>
+                    <br>
+                    // separar dados do JSON <br>
+                    <b>$idCurso = $extrair-> cursos-> idCurso ;   </b> <br>
+                    <b>$nomeCurso = $extrair-> cursos-> nomeCurso ;   </b> <br>
+                    <b>$valorCurso = $extrair-> cursos-> valorCurso ;</b> <br>
+                    <br>
+                    // Explicando o significado desse comando:<br>
+                    <br>
+                    <b>$extrair </b>=> é o que vai pegar os dados do JSON.<br>
+                    <b>cursos </b>=> é o nome do JSON que criamos a lista.<br>
+                    <br>
+                    Veja como é o código, primeira imagem :<br>
+                    <div class="image">
+                        <img src="./imagens/alterar-1.png" alt="print do código">
+                    </div>
+                    <br>
+                    <br>
+                    Para cadastrar os dados no banco de dados<br>
+                    // Sql, para fazer o UPDATE
+                    <b>$sql = " UPDATE cursos SET nomeCursos = '$nomeCurso', valorCurso = $valorCurso Where idCurso = $idCurso";</b> <br>
+                    // para executar o cadastramento 
+                    <b>mysqli_query($conexao, $sql);</b> <br>
+                    <br>
+                    // Exporta os dados cadastrados, para fazer alguma verificação... <br>
+                    <b>
+                    ___$cursos = [ <br>
+                    ___________'idCurso' => $idCurso, <br>   
+                    ___________'nomeCurso' => $nomeCurso, <br>
+                    ___________'valorCurso' => $valorCurso <br>
+                    __ ]</br> 
+                    </b>
+                    </b>
+                    <br>
+                    <br>
+                    // Retorna o nome do curso e seu valor <br>
+                    <b> json_encode( [ 'cursos' ] => $curso ) ; </b> <br>
+                    <br>
+                    <br>
+                    Veja como é o código, segunda imagem:<br>
+                    <div class="image">
+                        <img src="./imagens/alterar-2.png" alt="print do código">
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </h2>
+            </section>
+        </section>
+        <br>
+        <!--Excluir dados do banco de dados-->
+        <section class="aula">
+            <header class="title"><h1> EXCLUIR dados  </h1></header>
+            <section class="description">
+                <h2>
+                    Abra o VScode, e dentro da pasta <b>php</b> crie um novo arquivo, com o nome de <b>excluir.php</b>,<br>
+                    <br>
+                    E quase igual o cadastrar e o alterar, só terá algumas modificações,<br>
+                    precisa pegar o id do "objeto"  que você deseja excluir. <br>
+                    <br>
+                    No arquivo, abra  e feche o "php", dentro dele primeiro:<br>
+                    <br>
+                    Vamos incluir a conexão, para se conectar ao banco de dados "api".<br>
+                    <br>
+                    // incluir a conexão<br>
+                    <b>incluide ( " conexao.php " ) ;</b> <br>
+                    <br>
+                    * aqui irá receber as informações como "JSON", <br>
+                    ai te que colocar como serão recebidas essas informções.<br>
+                    <br>
+                    // Obter dados, através de um "input" e será manipulado em php<br>
+                    <b>$obterDados = file_get_contents( " php://input ") ;</b>  <br>
+                    <br>
+                    // extrair os dados do JSON  <br>
+                    <b>$extrair = json_decode( $obterDados ) ;</b> <br>
+                    <br>
+                    Para transformar dados em JSON usamos o "json_encode".<br>
+                    Para transformar JSON em dados usamos o "json_decode"
+                    <br>
+                    Agora temos que separar os dados do JSON<br>
+                    <br>
+                    // separar dados do JSON <br>
+                    <b>$idCurso = $extrair-> cursos-> idCurso ;   </b> <br>
+                    <br>
+                    // Explicando o significado desse comando:<br>
+                    <br>
+                    <b>$extrair </b>=> é o que vai pegar os dados do JSON.<br>
+                    <b>cursos </b>=> é o nome do JSON que criamos a lista.<br>
+                    <b>idCurso</b>=> é a indentificação do curso. <br> 
+                    <br>
+                    Para cadastrar os dados no banco de dados<br>
+                    // Sql, para excluir
+                    <b>$sql = "DELETE FROM cursos WHERE idCurso = $idCurso </b> <br>
+                    // para executar o cadastramento 
+                    <b>mysqli_query($conexao, $sql);</b> <br>
+                    <br>
+                    Veja como é o código:<br>
+                    <div class="image">
+                        <img src="./imagens/excluir-dados-1.png" alt="print do código">
+                    </div>
+                    <br>
+                    Já temos um arquivo para excluir dados do banco de dados.<br>
                     <br>
                     <br>
                 </h2>

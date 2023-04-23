@@ -1,6 +1,5 @@
 <?php
 
-
 // incluir a conexão
 include("conexao.php");
 
