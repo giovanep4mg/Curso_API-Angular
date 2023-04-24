@@ -34,23 +34,127 @@
                 <a href="#contato"><i class="fa-regular fa-envelope"></i></a><br>
              <br>
         </div>
-        <!--O que é uma API-->
+        <!--Configurando o Angular-->
         <section id="aula1" class="aula">
-            <header class="title"><h1> Intalando o Angular</h1></header>
+            <header class="title"><h1> Configurando o Angular</h1></header>
             <section class="description">
                 <h2>
-                Sistema desenvolvido em qualquer linguagem web, para que aplicações de terceiros consigam ter acesso.<br>
-                <br>
-                Desenvolvimento de uma estrutura onde seja possivel realizar integrações com banco de dados.<br>
-                <br>
-                Então o APi fica entre seu programa e o banco de dados,  quando quiser executar algo vai para a API.<br>
-                <br>
-                Esse são os protocolos:<br>
-                <b>POST</b> => " Enviar dados ".<br>
-                <b>GET</b> => " Obter dados ". <br>
-                <b>PUT</b> => " Alterar dados ".<br>
-                <b>DELETE</b> => "Remover dados ".<br>
-                <br>
+                    É importante já ter instalado no seu computador o <b>node.js</b>,<br>
+                    para conseguir baixar a dependência do Angular.<br>
+                    Baixar também o <b>Angular</b> .<br>
+                    <br>
+                    Abra o "VScode", no arquivo, escolha abri pasta, procure a pasta "api",<br>
+                    que está dentro da pasta "xampp", na pasta "htdocs".<br>
+                    <br>
+                    Abra o terminal do angular, verifique se você está na pasta "api",<br>
+                    <br>
+                    <div style="border: 1px solid black;">
+                        Para entra numa pasta digite: <b>cd *nome da pasta*</b> .<br>
+                        Para sair da pasta digite: <b>cd..</b>.<br>
+                    </div>
+                    <br>
+                    coloque esse código <b> ng new app-php</b>, vai criar no projeto angular.<br>
+                    <div class="image">
+                        <img src="./imagens/angular-1.png" alt="print do código">
+                    </div>
+                    <br>
+                    Vai te dá algumas opções de escolha, coloque "y" e escolha o "CSS".<br>
+                    Clique em enter, vai começar a criar o projeto, pode demorar um pouquinho,<br>
+                    <br>
+                    Depois que criar o projeto, volte novamente no terminal do "VScode",<br>
+                    verifique se está na pasta do projeto criado:<br>
+                    <b>C:\xampp\htdocs\api\app-php</b> <br>
+                    <br>
+                    <div style="border: 1px solid black;">
+                        Para entra numa pasta digite: <b>cd *nome da pasta*</b> .<br>
+                        Para sair da pasta digite: <b>cd..</b>.<br>
+                    </div>
+                    <br>
+                    Digite esse comando: <b>ng serve --open</b> ,<br>
+                    na primeira vez que for colocado esse código vai pedir para confirma,<br>
+                    se você aceita os termos ou não, coloque "y".<br>
+                    <br>
+                    Vai abrir o projeto no navegador do seu computador.<br>
+                    Se não abrir, volta e faça tudo novamente por que teve algum erro.<br>
+                    <br>
+                </h2>
+            </section>
+        </section>
+        <br>
+        <!--Adicionando modulos-->
+        <section id="aula1" class="aula">
+            <header class="title"><h1> Adicionando Modulos</h1></header>
+            <section class="description">
+                <h2>
+                    Na pasta que foi criado o projeto, que está do lado esquerdo,<br>
+                    clique em <b>src</b> e dentro dessa pasta procure o arquivo <b>app.module.ts</b><br>
+                    <div class="image">
+                        <img src="./imagens/angular-2.png" alt="print do código">
+                    </div>
+                    <br>
+                    Dentro dele terá algumas configurações do angular,<br>
+                    o que queremos no nosso projeto é enviar e receber dados.<br>
+                    <br>
+                    Para isso precisa fazer duas importações importantes:<br>
+                    <br>
+                    <div style="border: 1px solid black; margin: 5px; padding: 5px;">
+                        <b>import { HttpClientModule} from '@angular/common/http'</b> <br>
+                        <br>
+                        <b>import { FormsModule } from '@angular/forms';</b> <br>
+                        <br>
+                        Agora no "ngModule", dentro do imports adicione:<br>
+                        <br> 
+                        <b>HttpClientModule,</b> => para fazer o vincúlo entre o PHP e o Banco de Dados.<br>
+                        <br>
+                        <b>FormsModule</b> => para trabalhar com os dados recebidos e enviados.<br>
+                        <br>
+                    </div>
+                    <br>
+                    Veja como é o código:<br>
+                    <div class="image">
+                        <img src="./imagens/angular-3.png" alt="print do código">
+                    </div>
+                    <br>
+                    <br>
+                </h2>
+            </section>
+        </section>
+        <br>
+        <!--Adicionando modulos-->
+        <section id="aula1" class="aula">
+            <header class="title"><h1> Adicionando Modulos</h1></header>
+            <section class="description">
+                <h2>
+                    Na pasta que foi criado o projeto, que está do lado esquerdo,<br>
+                    clique em <b>src</b> e dentro dessa pasta procure o arquivo <b>app.module.ts</b><br>
+                    <div class="image">
+                        <img src="./imagens/angular-2.png" alt="print do código">
+                    </div>
+                    <br>
+                    Dentro dele terá algumas configurações do angular,<br>
+                    o que queremos no nosso projeto é enviar e receber dados.<br>
+                    <br>
+                    Para isso precisa fazer duas importações importantes:<br>
+                    <br>
+                    <div style="border: 1px solid black; margin: 5px; padding: 5px;">
+                        <b>import { HttpClientModule} from '@angular/common/http'</b> <br>
+                        <br>
+                        <b>import { FormsModule } from '@angular/forms';</b> <br>
+                        <br>
+                        Agora no "ngModule", dentro do imports adicione:<br>
+                        <br> 
+                        <b>HttpClientModule,</b> => para fazer o vincúlo entre o PHP e o Banco de Dados.<br>
+                        <br>
+                        <b>FormsModule</b> => para trabalhar com os dados recebidos e enviados.<br>
+                        <br>
+                    </div>
+                    <br>
+                    Veja como é o código:<br>
+                    <div class="image">
+                        <img src="./imagens/angular-3.png" alt="print do código">
+                    </div>
+                    <br>
+                    <br>
                 </h2>
             </section>
         </section>

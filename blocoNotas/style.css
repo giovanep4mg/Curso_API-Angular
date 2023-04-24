@@ -1,7 +1,10 @@
 *{
     margin: 0px;
     padding: 0px;
-    margin-bottom: 5px;
+    margin-bottom: 5px; 
+}
+main{
+    margin: 0px;
     
 }
 
@@ -54,20 +57,18 @@ b{
     color: rgba(255, 0, 0, 0.763);
 }
 .image {
-    border: 1px solid black;
-    width: 100% ;
-    box-sizing: content-box;
+    display: inline-flex;
     
 }
 .image img{
-   
-    width: auto;
+   display: inline-block;
+   width: 100%;
 }
 
 .menu{
     background-color: #1d1d22;
     /* largura do conteúdo */
-    width: 10%;
+    width: 12%;
     /* espaço entre o conteúdo e a borda */
     padding: 35px;
     vertical-align: top;
