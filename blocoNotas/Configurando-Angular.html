@@ -97,7 +97,7 @@
                     <br>
                     Para isso precisa fazer duas importações importantes:<br>
                     <br>
-                    <div style="border: 1px solid black; margin: 5px; padding: 5px;">
+                    <div style="border: 1px solid black; margin: 10px; padding: 10px;">
                         <b>import { HttpClientModule} from '@angular/common/http'</b> <br>
                         <br>
                         <b>import { FormsModule } from '@angular/forms';</b> <br>
@@ -120,40 +120,101 @@
             </section>
         </section>
         <br>
-        <!--Adicionando modulos-->
+        <!--Criando componente-->
         <section id="aula1" class="aula">
-            <header class="title"><h1> Adicionando Modulos</h1></header>
+            <header class="title"><h1> Criando Componente</h1></header>
             <section class="description">
                 <h2>
-                    Na pasta que foi criado o projeto, que está do lado esquerdo,<br>
-                    clique em <b>src</b> e dentro dessa pasta procure o arquivo <b>app.module.ts</b><br>
+                    Componentes são partes do nosso sistema,<br>
+                     um segmento, uma parte do site.<br>
+                    <br>
+                    No pront de comando do "VScode", verifique se está dentro da pasta do projeto. <br>
+                    <br>
+                    <div style="border: 1px solid black; margin: 10px; padding: 10px;">
+                        Para entra numa pasta digite: <b>cd *nome da pasta*</b> .<br>
+                        Para sair da pasta digite: <b>cd..</b>.<br>
+                    </div>
+                    <br>
+                     coloque esse código:<br>
+                     <br>
+                    <b>ng g c curso</b> clique em enter <br>
+                    <br>
+                    <div style="border: 1px solid black; margin: 10px; padding: 10px;">
+                        <b>ng</b> => significa "Angular" .<br>
+                        <b>g</b> => significa "generate" .<br>
+                        <b>c</b> => significa "component" .<br>
+                        <b>curso</b> => significa "nome que você quiser dá " .<br>
+                    </div>
+                    <br>
+                    Vai criar uma pasta dentro da pasta <b>app</b>, e dentro dela terá:<br>
+                    <br>
+                    <b>curso.component.html</b> => trabalhar com o "HTML".<br>
+                    <b>curso.component.css</b> => trabalhar com o "CSS".<br>
+                    <b>curso.component.spect.ts</b> => trabalhar para exportar o "TypeScript".<br>
+                    <b>curso.component.ts</b> => trabalhar com o "TypeScript".<br>
+                    <br>
+                    <br>
+                    Veja como é na tela do programa "VScode":<br>
                     <div class="image">
-                        <img src="./imagens/angular-2.png" alt="print do código">
+                        <img src="./imagens/criar-componente-1.png" alt="print do código">
                     </div>
                     <br>
-                    Dentro dele terá algumas configurações do angular,<br>
-                    o que queremos no nosso projeto é enviar e receber dados.<br>
                     <br>
-                    Para isso precisa fazer duas importações importantes:<br>
+                </h2>
+            </section>
+        </section>
+        <br>
+        <!--Explicando sobre o componente-->
+        <section id="aula1" class="aula">
+            <header class="title"><h1> Explicando sobre o Componente</h1></header>
+            <section class="description">
+                <h2>
+                    Explicando todas as partes do componente que criamos.<br>
                     <br>
-                    <div style="border: 1px solid black; margin: 5px; padding: 5px;">
-                        <b>import { HttpClientModule} from '@angular/common/http'</b> <br>
+                    <div style="border: 1px solid black; margin: 10px; padding: 10px;">
+                        <b>curso.component.html</b> => onde ficará todo "html",<br>
+                        mas somente desse componente.<br>
                         <br>
-                        <b>import { FormsModule } from '@angular/forms';</b> <br>
+                        <b>curso.component.css</b> => vai criar estilos "CSS",<br>
+                        somente para esse componente.<br>
                         <br>
-                        Agora no "ngModule", dentro do imports adicione:<br>
-                        <br> 
-                        <b>HttpClientModule,</b> => para fazer o vincúlo entre o PHP e o Banco de Dados.<br>
-                        <br>
-                        <b>FormsModule</b> => para trabalhar com os dados recebidos e enviados.<br>
-                        <br>
+                        <b>curso.component.ts</b> => é onde vai ficar vários comando,<br>
+                        funções e métodos.<br>
                     </div>
                     <br>
-                    Veja como é o código:<br>
+                    Dentro do componente <b>curso.component.ts</b>, tem: <br>
+                    <b>
+                        @Component({ <br>
+                        ____selector: 'app-curso', => seleciona o nome do componente <br>
+                        ____templateUrl: './curso.component.html', => link do template.<br>
+                        ____styleUrls: ['./curso.component.css'] => link do css.<br> 
+                        __}) <br>
+                    </b>
+                    <br>
+                    Veja como é :<br>
                     <div class="image">
-                        <img src="./imagens/angular-3.png" alt="print do código">
+                        <img src="./imagens/explicando-componente-1.png" alt="print do código">
                     </div>
                     <br>
+                    Dentro dele , também temos:<br>
+                    uma classe, um construtor e o ngOnInit.<br>
+                    <br>
+                    Veja como é :<br>
+                    <div class="image">
+                        <img src="./imagens/explicando-componente-2.png" alt="print do código">
+                    </div>
+                    <br>
+                    Para vemos esse componente, ser exibido na página principal,<br>
+                    vai no componente <b>app.component.html</b>.<br>
+                    <br>
+                    Se estiver algo escrito nela, apague tudo.<br>
+                    E coloque isso dentro dela:<br>
+                    <b>app-curso</b> <br>
+                    <br>
+                    Para inicializar o projeto, no pront de comando coloque:<br>
+                    <b>ng serve --open</b><br>
+                    <br>
+                    Deve abri a página assim que carregar o programa.<br>
                     <br>
                 </h2>
             </section>
