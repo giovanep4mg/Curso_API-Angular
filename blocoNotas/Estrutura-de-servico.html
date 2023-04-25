@@ -30,23 +30,17 @@
                 <a href="./Estrutura-de-servico.html">Estrutura de Serviços </a><br>
                 <br>
                 <!--LINK AULA 4-->
-                <a href="./Estrutura-de-servico.html">Estrutura de Serviços </a><br>
+                <a href="./Estrutura-de-servico.html"> Algum link</a><br>
                 <br>
                 <!--LINK AULA 5-->
-                <a href="./Estrutura-de-servico.html">Estrutura de Serviços </a><br>
+                <a href="./Estrutura-de-servico.html">Algum link </a><br>
                 <br>
                 <!--LINK AULA 6-->
-                <a href="./Estrutura-de-servico.html">Estrutura de Serviços </a><br>
-                <br>
-                <!--LINK AULA 7-->
-                <a href="./Estrutura-de-servico.html">Estrutura de Serviços </a><br>
-                <br>
-                <!--LINK AULA 8-->
-                <a href="./Estrutura-de-servico.html">Estrutura de Serviços </a><br>
+                <a href="./Estrutura-de-servico.html">Algum link </a><br>
                 <br>
                 <br>
                  <!---Link dentro da própria página-----><!---Figurinha mas é texto-->
-                <a href="#sobreMim">Sobre mim <i class="fa-solid fa-user-tie"></i></a><br>
+                <a href="#sobreMim"><i class="fa-solid fa-user-tie"></i></a><br>
                 <br>
                 <!---link dentro da própria página----><!---Figurinha mas é texto-->
                 <a href="#contato"><i class="fa-regular fa-envelope"></i></a><br>
@@ -131,28 +125,63 @@
             </section>
         </section>
         <br>
-        <!--Configurando o Angular-->
+        <!--Testar as funções, métodos que criamos-->
         <section id="aula1" class="aula">
-            <header class="title"><h1>Desenvolver Funções e Métodos </h1></header>
+            <header class="title"><h1> Testar os métodos e Funções </h1></header>
             <section class="description">
                 <h2>
-                    Nossa aplicação terá como base;<br>
-                   
-
+                    Vamos realizar teste nos métodos que criamos, para isso:<br>
+                    vai no componente <b>curso.component.html</b> .<br>
+                    <br>
+                    Limpe tudo o que estiver dentro dele, e acrescente essas tags:<br>
+                    <br>
                     <div style="border: 1px solid black; margin: 10px; padding: 10px;">
-                        <b>cadastrar( ) </b> => nome do método, sem parâmetros adicionados .<br>
-                        <b> : void</b> => diz que não vai retorna nada é "nullo" .<br>
-                        <b>alert("cadastro")</b> => o que deve ser iniciando, só um teste <br>
+                        <b>button</b> " Cadastrar " <b>/button</b> <br>
+                        <b>button</b> " Selecionar " <b>/button</b> <br>
+                        <b>button</b> " Alterar " <b>/button</b> <br>
+                        <b>button</b> " Excluir " <b>/button</b> <br>
                     </div>
                     <br>
+                    Veja como é o código:<br>
+                    <div class="image">
+                        <img src="./imagens/teste-1.png" alt="print do código">
+                    </div>
+                    <br>
+                    Será criado 4 botões mas ainda sem nenhuma ação.<br>
+                    <br>
+                    Vamos adicionar eventos, para acionar os métodos.<br>
+                    Iremos adiconar o evento de "click" dentro da tag 'button'.<br>
+                    <br>
+                    <b>button (click)= " * "</b> " Cadastrar " <b>/button</b> <br>
+                    No evento de "click", vai o nome do método que criamos.<br>
+                    <b>button (click)= " cadastrar "</b> " Cadastrar " <b>/button</b> <br>
+                    <br>
+                    <div style="border: 1px solid black; margin: 10px; padding: 10px;">
+                        <b>button (click)=" cadastrar() " </b> " Cadastrar " <b>/button</b> <br>
+                        <b>button (click)=" selecao() "</b> " Selecionar " <b>/button</b> <br>
+                        <b>button (click)=" alterar() "</b> " Alterar " <b>/button</b> <br>
+                        <b>button (click)=" remover() "</b> " Excluir " <b>/button</b> <br>
+                    </div>
+                    Veja como é o código:<br>
+                    <div class="image">
+                        <img src="./imagens/teste-2.png" alt="print do código">
+                    </div>
+                    <br>
+                    <br>
+                    Abra o projeto, e verifica se ao aciona o botão o método será acionado.<br>
+                    Deverá ser assim, como na imagem abaixo:<br>
+                    <div class="image">
+                        <img src="./imagens/teste-3.png" alt="print da página">
+                    </div>
+                    <br>
+                    <br>
+                    Se ao clicar no botão aparece a "caixa de mensagem" é por que deu tudo certo,<br>
+                    os métodos estão funcionado.<br>
                     <br>
                     <br>
                 </h2>
             </section>
         </section>
-        <br>
-        
-        
         <br>
         <br>
         <div id="sobreMim" class="aula">      
