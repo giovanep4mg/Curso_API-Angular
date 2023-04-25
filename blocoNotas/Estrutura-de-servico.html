@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!----Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
+    <title>Estrutura de Serviços</title>
+</head>
+<body>
+    <main class="todaPagina" id="aula2">
+        <!---menu---->
+        <div class="menu">
+            <p class="logo">
+                <h2 id="h2" data-text="API" class="fill-animation">API</h2>
+            </p>
+                <br>
+                <!--LINK AULA 1-->
+                <a href="./index.html">Configurando o banco de dados</a> </a><br>
+                <br>
+                 <!--LINK AULA 2-->
+                <a href="./Configurando-Angular.html">Configurando o Angular </a><br>
+                <br>
+                <!--LINK AULA 3-->
+                <a href="./Estrutura-de-servico.html">Estrutura de Serviços </a><br>
+                <br>
+                <!--LINK AULA 4-->
+                <a href="./Estrutura-de-servico.html">Estrutura de Serviços </a><br>
+                <br>
+                <!--LINK AULA 5-->
+                <a href="./Estrutura-de-servico.html">Estrutura de Serviços </a><br>
+                <br>
+                <!--LINK AULA 6-->
+                <a href="./Estrutura-de-servico.html">Estrutura de Serviços </a><br>
+                <br>
+                <!--LINK AULA 7-->
+                <a href="./Estrutura-de-servico.html">Estrutura de Serviços </a><br>
+                <br>
+                <!--LINK AULA 8-->
+                <a href="./Estrutura-de-servico.html">Estrutura de Serviços </a><br>
+                <br>
+                <br>
+                 <!---Link dentro da própria página-----><!---Figurinha mas é texto-->
+                <a href="#sobreMim">Sobre mim <i class="fa-solid fa-user-tie"></i></a><br>
+                <br>
+                <!---link dentro da própria página----><!---Figurinha mas é texto-->
+                <a href="#contato"><i class="fa-regular fa-envelope"></i></a><br>
+             <br>
+        </div>
+        <!--Desenvolver Funções e Métodos-->
+        <section id="aula1" class="aula">
+            <header class="title"><h1>Desenvolver Funções e Métodos </h1></header>
+            <section class="description">
+                <h2>
+                    Nossa aplicação terá como base;<br>
+                    uma seleção, cadastramento, alteração e excluir dados. <br>
+                    <br>
+                    Vamos deixar pré-definida essas opções.<br>
+                    Vai no componente <b>curso.component.ts</b>, abaixo do "ngOnInit",<br>
+                    vamos criar 4 métodos.<br>
+                    <br>
+                    Primeiro método será:<br>
+                    <br>
+                    // cadastrar <br>
+                    <b>cadastrar( ): void *abre chave* </b> <br>
+                    ___<b>alert( " cadastro " ) ;</b> <br>
+                    <b>*fecha as chaves*</b> <br>
+                    <br>
+
+                    <div style="border: 1px solid black; margin: 10px; padding: 10px;">
+                        <b>cadastrar( ) </b> => nome do método, sem parâmetros adicionados .<br>
+                        <b> : void</b> => diz que não vai retorna nada é "nullo" .<br>
+                        <b>alert("cadastro")</b> => o que deve ser iniciando, só um teste <br>
+                    </div>
+                    <br>
+                    Veja o código como é :<br>
+                    <div class="image">
+                        <img src="./imagens/metodo-1.png" alt="print do código">
+                    </div>
+                    <br>
+                    <br>
+                    Segundo método será:<br>
+                    <br>
+                    // seleçao <br>
+                    <b>selecao( ): void *abre chave* </b> <br>
+                    ___<b>alert( " seleção " ) ;</b> <br>
+                    <b>*fecha as chaves*</b> <br>
+                    <br>
+                    Veja o código como é :<br>
+                    <div class="image">
+                        <img src="./imagens/metodo-2.png" alt="print do código">
+                    </div>
+                    <br>
+                    <br>
+                    Terceiro método será:<br>
+                    <br>
+                    // alterar <br>
+                    <b>alterar( ): void *abre chave* </b> <br>
+                    ___<b>alert( " alterar" ) ;</b> <br>
+                    <b>*fecha as chaves*</b> <br>
+                    <br>
+                    Veja o código como é :<br>
+                    <div class="image">
+                        <img src="./imagens/metodo-3.png" alt="print do código">
+                    </div>
+                    <br>
+                    <br>
+                    Quarto método será:<br>
+                    <br>
+                    // remover <br>
+                    <b>remover( ): void *abre chave* </b> <br>
+                    ___<b>alert( " remover " ) ;</b> <br>
+                    <b>*fecha as chaves*</b> <br>
+                    <br>
+                    Veja o código como é :<br>
+                    <div class="image">
+                        <img src="./imagens/metodo-4.png" alt="print do código">
+                    </div>
+                    <br>
+                    <br>
+                    Esse métodos serão usados depois, por enquanto é só para testar.<br>
+                    Depois serão usados para ter acesso ano banco de dados.<br>
+                    <br>
+                    <br>
+                </h2>
+            </section>
+        </section>
+        <br>
+        <!--Configurando o Angular-->
+        <section id="aula1" class="aula">
+            <header class="title"><h1>Desenvolver Funções e Métodos </h1></header>
+            <section class="description">
+                <h2>
+                    Nossa aplicação terá como base;<br>
+                   
+
+                    <div style="border: 1px solid black; margin: 10px; padding: 10px;">
+                        <b>cadastrar( ) </b> => nome do método, sem parâmetros adicionados .<br>
+                        <b> : void</b> => diz que não vai retorna nada é "nullo" .<br>
+                        <b>alert("cadastro")</b> => o que deve ser iniciando, só um teste <br>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </h2>
+            </section>
+        </section>
+        <br>
+        
+        
+        <br>
+        <br>
+        <div id="sobreMim" class="aula">      
+            <h1 class="title">Quem sou eu</h1>
+            <!--Div-para-foto-e-mensagem---->
+            <div class="card-box card">
+                <!--Div-foto---->
+                <div class="card-box-img">
+                    <img src="./imagens/nego1.jpg" alt="foto do giovani"></img>
+                </div> 
+                <!---Div-Texto-lado-da-foto---->
+                <div class="card-box-body">
+                    <h3>Giovani Teodoro Martins</h3>
+                    <p>
+                        Passa-Quatro,Minas Gerais</p>
+                    <p>
+                        Eu me chamo Giovani, moro na cidade de Passa-Quatro,Minas Gerais.
+                    </p>
+                    <p>
+                        Atualmente trabalho como barbeiro, possuo uma barbeiria, onde já trabalho há uns 9 anos.<br>
+                        Tenho 39 anos, sou solteiro.<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div id="contato" class="aula">
+            <!---Links -dos-contatos---->
+            <h1 class="title">Contatos:</h1>
+            <!---DIVs - de contatos---->
+            <div class="card flexbox " >
+                <!---Div para contato email---->
+                <div class="contact-item flexbox">
+                    <div class="contact-item-icon">
+                        <i class="fa-regular fa-envelope"></i></i>
+                    </div>
+                    <div class="contact-item-value">
+                        <a href="mailto:giovaneteodoro79@gmail.com">giovaneteodoro79@gmail.com</a>
+                    </div>
+                    <div class="contact-item-description">
+                        Email
+                    </div>
+                </div>
+                <!---Div contato instagram---->
+                <div class="contact-item flexbox">
+                    <div class="contact-item-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="contact-item-value">
+                        <a href="https://www.instagram.com/giovanineguinho/">Giovani</a> <br>
+                    </div>
+                    <div class="contact-item-description">
+                        Instagram
+                    </div>
+                </div>
+                <!---Div contato telefone----->
+                <div class="contact-item flexbox">
+                    <div class="contact-item-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-item-value">
+                        +55 35 xxxx-xxxx
+                    </div>
+                    <div class="contact-item-description">
+                        Telefone
+                    </div>
+                </div>
+                <!---Div contato github----->
+                <div class="contact-item flexbox">
+                    <div class="contact-item-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <div class="contact-item-value">
+                        <a href="https://github.com/giovanep4mg">Github</a>
+                    </div>
+                    <div class="contact-item-description">
+                        Github
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
