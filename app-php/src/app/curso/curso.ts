@@ -1,6 +1,6 @@
 
 // classe
-export class curso {
+export class Curso {
 
     //construtor
     constructor(
