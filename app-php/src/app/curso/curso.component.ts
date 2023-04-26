@@ -1,5 +1,5 @@
+import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-curso',
   templateUrl: './curso.component.html',
@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class CursoComponent implements OnInit {
-
-  // variável "nome" recebe => 'Giovani'
-  nome: string = "Giovani";
-
-  constructor(){}
+  
+  // construtor
+  constructor(
+    private http: HttpClientModule,
+  ){}
 
   ngOnInit(): void {
 
