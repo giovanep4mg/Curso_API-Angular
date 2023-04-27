@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!----Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
+    <title>Método de Seleção</title>
+</head>
+<body>
+    <main class="todaPagina" id="aula2">
+        <!---menu---->
+        <div class="menu">
+            <p class="logo">
+                <h2 id="h2" data-text="API" class="fill-animation">API</h2>
+            </p>
+                <br>
+                <!--LINK AULA 1-->
+                <a href="./index.html">Configurando o banco de dados</a> </a><br>
+                <br>
+                 <!--LINK AULA 2-->
+                <a href="./Configurando-Angular.html">Configurando o Angular </a><br>
+                <br>
+                <!--LINK AULA 3-->
+                <a href="./Estrutura-de-servico.html">Estrutura de Serviços </a><br>
+                <br>
+                <!--LINK AULA 4-->
+                <a href="./Metodo-de-selecao.html">Método de Seleção </a><br>
+                <br>
+                <!--LINK AULA 5-->
+                <a href="./Estrutura-de-servico.html">Algum link </a><br>
+                <br>
+                <!--LINK AULA 6-->
+                <a href="./Estrutura-de-servico.html">Algum link </a><br>
+                <br>
+                <br>
+                 <!---Link dentro da própria página-----><!---Figurinha mas é texto-->
+                <a href="#sobreMim"><i class="fa-solid fa-user-tie"></i></a><br>
+                <br>
+                <!---link dentro da própria página----><!---Figurinha mas é texto-->
+                <a href="#contato"><i class="fa-regular fa-envelope"></i></a><br>
+             <br>
+        </div>
+        <!--Criar métodos para usar o serviço-->
+        <section id="aula1" class="aula">
+            <header class="title"><h1>Criar métodos para usar os serviços </h1></header>
+            <section class="description">
+                <h2>
+                    Vamos criar métodos dos serviços para obter os dados do banco de dados.<br>
+                    <br>
+                    Vai no service <b>curso.service.ts</b> e adicione:<br>
+                    <br>
+                    // url para ter acesso ao dados do banco de dados <br>
+                    <b>url = "http://localhost/api/php/";</b> <br>
+                    <br>
+                    Agora crie um vetor, para ter acesso ao dados e armazenar eles.<br>
+                    <br>
+                    <b>vetor: Curso = [] </b> <br>
+                    <br>
+                    Agora vamos criar o método, para obter todos os cursos.<br>
+                    <br>
+                    // obter todos os cursos <br>
+                    <b>
+                        obterCursos( ):Observable< Curso[ ] > { <br>
+                        <br>
+                        _______ return this.http.get( this.url+"listar" ).pipe( <br>
+                        _______ map( (res) => { <br>
+                        _______________ this.vetor = res['cursos'] ; <br>
+                        <br>
+                        _______________ return this.vetor; <br>
+                        __ }) <br>
+                        _ ) <br>
+                        _ } <br>
+                    </b>
+                    <br>
+                    Veja o código como é :<br>
+                    <div class="image">
+                        <img src="./imagens/metodo-service-1.png" alt="print do código">
+                    </div>
+                    <br>
+                    <br>
+                    Vai pegar os cursos e salvar eles na variável vetor.<br>
+                    <br>
+                    <br>
+                </h2>
+            </section>
+        </section>
+        <br>
+        <!--Configurando o método -->
+        <section id="aula1" class="aula">
+            <header class="title"><h1>Configurando o método </h1></header>
+            <section class="description">
+                <h2>
+                    Configurar o método que ficará entre o serviço e o front (página).<br>
+                    <br>
+                    Vai no componente <b>curso.component.ts</b>, adicione o parâmetro:<br>
+                    <br>
+                    <b>private curso_servico: CursoService</b>=> um auxilio para obter dados.<br>
+                    <br>
+                    <br>
+                    Depois localize o método "selecao", apague o "alert", que estiver lá dentro.<br>
+                    Coloque isso:<br>
+                    <br>
+                    <b>
+                        selecao(){ <br>
+                        ____ this.curso_servico.obterCursos().subscribe( <br>
+                        ________ (res: Curso[]) => { <br>
+                        _________ this.vetor = res; <br>
+                        ______ } <br>
+                        ____ ) <br>
+                        __ } <br>
+                    </b>
+                    <br>
+                    Veja o código como é :<br>
+                    <div class="image">
+                        <img src="./imagens/metodo-selecao.png" alt="print do código">
+                    </div>
+                    <br>
+                    Agora todo conteúdo será guardado dentro da variável "vetor" .<br>
+                    <br>
+                    <br>
+                    Agora vamos colocar no <b>ngOnInit( ){ } </b>, para quando iniciar o programa,<br>
+                    já seja carregado a lista de dados, do nosso banco de dados.<br>
+                    <br>
+                    Coloque esse comando dentro do "ngOnInit( ){*}":<br>
+                    <br>
+                    // ao iniciar o sistema, deverá listar os cursos <br>
+                    <b>this.selecao;</b> <br>
+                    <br>
+                    <br>
+                    <br>
+                </h2>
+            </section>
+        </section>
+        <br>
+        <br>
+        <div id="sobreMim" class="aula">      
+            <h1 class="title">Quem sou eu</h1>
+            <!--Div-para-foto-e-mensagem---->
+            <div class="card-box card">
+                <!--Div-foto---->
+                <div class="card-box-img">
+                    <img src="./imagens/nego1.jpg" alt="foto do giovani"></img>
+                </div> 
+                <!---Div-Texto-lado-da-foto---->
+                <div class="card-box-body">
+                    <h3>Giovani Teodoro Martins</h3>
+                    <p>
+                        Passa-Quatro,Minas Gerais</p>
+                    <p>
+                        Eu me chamo Giovani, moro na cidade de Passa-Quatro,Minas Gerais.
+                    </p>
+                    <p>
+                        Atualmente trabalho como barbeiro, possuo uma barbeiria, onde já trabalho há uns 9 anos.<br>
+                        Tenho 39 anos, sou solteiro.<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div id="contato" class="aula">
+            <!---Links -dos-contatos---->
+            <h1 class="title">Contatos:</h1>
+            <!---DIVs - de contatos---->
+            <div class="card flexbox " >
+                <!---Div para contato email---->
+                <div class="contact-item flexbox">
+                    <div class="contact-item-icon">
+                        <i class="fa-regular fa-envelope"></i></i>
+                    </div>
+                    <div class="contact-item-value">
+                        <a href="mailto:giovaneteodoro79@gmail.com">giovaneteodoro79@gmail.com</a>
+                    </div>
+                    <div class="contact-item-description">
+                        Email
+                    </div>
+                </div>
+                <!---Div contato instagram---->
+                <div class="contact-item flexbox">
+                    <div class="contact-item-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="contact-item-value">
+                        <a href="https://www.instagram.com/giovanineguinho/">Giovani</a> <br>
+                    </div>
+                    <div class="contact-item-description">
+                        Instagram
+                    </div>
+                </div>
+                <!---Div contato telefone----->
+                <div class="contact-item flexbox">
+                    <div class="contact-item-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-item-value">
+                        +55 35 xxxx-xxxx
+                    </div>
+                    <div class="contact-item-description">
+                        Telefone
+                    </div>
+                </div>
+                <!---Div contato github----->
+                <div class="contact-item flexbox">
+                    <div class="contact-item-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <div class="contact-item-value">
+                        <a href="https://github.com/giovanep4mg">Github</a>
+                    </div>
+                    <div class="contact-item-description">
+                        Github
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

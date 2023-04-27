@@ -30,7 +30,7 @@
                 <a href="./Estrutura-de-servico.html">Estrutura de Serviços </a><br>
                 <br>
                 <!--LINK AULA 4-->
-                <a href="./Estrutura-de-servico.html"> Algum link</a><br>
+                <a href="./Metodo-de-selecao.html">Método de Seleção</a><br>
                 <br>
                 <!--LINK AULA 5-->
                 <a href="./Estrutura-de-servico.html">Algum link </a><br>
@@ -341,6 +341,45 @@
                         <b>curso/</b> => pasta onde vai ficar o componente criado.<br>
                         <b>curso</b> => nome do serviço.<br> 
                     </div>
+                    <br>
+                    <br>
+                </h2>
+            </section>
+        </section>
+        <br>
+        <!--Http Client Module-->
+        <section id="aula1" class="aula">
+            <header class="title"><h1> Adicionar o Http Client Module</h1></header>
+            <section class="description">
+                <h2>
+                    Responsável por criar a transição de informações entre o php e o angular, vice-versa. <br>
+                    <br>
+                    Para isso vai no componente <b>curso.service.ts</b>,<br>
+                    e dentro do "constructor", adicione esse parâmetro:<br>
+                    <br>
+                    <b>private http: HttpClient,</b> <br>
+                    <br>
+                    <div class="image">
+                        <img src="./imagens/service-http-1.png" alt="print do código">
+                    </div>
+                    <br>
+                    <br>
+                    Já teremos acesso aos dados.<br>
+                    <br>
+                    <br>
+                    Agora vamos aproveita e já implementar o <b>map</b>,<br>
+                    que vai percorrer o objeto que vamos obter, que serão listados.<br>
+                    <br>
+                    // Na parte de import adicione: <br>
+                    <b>import { map } from 'rxjs/operators';</b> <br>
+                    <br>
+                    <div class="image">
+                        <img src="./imagens/service-http-2.png" alt="print do código">
+                    </div>
+                    <br>
+                    <br>
+                    Em breve iremos usar para poder listar todo elemento,<br>
+                    que contém uma tabela do nosso banco de dados
                     <br>
                     <br>
                 </h2>

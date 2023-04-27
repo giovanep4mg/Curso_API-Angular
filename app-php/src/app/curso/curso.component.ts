@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Curso } from './curso';
+import { CursoService } from './curso.service';
 @Component({
   selector: 'app-curso',
   templateUrl: './curso.component.html',
@@ -18,9 +19,13 @@ export class CursoComponent implements OnInit {
   // construtor
   constructor(
     private http: HttpClientModule,
+    private curso_servico: CursoService,
   ){}
 
   ngOnInit(): void {
+    
+    // ao iniciar o sistema, deverá listar os cursos
+    this.selecao;
 
   }
 
@@ -32,7 +37,11 @@ export class CursoComponent implements OnInit {
 
   // método seleção
   selecao(){
-    alert("seleção");
+    this.curso_servico.obterCursos().subscribe(
+      (res: Curso[]) => {
+        this.vetor = res;
+      }
+    )
   }
 
   // alterar
