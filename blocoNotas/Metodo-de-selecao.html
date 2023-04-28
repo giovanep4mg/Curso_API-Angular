@@ -91,7 +91,7 @@
             </section>
         </section>
         <br>
-        <!--Configurando o método -->
+        <!--Configurando o método de seleção -->
         <section id="aula1" class="aula">
             <header class="title"><h1>Configurando o método </h1></header>
             <section class="description">
@@ -132,6 +132,46 @@
                     // ao iniciar o sistema, deverá listar os cursos <br>
                     <b>this.selecao;</b> <br>
                     <br>
+                    <br>
+                    <br>
+                </h2>
+            </section>
+        </section>
+        <br>
+        <!--Exibir o "curso" selecionado no front-end-->
+        <section id="aula1" class="aula">
+            <header class="title"><h1> Exibir no front-end (página) </h1></header>
+            <section class="description">
+                <h2>
+                    No componente <b>curso.component.ts</b> adicione um objeto.<br>
+                    <br>
+                    <b>curso = new Curso( );</b> <br>
+                    <br>
+                    Para pode exibir todos os dados: id, nomeCurso, valorCurso.<br>
+                    <br>
+                    <br>
+                    Para exibir, vai no componente <b>curso.component.html</b>, <br>
+                    pode apagar os botões que estão lá.<br>
+                    <br>
+                    Agora adicione essas tags:<br>
+                    <br>
+                    <b>table border = "1" </b> => cria uma tabela, com borda.<br>
+                    // vai percorre toda tabela <br>
+                    __<b>tr *ngFor="let v of vetor" </b> => linha da tabela <br>
+                    _____<b>td</b> => coluna databela. <br>
+                    _____<b>td</b> => <br>
+                    __<b>tr</b> => <br>
+                    <b>table</b> => <br>
+                    <br> 
+                    
+                    
+                    <br>
+                    Veja o código como é :<br>
+                    <div class="image">
+                        <img src="./imagens/metodo-selecao.png" alt="print do código">
+                    </div>
+                    <br>
+                    
                     <br>
                     <br>
                 </h2>

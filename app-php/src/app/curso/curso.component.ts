@@ -10,20 +10,25 @@ import { CursoService } from './curso.service';
 
 export class CursoComponent implements OnInit {
 
+
     // url base da api, banco de dados
     url = "http://localhost/api/php/"
 
     // vetor de cursos
-    vetor:Curso = [] ;
+    vetor!:Curso[];
+
+    // objeto da classe curso
+    curso = new Curso();
+
+
 
   // construtor
   constructor(
-    private http: HttpClientModule,
     private curso_servico: CursoService,
   ){}
 
   ngOnInit(): void {
-    
+
     // ao iniciar o sistema, deverá listar os cursos
     this.selecao;
 
