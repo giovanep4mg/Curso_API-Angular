@@ -3,7 +3,7 @@
 
 
 // Variáveis
-$url = "localhost";
+$url = "http://localhost/api/php/";
 $usuario = "root";
 $senha = "" ;
 $base = "api";

@@ -1,11 +1,33 @@
 
 // classe
+
 export class Curso {
 
     // atributos
-    nomeCurso: string = '';
-    valorCurso: number = 0;
-    idCurso?: number = 0;
 
+    nomeCurso!: string;
+    valorCurso!: number;
+    idCurso?: number;
+
+    //construtor
+    /*
+    constructor(
+      nomeCurso: string,
+      valorCurso: number,
+      idCurso?: number
+    ){}
+    */
 
 }
+
+/*
+export interface Curso {
+
+  // atributos
+
+  nomeCurso: string;
+  valorCurso: number;
+  idCurso?: number;
+
+}
+*/

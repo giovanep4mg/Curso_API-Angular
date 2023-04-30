@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule} from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { CursoComponent } from './curso/curso.component';
+import { CursoService } from './curso/curso.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { CursoComponent } from './curso/curso.component';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [CursoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
