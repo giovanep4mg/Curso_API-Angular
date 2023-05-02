@@ -29,6 +29,8 @@ while($linha = mysqli_fetch_assoc($executar)) {
 //guarda no JSON
 json_encode(['curso' => $curso]);
 
-var_dump($curso)
+ // var_dump($curso) //nao está sendo listada
+
+echo  json_encode($curso)
 
 ?>

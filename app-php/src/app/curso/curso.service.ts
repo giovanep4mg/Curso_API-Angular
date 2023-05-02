@@ -17,7 +17,7 @@ export class CursoService {
   vetor : Curso[] = [] ;
 
 
-  //curso = new Curso();
+  curso = new Curso();
 
   // construtor
   constructor(
@@ -28,12 +28,12 @@ export class CursoService {
     // obter todos os cursos
 
     obterCursos():Observable<Curso[]> {
-      return this.http.get(this.url+'listar').pipe(
-        map((res) => {
-          this.vetor = res['cursos'];
+      return this.http.get(this.url+"listar").pipe
+      ( map( (res: any) => {
+          this.vetor = res;
           return this.vetor;
         })
-      )
+      );
     }
 
 

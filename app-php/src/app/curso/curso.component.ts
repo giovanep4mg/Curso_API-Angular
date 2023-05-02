@@ -13,11 +13,11 @@ export class CursoComponent implements OnInit {
     url = "http://localhost/api/php/"
 
     // vetor de cursos
-    vetor : Curso[] | undefined ;
+    vetor : Curso[] = [] ;
 
 
     // objeto da classe curso
-    //curso = new Curso();
+    curso = new Curso();
 
 
 
@@ -27,8 +27,7 @@ export class CursoComponent implements OnInit {
     private curso_servico: CursoService,
   ){}
 
-  ngOnInit(): void {
-
+  ngOnInit() {
     // ao iniciar o sistema, deverá listar os cursos
     this.selecao();
 
