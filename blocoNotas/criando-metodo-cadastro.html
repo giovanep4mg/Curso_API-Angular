@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
-    <title>Método de Seleção</title>
+    <title>Criando método de Cadastro</title>
 </head>
 <body>
     <main class="todaPagina" id="aula2">
@@ -33,7 +33,7 @@
                 <a href="./Metodo-de-selecao.html">Método de Seleção </a><br>
                 <br>
                 <!--LINK AULA 5-->
-                <a href="./criando-metodo-cadastro.html">Criando método de Cadastrar </a><br>
+                <a href="./criando-metodo-cadastro.html">Criando método de cadastro </a><br>
                 <br>
                 <!--LINK AULA 6-->
                 <a href="./Estrutura-de-servico.html">Algum link </a><br>
@@ -104,106 +104,7 @@
             </section>
         </section>
         <br>
-        <!--Configurando o método de seleção -->
-        <section id="aula1" class="aula">
-            <header class="title"><h1>Configurando o método </h1></header>
-            <section class="description">
-                <h2>
-                    Configurar o método que ficará entre o serviço e o front (página).<br>
-                    <br>
-                    Vai no componente <b>curso.component.ts</b>, no constructor:<br>
-                    adicione o parâmetro:<br>
-                    <br>
-                    <b>private curso_servico: CursoService</b>=> um auxilio para obter dados.<br>
-                    <br>
-                    <br>
-                    Depois localize o método "selecao", apague o "alert", que estiver lá dentro.<br>
-                    Coloque isso:<br>
-                    <br>
-                    <b>
-                        selecao(){ <br>
-                        ____ this.curso_servico.obterCursos().subscribe( <br>
-                        ________ (res: Curso[ ]) => { <br>
-                        _________ this.vetor = res; <br>
-                        ______ } <br>
-                        ____ ) <br>
-                        __ } <br>
-                    </b>
-                    <br>
-                    Veja o código como é :<br>
-                    <div class="image">
-                        <img src="./imagens/metodo-selecao.png" alt="print do código">
-                    </div>
-                    <br>
-                    Agora todo conteúdo será guardado dentro da variável "vetor" .<br>
-                    <br>
-                    <br>
-                    Agora vamos colocar no <b>ngOnInit( ){ } </b>, para quando iniciar o programa,<br>
-                    já seja carregado a lista de dados, do nosso banco de dados.<br>
-                    <br>
-                    Coloque esse comando dentro do "ngOnInit( ){*}":<br>
-                    <br>
-                    // ao iniciar o sistema, deverá listar os cursos <br>
-                    <b>this.selecao();</b> <br>
-                    <br>
-                    <br>
-                    <br>
-                </h2>
-            </section>
-        </section>
-        <br>
-        <!--Exibir o "curso" selecionado no front-end-->
-        <section id="aula1" class="aula">
-            <header class="title"><h1> Exibir no front-end (página) </h1></header>
-            <section class="description">
-                <h2>
-                    No componente <b>curso.component.ts</b> adicione um objeto.<br>
-                    <br>
-                    <b>curso = new Curso( );</b> <br>
-                    <br>
-                    Para pode exibir todos os dados: id, nomeCurso, valorCurso.<br>
-                    <br>
-                    <br>
-                    Para exibir, vai no componente <b>curso.component.html</b>, <br>
-                    pode apagar os botões que estão lá.<br>
-                    <br>
-                    Agora adicione essas tags:<br>
-                    <br>
-                    <b>table border = "1" </b> => cria uma tabela, com borda.<br>
-                    // vai percorre toda tabela <br>
-                    <br>
-                    __<b>tr *ngFor="let v of vetor" </b> => linha da tabela <br>
-                    _____<b>td</b> { { v.nomeCurso } } <b>/td</b> => coluna da tabela. <br>
-                    _____<b>td</b> { { v.valorCurso } } <b>/td</b> => coluna da tabela.<br>
-                    __<b>tr</b> => fecha a linha da tabela.<br>
-                    <b>table</b> => fecha a tabela <br>
-                    <br>
-                    Veja o código como é :<br>
-                    <div class="image">
-                        <img src="./imagens/metodo-exibir.png" alt="print do código">
-                    </div>
-                    <br>
-                    <br>
-                    Como deu erro ao carregar os dados da API, vai nos arquivos dela,<br>
-                    ache o arquivo <b>listar.php</b> e troque o :<br>
-                    <br>
-                    <b> var_dump($curso)</b> => por que não estava sendo listado.<br>
-                    <br>
-                    Coloque esse arquivo no lugar dele:<br>
-                    <br>
-                    <b>echo  json_encode($curso)</b> <br>
-                    <br>
-                    Agora abra a página e verifque se está funcionando,<br>
-                    tem que ficar como na imagem abaixo:<br>
-                    <br>
-                    <div class="image">
-                        <img src="./imagens/metodo-exibir-2.png" alt="print do código">
-                    </div>
-                    <br>
-                    <br>
-                </h2>
-            </section>
-        </section>
+        
         <br>
         <br>
         <div id="sobreMim" class="aula">      

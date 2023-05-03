@@ -9,6 +9,7 @@ import { CursoService } from './curso.service';
 })
 
 export class CursoComponent implements OnInit {
+  
     // url base da api, banco de dados
     url = "http://localhost/api/php/"
 

@@ -30,10 +30,10 @@
                 <a href="./Estrutura-de-servico.html">Estrutura de Serviços </a><br>
                 <br>
                 <!--LINK AULA 4-->
-                <a href="./Metodo-de-selecao.html">Método de Seleção</a><br>
+                <a href="./Metodo-de-selecao.html">Método de Seleção </a><br>
                 <br>
                 <!--LINK AULA 5-->
-                <a href="./Estrutura-de-servico.html">Algum link </a><br>
+                <a href="./criando-metodo-cadastro.html">Criando método de cadastro </a><br>
                 <br>
                 <!--LINK AULA 6-->
                 <a href="./Estrutura-de-servico.html">Algum link </a><br>
@@ -199,19 +199,16 @@
                     Dentro desse arquivo, coloque :<br>
                     <br>
                     <div style="border: 1px solid black; margin: 10px; padding: 10px;">
-                        <b>export class curso () *abre chaves* </b> <br>
+                        <b>export class Curso () *abre chaves* </b> <br>
                         <br>
-                        <b>constructor (*){} </b> => *aqui passa os parâmetros para efetuar alguma ação.<br>
                         <br>
-                        // Veja como deve ficar:<br>
+                        // atributos <br>
                         <b>
-                            __constructor( <br>
                             <br>
                             ________nomeCurso: string, <br>
                             ________valorCurso: number, <br>
                             ________idCurso: number <br>
                             <br>
-                            __){} <br>
                         </b>
                         <br>
                         <b>*fecha a chave*</b> <br>
@@ -226,12 +223,14 @@
                     <br>
                     <div style="border: 1px solid black; margin: 10px; padding: 10px;">
                         É importante colocar o nome e o valor por que provavelmente será usado,<br>
-                        já o id, ás vezes precisa e as vezes não, por isso coloca a interrogação <b>?</b>.<br>
+                        e colocar o acento "!", que vai receber algo concerteza.<br>
+                        <br>
+                        Já o id, ás vezes precisa e as vezes não, por isso coloca a interrogação <b>?</b>.<br>
                     </div>
                     <br>
                     <br>
                     Sempre que for trabalhar com banco de dados precisa ter essa estrutura,<br>
-                    do banco de dados, e um constructor, para manipular as informações,<br>
+                    do banco de dados, e atributos iguais do banco de dados, para manipular as informações,<br>
                     que serão enviadas e recebidas pelo banco de dados.<br>
                     <br>
                     <br>
@@ -288,26 +287,28 @@
                     <br>
                     <br> 
                     Agora copie esse link do navegador.<br>
+                    <br>
                     Abra o "VScode" e vai no componente <b>curso.component.ts</b> e adicione: <br>
                     <br>
                     // vamos criar uma variável e salvar o endereço do api dentro dela.<br>
+                    <br>
                     // url base da api, banco de dados <br>
                     <b>http://localhost/api/php/</b> <br>
                     <br>
                     <br>
                     Depois crie um vetor de cursos:<br>
                     <br>
-                    <b>vetor: Curso [] </b> <br>
+                    <b>vetor: Curso [ ] = [ ] ; </b> <br>
                     <br>
                     <br>
                     <div class="image">
-                        <img src="./imagens/base-url-1.png" alt="print do código">
+                        <img src="./imagens/base-url-2.png" alt="print do código">
                     </div>
                     <br>
                     <div style="border: 1px solid black; margin: 10px; padding: 10px;">
                         <b>vetor </b> é uma variável.<br>
                         <b>Curso</b> é o modelo, a interface. <br>
-                        <b>[]</b> é pra conter vários não só um. <br>
+                        <b>[ ]</b> é pra conter vários não só um, uma lista. <br>
                     </div>
                     <br>
                     <br>
