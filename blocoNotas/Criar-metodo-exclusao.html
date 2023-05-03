@@ -91,43 +91,40 @@
             </section>
         </section>
         <br>
-        <!--Criar método serviço para excluir-->
+        <!--Criar método para chamar o método de serviço de excluir-->
         <section id="aula1" class="aula">
-            <header class="title"><h1>Criar método serviço para Excluir  </h1></header>
+            <header class="title"><h1>Criar método para chamar o método de serviço de excluir   </h1></header>
             <section class="description">
                 <h2>
-                    Vamos criar método de serviço para excluir algum dado do banco de dado.<br>
+                    Vamos criar método que vai acionar o método de excluir dados do banco de dados.<br>
                     <br>
-                    Vai no componente service <b>curso.service.ts</b> e adicione:<br>
-                    <br>
-                    <br>
-                    // método remover Curso <br>
-                    <br>
-                    <b>removerCurso(c: Curso):Observable<Curso[]> { </b> <br> 
-                    <br>
-                    ____// para pegar o id do curso dentro do banco de dados
-                    <b>const params = new HttpParams().set("idCurso", c.idCurso!.toString());</b> <br>
+                    Vai no componente <b>curso.component.ts</b>, no método "remover",<br>
+                    apague o alert que está lá e adicione:<br>
                     <br>
                     <br>
-                    _____<b>return this.http.delete(this.url+'excluir', {params : params}).pipe ( </b> <br>
-                    _____<b>(map( (res) => {</b> <br>
+                    //  remover Curso <br>
+                    <br>
+                    <b> remover(){ </b> <br> 
+                    <br>
+                    ____<b>this.curso_servico.removerCurso(this.curso).subscribe ( </b> <br>
+                    <br>
+                    __________<b>(res : Curso[] ) => { </b> <br>
+                    _____________<b> this.vetor = res;</b> <br>
                             <br>
-                    ________// filtrar os ids para achar o que foi escolhido e exclui <br>
-                    ________<b>const filtro = this.vetor.filter( (curso) => {</b> <br>
-                    ______________<b>return +['idCurso'] !== +c.idCurso!;</b> <br>
-                    ______________<b>} ) ; </b> <br>
+                            <br>
+                    ________// atualiza os atributos <br>
+                    ________<b>this.curso.nomeCurso = '' ;</b> <br>
+                    ________<b>this.curso.valorCurso = 0 ;</b> <br>
                     <br>
                     <br>
-                    ________// salva o id escolhido se foi encontrado excluido <br>
-                    ________<b>return this.vetor = filtro;</b> <br>
-                    <br>
-                    __<b>} ) )</b> <br>
-                    <b>)</b>
+                    ______<b>} </b> <br>
+                    __<b> )</b> <br>
+                    <b>}</b>
                     <br>
                     <br>
                     Veja o código como é :<br>
                     <div class="image">
-                        <img src="./imagens/metodo-remover-1.png" alt="print do código">
+                        <img src="./imagens/metodo-remover-2.png" alt="print do código">
                     </div>
                     <br>
                     <br>
