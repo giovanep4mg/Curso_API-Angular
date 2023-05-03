@@ -35,9 +35,6 @@
                 <!--LINK AULA 5-->
                 <a href="./criando-metodo-cadastro.html">Criando método de cadastro </a><br>
                 <br>
-                <!--LINK AULA 6-->
-                <a href="./Estrutura-de-servico.html">Algum link </a><br>
-                <br>
                 <br>
                  <!---Link dentro da própria página-----><!---Figurinha mas é texto-->
                 <a href="#sobreMim"><i class="fa-solid fa-user-tie"></i></a><br>
@@ -46,65 +43,87 @@
                 <a href="#contato"><i class="fa-regular fa-envelope"></i></a><br>
              <br>
         </div>
-        <!--Criar métodos para usar o serviço-->
+        <!--Criar método serviço para cadastrar-->
         <section id="aula1" class="aula">
-            <header class="title"><h1>Criar métodos para usar os serviços </h1></header>
+            <header class="title"><h1>Criar método serviço para cadastrar </h1></header>
             <section class="description">
                 <h2>
-                    Vamos criar métodos dos serviços para obter os dados do banco de dados.<br>
+                    Vamos criar método de serviço para realizar um cadastramento.<br>
+                    <br>
+                    Esse método terá que ter um objeto, que tem o nome e o valor do curso.<br>
                     <br>
                     Vai no componente service <b>curso.service.ts</b> e adicione:<br>
                     <br>
-                    // url para ter acesso ao dados do banco de dados <br>
-                    <b>url = "http://localhost/api/php/";</b> <br>
                     <br>
-                    Agora crie um vetor, para ter acesso ao dados e armazenar eles.<br>
-                    <br>
-                    <b>vetor: Curso = [] = [ ] ; </b> <br>
-                    <br>
-                    <br>
-                    No contructor adicione o parâmetro;<br>
-                    <br>
-                    <b>private http: HttpClient</b> <br>
-                    <br>
-                    e tem que importar de angular,commom,http.<br>
-                    <br>
-                    Veja o código como é :<br>
-                    <div class="image">
-                        <img src="./imagens/metodo-service-1.png" alt="print do código">
-                    </div>
-                    <br>
-                    <br>
-                    Agora vamos criar o método, para obter todos os cursos.<br>
-                    <br>
-                    // obter todos os cursos <br>
+                    // método cadastrar <br>
                     <b>
-                        obterCursos( ):Observable< Curso[ ] > { <br>
-                        <br>
-                        _______ return this.http.get( this.url+"listar" ).pipe( <br>
-                        _______ map( (res) => { <br>
-                        _______________ this.vetor = res; <br>
-                        <br>
-                        _______________ return this.vetor; <br>
-                        __ }) <br>
-                        _ ) <br>
-                        _ } <br>
-                    </b>
+                        cadastrarCurso(c: Curso):Observable<Curso[]>{ <br>
+                        ____return this.http.post(this.url+'cadastrar', {cursos : c }).pipe <br>
+                        ____( map ((res: any) => { <br>
+                        ________this.vetor.push = res['cursos']; <br>
+                        ________return this.vetor; <br>
+                        ________}))<br>
+                        ____} <br>
+                    </b> <br>
                     <br>
                     Veja o código como é :<br>
                     <div class="image">
-                        <img src="./imagens/metodo-service-2.png" alt="print do código">
+                        <img src="./imagens/metodo-cadastrar-1.png" alt="print do código">
                     </div>
                     <br>
                     <br>
-                    Vai pegar os cursos e salvar eles na variável vetor.<br>
+                    Agora estamos usando:<br>
+                    <b>post</b> => que é para enviar algo.<br>
                     <br>
                     <br>
                 </h2>
             </section>
         </section>
         <br>
-        
+        <!--Chamar o método cadastro-->
+        <section id="aula1" class="aula">
+            <header class="title"><h1>Chamar o método para cadastrar </h1></header>
+            <section class="description">
+                <h2>
+                    Vamos chamar o método que criamos, o método <b>cadastrar</b>.<br>
+                    <br>
+                    <br>
+                    Vai no componente service <b>curso.component.ts</b> e adicione:<br>
+                    <br>
+                    <br>
+                    // método cadastrar <br>
+                    <b>
+                        cadastrar(){ <br>
+                        ____this.curso_servico.cadastrarCurso(this.curso) <br>
+                        .subscribe( <br>
+                        ________(res: Curso[]) => { <br>
+                        <br>
+                        ________// adicionando dados ao vetor <br>
+                        ________this.vetor = res; <br>
+                        <br>
+                        ________// limpar os atributos <br>
+                        ________this.curso.nomeCurso = '' ; <br>
+                        ________this.curso.valorCurso = 0 ; <br>
+                        <br>
+                        ________// atualizar a listagem no front <br>
+                        ________this.selecao(); <br>
+                        <br>
+                        _______}<br>
+                        ____) <br>
+                        __}<br>
+                    </b> <br>
+                    <br>
+                    Veja o código como é :<br>
+                    <div class="image">
+                        <img src="./imagens/metodo-cadastrar-2.png" alt="print do código">
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </h2>
+            </section>
+        </section>
         <br>
         <br>
         <div id="sobreMim" class="aula">      

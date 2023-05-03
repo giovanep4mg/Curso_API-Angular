@@ -9,7 +9,7 @@ import { CursoService } from './curso.service';
 })
 
 export class CursoComponent implements OnInit {
-  
+
     // url base da api, banco de dados
     url = "http://localhost/api/php/"
 
@@ -37,8 +37,23 @@ export class CursoComponent implements OnInit {
 
 
   // método cadastrar
-  cadastrar(): void{
-    alert("cadastrar");
+  cadastrar(){
+    this.curso_servico.cadastrarCurso(this.curso).subscribe(
+      (res: Curso[]) => {
+
+      // adicionando dados ao vetor
+      this.vetor = res;
+
+      // limpar os atributos
+      this.curso.nomeCurso = '' ;
+      this.curso.valorCurso = 0 ;
+
+      // atualizar a listagem no front
+      this.selecao();
+
+
+      }
+    )
   }
 
   // método seleção
@@ -46,12 +61,8 @@ export class CursoComponent implements OnInit {
     this.curso_servico.obterCursos().subscribe(
       (res: Curso[]) => {
         this.vetor = res;
-
       }
-
     )
-
-
   }
 
 

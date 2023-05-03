@@ -36,5 +36,14 @@ export class CursoService {
       );
     }
 
+    // método cadastrar
+    cadastrarCurso(c: Curso):Observable<Curso[]>{
+      return this.http.post(this.url+'cadastrar', {cursos : c }).pipe
+      ( map ((res: any) => {
+          this.vetor.push = res['cursos'];
+          return this.vetor;
+        }))
+    }
+
 
 }
