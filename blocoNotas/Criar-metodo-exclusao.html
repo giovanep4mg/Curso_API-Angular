@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
-    <title>Criando método de Cadastro</title>
+    <title>Criando método de Exclusão</title>
 </head>
 <body>
     <main class="todaPagina" id="aula2">
@@ -46,81 +46,89 @@
                 <a href="#contato"><i class="fa-regular fa-envelope"></i></a><br>
              <br>
         </div>
-        <!--Criar método serviço para cadastrar-->
+        <!--Criar método serviço para excluir-->
         <section id="aula1" class="aula">
-            <header class="title"><h1>Criar método serviço para cadastrar </h1></header>
+            <header class="title"><h1>Criar método serviço para Excluir  </h1></header>
             <section class="description">
                 <h2>
-                    Vamos criar método de serviço para realizar um cadastramento.<br>
-                    <br>
-                    Esse método terá que ter um objeto, que tem o nome e o valor do curso.<br>
+                    Vamos criar método de serviço para excluir algum dado do banco de dado.<br>
                     <br>
                     Vai no componente service <b>curso.service.ts</b> e adicione:<br>
                     <br>
                     <br>
-                    // método cadastrar <br>
-                    <b>
-                        cadastrarCurso(c: Curso):Observable<Curso[]>{ <br>
-                        ____return this.http.post(this.url+'cadastrar', {cursos : c }).pipe <br>
-                        ____( map ((res: any) => { <br>
-                        ________this.vetor.push = res['cursos']; <br>
-                        ________return this.vetor; <br>
-                        ________}))<br>
-                        ____} <br>
-                    </b> <br>
+                    // método remover Curso <br>
+                    <br>
+                    <b>removerCurso(c: Curso):Observable<Curso[]> { </b> <br> 
+                    <br>
+                    ____// para pegar o id do curso dentro do banco de dados
+                    <b>const params = new HttpParams().set("idCurso", c.idCurso!.toString());</b> <br>
+                    <br>
+                    <br>
+                    _____<b>return this.http.delete(this.url+'excluir', {params : params}).pipe ( </b> <br>
+                    _____<b>(map( (res) => {</b> <br>
+                            <br>
+                    ________// filtrar os ids para achar o que foi escolhido e exclui <br>
+                    ________<b>const filtro = this.vetor.filter( (curso) => {</b> <br>
+                    ______________<b>return +['idCurso'] !== +c.idCurso!;</b> <br>
+                    ______________<b>} ) ; </b> <br>
+                    <br>
+                    <br>
+                    ________// salva o id escolhido se foi encontrado excluido <br>
+                    ________<b>return this.vetor = filtro;</b> <br>
+                    <br>
+                    __<b>} ) )</b> <br>
+                    <b>)</b>
+                    <br>
                     <br>
                     Veja o código como é :<br>
                     <div class="image">
-                        <img src="./imagens/metodo-cadastrar-1.png" alt="print do código">
+                        <img src="./imagens/metodo-remover-1.png" alt="print do código">
                     </div>
                     <br>
-                    <br>
-                    Agora estamos usando:<br>
-                    <b>post</b> => que é para enviar algo.<br>
                     <br>
                     <br>
                 </h2>
             </section>
         </section>
         <br>
-        <!--Chamar o método cadastro-->
+        <!--Criar método serviço para excluir-->
         <section id="aula1" class="aula">
-            <header class="title"><h1>Chamar o método para cadastrar </h1></header>
+            <header class="title"><h1>Criar método serviço para Excluir  </h1></header>
             <section class="description">
                 <h2>
-                    Vamos chamar o método que criamos, o método <b>cadastrar</b>.<br>
+                    Vamos criar método de serviço para excluir algum dado do banco de dado.<br>
+                    <br>
+                    Vai no componente service <b>curso.service.ts</b> e adicione:<br>
                     <br>
                     <br>
-                    Vai no componente <b>curso.component.ts</b> e adicione:<br>
+                    // método remover Curso <br>
+                    <br>
+                    <b>removerCurso(c: Curso):Observable<Curso[]> { </b> <br> 
+                    <br>
+                    ____// para pegar o id do curso dentro do banco de dados
+                    <b>const params = new HttpParams().set("idCurso", c.idCurso!.toString());</b> <br>
                     <br>
                     <br>
-                    // método cadastrar <br>
-                    <b>
-                        cadastrar(){ <br>
-                        ____this.curso_servico.cadastrarCurso(this.curso) <br>
-                        .subscribe( <br>
-                        ________(res: Curso[]) => { <br>
-                        <br>
-                        ________// adicionando dados ao vetor <br>
-                        ________this.vetor = res; <br>
-                        <br>
-                        ________// limpar os atributos <br>
-                        ________this.curso.nomeCurso = '' ; <br>
-                        ________this.curso.valorCurso = 0 ; <br>
-                        <br>
-                        ________// atualizar a listagem no front <br>
-                        ________this.selecao(); <br>
-                        <br>
-                        _______}<br>
-                        ____) <br>
-                        __}<br>
-                    </b> <br>
+                    _____<b>return this.http.delete(this.url+'excluir', {params : params}).pipe ( </b> <br>
+                    _____<b>(map( (res) => {</b> <br>
+                            <br>
+                    ________// filtrar os ids para achar o que foi escolhido e exclui <br>
+                    ________<b>const filtro = this.vetor.filter( (curso) => {</b> <br>
+                    ______________<b>return +['idCurso'] !== +c.idCurso!;</b> <br>
+                    ______________<b>} ) ; </b> <br>
+                    <br>
+                    <br>
+                    ________// salva o id escolhido se foi encontrado excluido <br>
+                    ________<b>return this.vetor = filtro;</b> <br>
+                    <br>
+                    __<b>} ) )</b> <br>
+                    <b>)</b>
+                    <br>
                     <br>
                     Veja o código como é :<br>
                     <div class="image">
-                        <img src="./imagens/metodo-cadastrar-2.png" alt="print do código">
+                        <img src="./imagens/metodo-remover-1.png" alt="print do código">
                     </div>
-                    <br>
                     <br>
                     <br>
                     <br>
