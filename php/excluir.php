@@ -13,7 +13,7 @@ $extrair = json_decode($obterDados);
 $idCurso = $extrair->cursos->idCurso
 
 // sql
-$sql = " DELETE FROM cursos Where idCurso = $idCurso ";
+$sql = " DELETE FROM cursos WHERE idCurso = $idCurso ";
  mysqli_query($conexao, $sql);
 
 ?>
