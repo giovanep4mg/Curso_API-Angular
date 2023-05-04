@@ -37,7 +37,7 @@ export class CursoComponent implements OnInit {
 
 
   // método cadastrar
-  cadastrar(){
+  cadastro(){
     this.curso_servico.cadastrarCurso(this.curso).subscribe(
       (res: Curso[]) => {
 
@@ -74,19 +74,29 @@ export class CursoComponent implements OnInit {
   // remover
   remover(){
     this.curso_servico.removerCurso(this.curso).subscribe(
-      (res : Curso[] ) => {
+      (res: Curso[] ) => {
         this.vetor = res;
+        console.log(this.remover + "esta removendo");
 
         // atualizar os atributos
         this.curso.nomeCurso = '' ;
         this.curso.valorCurso = 0 ;
+
+        // atualizar a listagem no front
+        this.selecao();
 
 
       }
     )
   }
 
+  // método selecionar curso especifico
+  selecionarCurso(c: Curso ){
+    this.curso.idCurso = c.idCurso;
+    this.curso.nomeCurso = c.nomeCurso;
+    this.curso.valorCurso = c.valorCurso;
+  }
 
 
-  
+
 }

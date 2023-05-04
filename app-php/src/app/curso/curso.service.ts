@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Curso } from './curso';
 import { map } from 'rxjs/operators';
@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class CursoService {
+export class CursoService implements OnInit {
   // url do banco de dados
   url = "http://localhost/api/php/";
 
@@ -18,6 +18,8 @@ export class CursoService {
 
 
   curso = new Curso();
+
+  ngOnInit(){}
 
   // construtor
   constructor(
@@ -38,15 +40,15 @@ export class CursoService {
 
     // método cadastrar
     cadastrarCurso(c: Curso):Observable<Curso[]>{
-      return this.http.post(this.url+'cadastrar', {cursos : c }).pipe
+      return this.http.post(this.url+'cadastrar', {cursos:c}).pipe
       ( map ((res: any) => {
-          this.vetor.push = res['cursos'];
+          this.vetor.push = res;
           return this.vetor;
         }))
     }
 
     // método remover curso
-    removerCurso(c: Curso):Observable<Curso[]>{
+    removerCurso(c:Curso):Observable<Curso[]>{
 
       // para pegar o id do curso dentro do banco de dados
       const params = new HttpParams().set("idCurso", c.idCurso!.toString());
@@ -55,7 +57,7 @@ export class CursoService {
         (map( (res) => {
 
           // filtrar os ids para achar o que foi escolhido e excluir
-          const filtro = this.vetor.filter( (curso) => {
+          const filtro = this.vetor.filter((curso) => {
               return +['idCurso'] !== +c.idCurso!;
             });
 
@@ -64,18 +66,7 @@ export class CursoService {
 
         }))
       )
-
-
-
-
     }
-
-
-
-
-
-
-
 
 
 }
