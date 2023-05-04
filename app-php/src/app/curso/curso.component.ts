@@ -37,7 +37,7 @@ export class CursoComponent implements OnInit {
 
 
   // método cadastrar
-  cadastro(){
+  cadastro( c: Curso){
     this.curso_servico.cadastrarCurso(this.curso).subscribe(
       (res: Curso[]) => {
 
@@ -45,7 +45,7 @@ export class CursoComponent implements OnInit {
       this.vetor = res;
 
       // limpar os atributos
-      this.curso.nomeCurso = '' ;
+      this.curso.nomeCurso = '';
       this.curso.valorCurso = 0 ;
 
       // atualizar a listagem no front
@@ -72,11 +72,10 @@ export class CursoComponent implements OnInit {
   }
 
   // remover
-  remover(){
+  remover(c : Curso){
     this.curso_servico.removerCurso(this.curso).subscribe(
       (res: Curso[] ) => {
         this.vetor = res;
-        console.log(this.remover + "esta removendo");
 
         // atualizar os atributos
         this.curso.nomeCurso = '' ;

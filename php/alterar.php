@@ -4,7 +4,7 @@
 include("conexao.php");
 
 // obter dados "dados que serão enviados"
-$obterDados = file_get_contents("php:// input");
+$obterDados = file_get_contents("php://input");
 
 // extrair os dados do JSON
 $extrair = json_decode($obterDados);
@@ -15,7 +15,7 @@ $nomeCurso = $extrair->cursos->nomeCurso;
 $valorCurso = $extrair->cursos->valorCurso;
 
 // sql
-$sql = " UPDATE cursos SET nomeCursos = '$nomeCurso', valorCurso = $valorCurso Where idCurso = $idCurso";
+$sql = " UPDATE cursos SET nomeCursos = '$nomeCurso', valorCurso = $valorCurso WHERE idCurso = $idCurso";
 mysqli_query($conexao, $sql);
 
 
@@ -23,12 +23,12 @@ mysqli_query($conexao, $sql);
 $curso = [
     'idCurso' => $idCurso,
     'nomeCurso' => $nomeCurso,
-    'valorCurso' =>  $valorCurso
-]
+    'valorCurso' =>  $valorCurso,
+];
 
 // echo json_encode(["curso"] => $curso);
 
-json_encode(["curso"] => $curso);
+json_encode(" ['curso'] => $curso ");
 
 
 ?>

@@ -40,9 +40,9 @@ export class CursoService implements OnInit {
 
     // método cadastrar
     cadastrarCurso(c: Curso):Observable<Curso[]>{
-      return this.http.post(this.url+'cadastrar', {cursos:c}).pipe
+      return this.http.post(this.url+'cadastrar', {Curso : c }).pipe
       ( map ((res: any) => {
-          this.vetor.push = res;
+          this.vetor.push = res['cursos'];
           return this.vetor;
         }))
     }

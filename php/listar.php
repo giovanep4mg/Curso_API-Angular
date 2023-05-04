@@ -11,26 +11,26 @@ $sql = " SELECT * FROM cursos ";
 $executar = mysqli_query($conexao, $sql);
 
 // vetor
-$curso = [] ;
+$cursos = [] ;
 
 // indice 'qual posição'
 $indice = 0 ;
 
 // laço
 while($linha = mysqli_fetch_assoc($executar)) {
-    $curso[$indice]['idCurso'] = $linha['idCurso'];
-    $curso[$indice]['nomeCurso'] = $linha['nomeCurso'];
-    $curso[$indice]['valorCurso'] = $linha['valorCurso'];
+    $cursos[$indice]['idCurso'] = $linha['idCurso'];
+    $cursos[$indice]['nomeCurso'] = $linha['nomeCurso'];
+    $cursos[$indice]['valorCurso'] = $linha['valorCurso'];
 
     $indice++;
 
 }
 
 //guarda no JSON
-json_encode(['curso' => $curso]);
+json_encode(['cursos' => $cursos]);
 
  // var_dump($curso) //nao está sendo listada
 
-echo  json_encode($curso)
+echo  json_encode($cursos)
 
 ?>

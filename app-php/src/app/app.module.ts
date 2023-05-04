@@ -12,7 +12,9 @@ import { CursoService } from './curso/curso.service';
 @NgModule({
   declarations: [
     AppComponent,
-    CursoComponent
+    CursoComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -20,7 +22,10 @@ import { CursoService } from './curso/curso.service';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [CursoService],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+
+}
