@@ -8,7 +8,7 @@ $obterDados = file_get_contents("php://input");
 
 // extrair os dados do JSON
 $extrair = json_decode($obterDados);
-
+var_dump($extrair);
 // separar os dados do JSON
 $nomeCurso = $extrair->cursos->nomeCurso;
 $valorCurso = $extrair->cursos->valorCurso;

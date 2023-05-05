@@ -40,19 +40,18 @@ export class CursoService implements OnInit {
 
     // método serviço para cadastrar
     cadastrarCurso(c: Curso):Observable<Curso[]>{
-      return this.http.post(this.url+'cadastrar', {cursos: c }).pipe
+      return this.http.post(this.url+'cadastrar', {curso: c }).pipe
       ( map ((res: any) => {
           this.vetor.push(res['cursos']);
           return this.vetor;
         }))
-        console.log("metodo servico cadastartrcurso");
     }
 
     // método serviço remover curso
     removerCurso(c: Curso):Observable<Curso[]>{
 
       // para pegar o id do curso dentro do banco de dados
-      const params = new HttpParams().set("idCurso", c.idCurso!.toString());
+      const params = new HttpParams().set("idCurso?", c.idCurso!.toString());
 
       return this.http.delete(this.url+'excluir', {params: params}).pipe(
         (map( (res: any) => {
@@ -69,6 +68,31 @@ export class CursoService implements OnInit {
       )
       console.log("metodo servico removar curso")
     }
+
+      // atualizar curso
+      atualizarCurso(c: Curso): Observable<Curso[]>{
+
+        // executa a alteração via url
+        return this.http.put(this.url+'alterar', {curso: c})
+
+        // percorre o vetor para saber qual é o id do curso alterado
+        .pipe(map((res) => {
+            const cursoAlterado = this.vetor.find((item) => {
+              return +item['idCurso'] !== +['idCurso'];
+            });
+
+            // altero o valor do vetor local
+            if(cursoAlterado){
+              cursoAlterado ['nomeCurso'] = c ['nomeCurso'];
+              cursoAlterado ['valorCurso'] = c ['valorCurso'];
+            }
+            // retorna
+            return this.vetor;
+        }))
+      }
+
+
+
 
 
 }
