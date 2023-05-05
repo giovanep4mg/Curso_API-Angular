@@ -44,16 +44,16 @@ export class CursoComponent implements OnInit {
       // adicionando dados ao vetor
       this.vetor = res;
 
-      // limpar os atributos
-      this.curso.nomeCurso = '';
+      // limpar os campos de texto atributos
+      this.curso.nomeCurso = '' ;
       this.curso.valorCurso = 0 ;
 
       // atualizar a listagem no front
       this.selecao();
 
-
       }
     )
+    console.log("cadastrando curso ts")
   }
 
   // método seleção
@@ -63,6 +63,7 @@ export class CursoComponent implements OnInit {
         this.vetor = res;
       }
     )
+    console.log("metodo selecionar ativo");
   }
 
 
@@ -71,22 +72,21 @@ export class CursoComponent implements OnInit {
     alert("alterar");
   }
 
-  // remover
+  // método remover curso
   remover(c : Curso){
     this.curso_servico.removerCurso(this.curso).subscribe(
       (res: Curso[] ) => {
         this.vetor = res;
 
         // atualizar os atributos
-        this.curso.nomeCurso = '' ;
+        this.curso.nomeCurso = '';
         this.curso.valorCurso = 0 ;
 
         // atualizar a listagem no front
         this.selecao();
-
-
       }
     )
+    console.log("metodo remover ativo");
   }
 
   // método selecionar curso especifico
@@ -94,6 +94,9 @@ export class CursoComponent implements OnInit {
     this.curso.idCurso = c.idCurso;
     this.curso.nomeCurso = c.nomeCurso;
     this.curso.valorCurso = c.valorCurso;
+
+
+    console.log("metodo selecionarCurso ativo");
   }
 
 

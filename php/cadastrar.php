@@ -20,14 +20,14 @@ mysqli_query($conexao, $sql);
 
 
 // exporta os dados cadatrados
-$curso = [
+$cursos = [
     'nomeCurso' => $nomeCurso,
     'valorCurso' =>  $valorCurso,
 ];
 
-  json_encode('[`curso`] => $curso');
+ json_encode(['cursos' => $cursos]);
   
 
-   //echo  json_encode($curso)
+    //  echo  json_encode($cursos)
 
 ?>

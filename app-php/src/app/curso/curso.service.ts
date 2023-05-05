@@ -14,7 +14,7 @@ export class CursoService implements OnInit {
 
 
   // vetor para guarda os dados obtidos
-  vetor : Curso[] = [] ;
+  vetor! : Curso[];
 
 
   curso = new Curso();
@@ -38,23 +38,24 @@ export class CursoService implements OnInit {
       );
     }
 
-    // método cadastrar
+    // método serviço para cadastrar
     cadastrarCurso(c: Curso):Observable<Curso[]>{
-      return this.http.post(this.url+'cadastrar', {Curso : c }).pipe
+      return this.http.post(this.url+'cadastrar', {cursos: c }).pipe
       ( map ((res: any) => {
-          this.vetor.push = res['cursos'];
+          this.vetor.push(res['cursos']);
           return this.vetor;
         }))
+        console.log("metodo servico cadastartrcurso");
     }
 
-    // método remover curso
-    removerCurso(c:Curso):Observable<Curso[]>{
+    // método serviço remover curso
+    removerCurso(c: Curso):Observable<Curso[]>{
 
       // para pegar o id do curso dentro do banco de dados
       const params = new HttpParams().set("idCurso", c.idCurso!.toString());
 
-      return this.http.delete(this.url+'excluir', {params : params}).pipe(
-        (map( (res) => {
+      return this.http.delete(this.url+'excluir', {params: params}).pipe(
+        (map( (res: any) => {
 
           // filtrar os ids para achar o que foi escolhido e excluir
           const filtro = this.vetor.filter((curso) => {
@@ -66,6 +67,7 @@ export class CursoService implements OnInit {
 
         }))
       )
+      console.log("metodo servico removar curso")
     }
 
 
