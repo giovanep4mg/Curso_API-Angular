@@ -69,7 +69,7 @@ export class CursoComponent implements OnInit {
 
   // alterar
   alterar(){
-    alert("alterar");
+    
   }
 
   // método remover curso
