@@ -7,11 +7,16 @@ include("conexao.php");
 $obterDados = file_get_contents("php://input");
 
 // extrair os dados do JSON
-$extrair = json_decode($obterDados);
-var_dump($extrair);
+// $extrair = json_decode($obterDados);
+
+$extrair = json_decode($obterDados, true);
+
 // separar os dados do JSON
-$nomeCurso = $extrair->cursos->nomeCurso;
-$valorCurso = $extrair->cursos->valorCurso;
+// $nomeCurso = $extrair->cursos->nomeCurso;
+// $valorCurso = $extrair->cursos->valorCurso;
+
+$nomeCurso = $extrair['cursos']['nomeCurso'] ?? null;
+$valorCurso= $extrair['cursos']['valorCurso'] ?? null;
 
 // sql
 $sql = "INSERT INTO cursos (nomeCurso, valorCurso) VALUES ('$nomeCurso', $valorCurso)";

@@ -14,7 +14,7 @@ export class CursoComponent implements OnInit {
     url = "http://localhost/api/php/"
 
     // vetor de cursos
-    vetor! : Curso[] ;
+    vetor: Curso[] = [] ;
 
 
     // objeto da classe curso
@@ -43,17 +43,21 @@ export class CursoComponent implements OnInit {
 
       // adicionando dados ao vetor
       this.vetor = res;
+      console.log("método cadastro => adicionando dados ao vetor");
+      console.log(res);
 
       // limpar os campos de texto atributos
       this.curso.nomeCurso = '' ;
       this.curso.valorCurso = 0 ;
+      console.log("método cadastro => limpar campo de texto atributos")
 
       // atualizar a listagem no front
       this.selecao();
+      console.log("método cadastro =>atualizar o front-end")
 
       }
     )
-    console.log("cadastrando curso ts")
+    console.log("cadastro => curso.component.ts")
   }
 
   // método seleção
@@ -63,7 +67,7 @@ export class CursoComponent implements OnInit {
         this.vetor = res;
       }
     )
-    console.log("metodo selecionar ativo");
+    console.log("metodo seleção => mostrar no front-End");
   }
 
 
@@ -74,33 +78,43 @@ export class CursoComponent implements OnInit {
 
       // atualizar vetor
       this.vetor = res;
+      console.log("método alterar => adicionando dados ao vetor")
 
       // limpar valores do objeto
       this.curso.nomeCurso = '';
       this.curso.valorCurso = 0 ;
+      console.log("método alterar => limpar campo de texto atributos")
 
       // atualiza a listagem
       this.selecao();
-
+      console.log("método alterar =>atualizar o front-end")
 
     })
+    console.log("alterar => curso.component.ts")
+
   }
 
   // método remover curso
-  remover(c : Curso){
-    this.curso_servico.removerCurso(this.curso).subscribe(
+  remover(c: Curso){
+    this.curso_servico.removerCurso(c).subscribe(
       (res: Curso[] ) => {
         this.vetor = res;
+
+        console.log("método remover curso => removendo o curso")
 
         // atualizar os atributos
         this.curso.nomeCurso = '';
         this.curso.valorCurso = 0 ;
 
+        console.log("método remover curso => atualizando os atributos")
+
         // atualizar a listagem no front
         this.selecao();
+
+        console.log("método remover curso => atualizando o front-End")
       }
     )
-    console.log("metodo remover ativo");
+    console.log("método remover => curso.component.ts")
   }
 
   // método selecionar curso especifico
@@ -110,7 +124,7 @@ export class CursoComponent implements OnInit {
     this.curso.valorCurso = c.valorCurso;
 
 
-    console.log("metodo selecionarCurso ativo");
+    console.log("método selecionarCurso => para ...");
   }
 
 
