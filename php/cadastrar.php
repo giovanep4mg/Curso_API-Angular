@@ -5,11 +5,13 @@ include("conexao.php");
 
 // obter dados "dados que serão enviados"
 $obterDados = file_get_contents("php://input");
+echo "Obtendo dados ";
 
 // extrair os dados do JSON
 // $extrair = json_decode($obterDados);
 
 $extrair = json_decode($obterDados, true);
+echo "Extarindo dados do banco de dados..";
 
 // separar os dados do JSON
 // $nomeCurso = $extrair->cursos->nomeCurso;
@@ -30,7 +32,7 @@ $cursos = [
     'valorCurso' =>  $valorCurso,
 ];
 
- json_encode(['cursos' => $cursos]);
+ echo json_encode(['cursos' => $cursos]);
   
 
     //  echo  json_encode($cursos)

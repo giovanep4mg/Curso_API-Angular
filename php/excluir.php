@@ -2,40 +2,35 @@
 
 // incluir a conexão
 include("conexao.php");
-echo "conectando ao banco de dados do banco  ";
+echo "Conectando ao banco de dados api... ";
 
 // obter dados "dados que serão enviados"
 $obterDados = file_get_contents("php://input");
-echo "obtendo dados do banco  ";
-
+echo "Obtendo dados do banco de dados api...";
 
 // extrair os dados do JSON
 //$extrair = json_decode($obterDados);
 
 $extrair = json_decode($obterDados, true);
-echo "extraindo dados do banco  ";
-
+echo "extrair dados...";
 
 // separar os dados do JSON
 //$idCurso = $extrair->cursos->idCurso;
 $idCurso = $extrair['cursos']['idCurso'] ?? null;
-echo "Pegando o id do curso  ";
+echo "Pegando o id do curso ... ";
 
 
 // verificar se o id do curso foi fornecido
-if ($idCurso === null) {
-  
+if ($idCurso == null) {
     echo "Não está pegando o id do curso";
-    
-   
   exit();
   }
 
-  // conectar ao banco e fazer a veirificação
+  // selecionar qual é o curso que será apagado de acordo com o id
   $sql = " DELETE FROM cursos WHERE idCurso = $idCurso ";
   mysqli_query($conexao, $sql);
 
-// executar a consulta
+// executar a consulta se foi removido ou não
 if (mysqli_query($conexao, $sql)) {
     echo "Registro removido com sucesso.";
 } else {

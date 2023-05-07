@@ -4,14 +4,21 @@
 // incluir a conexão
 include("conexao.php");
 
+
+
 // sql
 $sql = " SELECT * FROM cursos "; 
+
+
 
 // executar
 $executar = mysqli_query($conexao, $sql);
 
+
+
 // vetor
 $cursos = [] ;
+
 
 // indice 'qual posição'
 $indice = 0 ;
