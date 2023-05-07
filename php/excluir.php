@@ -9,15 +9,9 @@ $obterDados = file_get_contents("php://input");
 echo "Obtendo dados digitados...","<br>";
 var_dump($obterDados);
 
-try {
-  $extrair = json_decode($obterDados, true);
-} catch (Exception $e) {
-  echo "Erro ao decodificar dados: " . $e->getMessage();
-  exit();
-}
-
-//$extrair= json_decode($obterDados, true);
-//echo "Extraindo dados do banco de dados...","<br>";
+$extrair= json_decode($obterDados, true);
+echo "Extraindo dados do banco de dados...","<br>";
+var_dump($extrair);
 
 $idCurso = $extrair['idCurso'] ?? null;
 echo "pegando o id do curso selecionado ...","<br>";
