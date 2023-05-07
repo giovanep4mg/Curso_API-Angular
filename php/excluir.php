@@ -2,27 +2,24 @@
 
 // incluir a conexão
 include("conexao.php");
-echo "Conectando ao banco de dados api... ";
+echo "Conectando ao banco de dados api... ","<br>";
 
 // obter dados "dados que serão enviados"
 $obterDados = file_get_contents("php://input");
-echo "Obtendo dados do banco de dados api...";
-
-// extrair os dados do JSON
-//$extrair = json_decode($obterDados);
+echo "Obtendo dados do banco de dados api...","<br>";
 
 $extrair = json_decode($obterDados, true);
-echo "extrair dados...";
+echo "Extraindo dados do banco de dados..","<br>";
 
 // separar os dados do JSON
 //$idCurso = $extrair->cursos->idCurso;
-$idCurso = $extrair['cursos']['idCurso'] ?? null;
-echo "Pegando o id do curso ... ";
+$idCurso = $extrair['curso']['idCurso'];
+echo "Pegando o id do curso ... ","<br>";
 
 
 // verificar se o id do curso foi fornecido
 if ($idCurso == null) {
-    echo "Não está pegando o id do curso";
+    echo "Não está pegando o id do curso","<br>";
   exit();
   }
 
@@ -32,9 +29,9 @@ if ($idCurso == null) {
 
 // executar a consulta se foi removido ou não
 if (mysqli_query($conexao, $sql)) {
-    echo "Registro removido com sucesso.";
+    echo "Registro removido com sucesso.","<br>";
 } else {
-    echo "Erro ao remover registro: " . mysqli_error($conexao);
+    echo "Erro ao remover registro: " . mysqli_error($conexao),"<br>";
 }
 
      // sql
