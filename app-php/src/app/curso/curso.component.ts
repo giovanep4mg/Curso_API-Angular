@@ -60,7 +60,7 @@ export class CursoComponent implements OnInit {
     console.log("cadastro => curso.component.ts")
   }
 
-  // método seleção
+  // método seleção para aparecer no front end
   selecao(){
     this.curso_servico.obterCursos().subscribe(
       (res: Curso[]) => {

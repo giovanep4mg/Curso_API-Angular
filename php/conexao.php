@@ -1,7 +1,6 @@
 <?php
 // Para ter acesso ao banco de dados, o "api".
 
-
 // Variáveis
 $url = "localhost";
 $usuario = "root";
@@ -12,8 +11,9 @@ $base = "api";
 //conexão
 $conexao = mysqli_connect($url, $usuario, $senha, $base );
 
-// verificar se está conectado 
-//echo "Conectado ao banco de dados api ";
+if (!$conexao) {
+    die("Erro ao conectar ao banco de dados: " . mysqli_connect_error());
+  }
 
 
 // arrumar caracteres especiais

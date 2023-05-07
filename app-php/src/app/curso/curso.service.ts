@@ -1,8 +1,11 @@
-import { HttpClient, HttpClientModule, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Curso } from './curso';
-import { map } from 'rxjs/operators';
+import {  map, tap } from 'rxjs/operators';
+
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 
 @Injectable({
@@ -39,49 +42,52 @@ export class CursoService  {
     }
 
     // método serviço para cadastrar
-    cadastrarCurso(c: Curso):Observable<Curso[]>{
-      return this.http.post(this.url+'cadastrar', {curso: c })
-      .pipe( map ((res) => {
-        console.log("curso serviço => cadastrar curso");
-         // this.vetor.push(res[`cursos`]);
+    cadastrarCurso(c: Curso): Observable<Curso[]>{
+      return this.http.post(this.url+'cadastrar', {curso: c }).pipe(
+        map ((res) => {
+          console.log("curso serviço => cadastrar curso");
+          // this.vetor.push(res as Curso);
           return this.vetor;
-        }))
-
+        })
+      );
     }
 
     // método serviço remover curso
     removerCurso(c: Curso):Observable<Curso[]>{
 
-      const idCurso = c.idCurso!.toString();
-
-      // para pegar o id do curso dentro do banco de dados
-      const params = new HttpParams().set("idCurso", idCurso);
+      const params = new HttpParams().set("idCurso", c.idCurso? c.idCurso?.toString() : '');
 
       console.log("método service remover curso => selecionando id")
 
-      return this.http.delete(this.url+'excluir', {params}).pipe(
-        (map( (res: any) => {
-
-          console.log("método servico remover curso => percorrendo o banco para pegar o id")
-
-          // filtrar os ids para achar o que foi escolhido e excluir
-          const filtro = this.vetor.filter((curso) => {
-              return c.idCurso !== c.idCurso;
+      return this.http.delete(this.url+'excluir', {params: params})
+        .pipe(
+          map((res: any) => {
+            const filtro = this.vetor.filter((curso) => {
+              return curso.idCurso !== c.idCurso;
             });
-            console.log("método servico remover curso => filtrando os ids ")
-
-
-            // salva o id escolhido se foi encontrado excluido
+            console.log("Fazendo uma filtragem nos ids. ");
             return this.vetor = filtro;
-
-            return this.vetor;
-
-        }))
-
-
+          }),
+          catchError((error: HttpErrorResponse) => {
+            if (error instanceof Error) {
+              // Erro de rede ou de servidor
+              console.error('Erro ao remover curso:', error);
+              return throwError('Ocorreu um erro ao tentar remover o curso.');
+            } else {
+              // Erro no parse do retorno da API
+              console.error('Erro ao remover curso:', error.error);
+              return throwError('Ocorreu um erro ao tentar remover o curso. Verifique os dados informados.');
+            }
+          }
+        )
       )
-
     }
+
+
+
+    // metodo remover curso gpt
+
+
 
       // atualizar curso
       atualizarCurso(c: Curso): Observable<Curso[]>{
