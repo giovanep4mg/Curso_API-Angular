@@ -12,11 +12,11 @@ $base = "api";
 //conexão
 $conexao = mysqli_connect($url, $usuario, $senha, $base );
 
+// verificar se está conectado 
+//echo "Conectado ao banco de dados api ";
 
 
-
-
-// arrumar cracteres especiais
+// arrumar caracteres especiais
 mysqli_set_charset($conexao, "utf8");
 
 

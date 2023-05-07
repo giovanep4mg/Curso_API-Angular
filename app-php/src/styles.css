@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  background-color: azure;
+  margin: 0px;
+  padding: 0px;
+}
+.formulario{
+  background-color: rgba(38, 241, 241, 0.269);
+  border: 2px solid black;
+  margin: 10px;
+  padding: 10px;
+  padding: 0.1em;
+
+}
+button{
+  padding: 0.1em;
+}
+
+.form{
+  border: 2px solid black;
+  margin: 10px;
+  padding: 10px;
+}
+
+.tabela{
+  border: 3px solid black;
+  margin: 10px;
+  padding: 10px;
+}

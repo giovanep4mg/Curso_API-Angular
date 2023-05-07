@@ -1,8 +1,9 @@
-<!--Formulário-->
-<div style="border: 2px solid black; margin: 10px; padding: 10px;">
-  <form>
+<!-- Formulário -->
+<div class="formulario">
+  <form class="form" method="post" action="/cadastrar">
     <label>Curso</label>
     <input type="text" name="nomeCurso" [(ngModel)]="curso.nomeCurso">
+    <br>
     <br>
     <label>Valor</label>
     <input type="text" name="valorCurso" [(ngModel)]="curso.valorCurso">
@@ -13,7 +14,7 @@
     <button (click)="remover(this.curso)"> Excluir</button>
   </form>
   <!--tabela-->
-  <table border="1" style="margin: 5px; padding: 5px; ">
+  <table class="tabela">
     <tr *ngFor="let v of vetor">
       <td>{{ v.nomeCurso }}</td>
       <td>{{ v.valorCurso }}</td>

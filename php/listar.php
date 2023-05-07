@@ -34,7 +34,7 @@ while($linha = mysqli_fetch_assoc($executar)) {
 }
 
 //guarda no JSON
-json_encode(['cursos' => $cursos]);
+//json_encode(['cursos' => $cursos]);
 
  // var_dump($curso) //nao está sendo listada
 
