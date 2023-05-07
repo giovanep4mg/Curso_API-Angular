@@ -3,39 +3,31 @@
 // incluir a conexão
 include("conexao.php");
 
-// obter dados "dados que serão enviados"
+// obter dados "dados que serão digitados"
 $obterDados = file_get_contents("php://input");
 echo "Obtendo dados digitados","<br>";
-
-// extrair os dados do JSON
-// $extrair = json_decode($obterDados);
 
 $extrair = json_decode($obterDados, true);
 echo "Extraindo dados do banco de dados..","<br>";
 
-if (isset($extrair['cursos']['nomeCurso'])) {    
-        $nomeCurso = $extrair['cursos']['nomeCurso'];
+$nomeCurso = $extrair['curso']['nomeCurso'];
+$valorCurso = $extrair['curso']['valorCurso'];
+echo "pegando o nome e valor ..","<br>";
+
+if (isset($extrair['curso']['nomeCurso'])) {    
+        $nomeCurso = $extrair['curso']['nomeCurso'];
 } else {  
         $nomeCurso = null;
 }
 
-    if (isset($extrair['cursos']['valorCurso'])) {
-        $valorCurso = $extrair['cursos']['valorCurso'];
+    if (isset($extrair['curso']['valorCurso'])) {
+        $valorCurso = $extrair['curso']['valorCurso'];
     } else {
         $valorCurso = null;
     }
 
 
-//$nomeCurso = $extrair['curso']['nomeCurso'];
-//$valorCurso = $extrair['curso']['valorCurso'];
-//echo "pegando o nome e valor ..","<br>";
 
-// separar os dados do JSON
- //$nomeCurso = $extrair->cursos->nomeCurso;
- //$valorCurso = $extrair->cursos->valorCurso;
-
-//$nomeCurso = $extrair['cursos']['nomeCurso'] ?? null;
-//$valorCurso= $extrair['cursos']['valorCurso'] ?? null;
 
 // sql
 $sql = "INSERT INTO cursos (nomeCurso, valorCurso) VALUES ('$nomeCurso', '$valorCurso')";
@@ -52,7 +44,7 @@ $cursos = [
 echo json_encode(['cursos' => $cursos]);
 echo "guardando no json ";
 
-//echo  json_encode($cursos)
+
 
 
 
