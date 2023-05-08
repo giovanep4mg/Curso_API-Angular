@@ -16,13 +16,14 @@ export class CursoService  {
   url = "http://localhost/api/php/";
 
 
+
+
+
   // vetor para guarda os dados obtidos
   vetor : Curso[] = [];
 
 
   curso = new Curso();
-
-
 
   // construtor
   constructor(
@@ -53,41 +54,46 @@ export class CursoService  {
     }
 
     // método serviço remover curso
-    removerCurso(c: Curso):Observable<Curso[]>{
+    removerCurso(c: Curso): Observable<Curso[]> {
+      if (!c || c.idCurso == null) {
+        console.error('Curso inválido');
+        return throwError('O curso informado é inválido.');
+      }
 
-      const params = new HttpParams().set("idCurso", c.idCurso? c.idCurso?.toString() : '');
+      const params = new HttpParams().set('idCurso', c.idCurso.toString());
 
-      console.log("método service remover curso => selecionando id")
+      console.log("método service remover curso => selecionando id  "+params)
 
-      return this.http.delete(this.url+'excluir', {params: params})
-        .pipe(
-          map((res: any) => {
-            const filtro = this.vetor.filter((curso) => {
-              return curso.idCurso !== c.idCurso;
-            });
-            console.log("Fazendo uma filtragem nos ids. ");
-            return this.vetor = filtro;
-          }),
-          catchError((error: HttpErrorResponse) => {
-            if (error instanceof Error) {
-              // Erro de rede ou de servidor
-              console.error('Erro ao remover curso:', error);
-              return throwError('Ocorreu um erro ao tentar remover o curso.');
-            } else {
-              // Erro no parse do retorno da API
-              console.error('Erro ao remover curso:', error.error);
-              return throwError('Ocorreu um erro ao tentar remover o curso. Verifique os dados informados.');
-            }
+      return this.http.delete(this.url+'excluir', {params: params}).pipe(
+        map((res: any) => {
+          const filtro = this.vetor.filter((curso) => {
+            return curso.idCurso !== c.idCurso;
+          });
+
+          console.log("Fazendo uma filtragem nos ids. ");
+          return this.vetor = filtro;
+        }),
+        catchError((error: HttpErrorResponse) => {
+          if (error instanceof Error) {
+            // Erro de rede ou de servidor
+            console.error('Erro ao remover curso:', error);
+            return throwError('Ocorreu um erro ao tentar remover o curso.');
+          } else {
+            // Erro no parse do retorno da API
+            console.error('Erro ao remover curso:', error.error);
+            return throwError('Ocorreu um erro ao tentar remover o curso. Verifique os dados informados.');
           }
-        )
-      )
+        })
+      );
     }
 
 
 
-    // metodo remover curso gpt
 
-
+    getCursoById(idCurso: number): Observable<Curso> {
+      const params = new HttpParams().set('idCurso', idCurso.toString());
+      return this.http.get<Curso>(this.url, {params: params});
+    }
 
       // atualizar curso
       atualizarCurso(c: Curso): Observable<Curso[]>{

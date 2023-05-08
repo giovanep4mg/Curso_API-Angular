@@ -20,7 +20,7 @@ export class CursoComponent implements OnInit {
     // objeto da classe curso
     curso = new Curso();
 
-
+    errorMessage = '';
 
   // construtor
   constructor(
@@ -66,7 +66,7 @@ export class CursoComponent implements OnInit {
         this.vetor = res;
       }
     )
-    console.log("metodo seleção => mostrar todos no front-End");
+    console.log("metodo seleção => mostrar todos os cursos no front-End");
   }
 
 
@@ -95,11 +95,11 @@ export class CursoComponent implements OnInit {
 
   // método remover curso
   remover(c: Curso){
-    this.curso_servico.removerCurso(c).subscribe(
+    this.curso_servico.removerCurso(this.curso).subscribe(
       (res: Curso[] ) => {
         this.vetor = res;
 
-        console.log("método remover curso => removendo o curso")
+        console.log("método remover curso => removendo o curso"+res)
 
         // atualizar os atributos
         this.curso.nomeCurso = '';
@@ -116,6 +116,8 @@ export class CursoComponent implements OnInit {
     console.log("método remover => curso.component.ts")
   }
 
+
+
   // método selecionar curso especifico
   selecionarCurso(c: Curso ){
     this.curso.idCurso = c.idCurso;
@@ -130,6 +132,7 @@ export class CursoComponent implements OnInit {
 
     console.log("método selecionarCurso => ESTÁ SENDO EXECUTADO ...");
   }
+
 
 
 
