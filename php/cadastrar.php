@@ -5,35 +5,19 @@ include("conexao.php");
 
 // obter dados "dados que serão digitados"
 $obterDados = file_get_contents("php://input");
-echo "Obtendo dados digitados","<br>";
+// echo "Obtendo dados digitados","<br>";
 
 $extrair = json_decode($obterDados, true);
-echo "Extraindo dados do banco de dados..","<br>";
+// echo "Extraindo dados do banco de dados..","<br>";
 
-$nomeCurso = $extrair['curso']['nomeCurso'];
-$valorCurso = $extrair['curso']['valorCurso'];
-echo "pegando o nome e valor ..","<br>";
-
-if (isset($extrair['curso']['nomeCurso'])) {    
-        $nomeCurso = $extrair['curso']['nomeCurso'];
-} else {  
-        $nomeCurso = null;
-}
-
-    if (isset($extrair['curso']['valorCurso'])) {
-        $valorCurso = $extrair['curso']['valorCurso'];
-    } else {
-        $valorCurso = null;
-    }
+// fazer a verificação se foi extraido curso e nome, do banco de dados   
+  $nomeCurso = isset($extrair['curso']['nomeCurso']) ? $extrair['curso']['nomeCurso'] : null;
+  $valorCurso = isset($extrair['curso']['valorCurso']) ? $extrair['curso']['valorCurso'] : null;
 
 
-
-
-// sql
+// sql para entrar no banco de dados e inserir os dados 
 $sql = "INSERT INTO cursos (nomeCurso, valorCurso) VALUES ('$nomeCurso', '$valorCurso')";
 mysqli_query($conexao, $sql);
-
-
 
 // exporta os dados cadatrados
 $cursos = [
@@ -42,9 +26,14 @@ $cursos = [
 ];
 
 echo json_encode(['cursos' => $cursos]);
-echo "guardando no json ";
+// echo "guardando no json ";
 
-
+/**
+ *  echo => são para mostrar o que está acontecendo com os comandos executados.
+ * deixe somente o " echo json_encode(['cursos' => $cursos]);" que irá retorna o resultado do comando cadastrar.
+ * 
+ * os outros "echo" deixe desativados para não dá erro.
+ */
 
 
 

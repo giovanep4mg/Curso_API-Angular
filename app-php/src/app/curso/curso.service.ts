@@ -46,7 +46,7 @@ export class CursoService  {
       return this.http.post(this.url+'cadastrar', {curso: c }).pipe(
         map ((res) => {
           console.log("curso serviço => cadastrar curso");
-          // this.vetor.push(res as Curso);
+          this.vetor.push(res as Curso);
           return this.vetor;
         })
       );

@@ -44,7 +44,6 @@ export class CursoComponent implements OnInit {
       // adicionando dados ao vetor
       this.vetor = res;
       console.log("método cadastro => adicionando dados ao vetor");
-      console.log(res);
 
       // limpar os campos de texto atributos
       this.curso.nomeCurso = '' ;
