@@ -4,10 +4,18 @@
 include("conexao.php");
 echo "Conectando ao banco de dados api... ","<br>";
 
+$obterDados = $_POST['input'] ?? null;
+echo "Obtendo dados digitados...","<br>";
+var_dump($obterDados);
+
+/*
 // obter dados "dados que serão enviados"
 $obterDados = file_get_contents("php://input");
 echo "Obtendo dados digitados...","<br>";
 var_dump($obterDados);
+var_dump($_POST);
+*/
+
 
 $extrair= json_decode($obterDados, true);
 echo "Extraindo dados do banco de dados...","<br>";
