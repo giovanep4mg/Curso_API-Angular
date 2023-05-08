@@ -29,12 +29,9 @@ export class CursoComponent implements OnInit {
   ){}
 
   ngOnInit() {
-    // ao iniciar o sistema, deverá listar os cursos
+    // ao iniciar o sistema, deverá listar todos os cursos no front-end
     this.selecao();
-
-
   }
-
 
   // método cadastrar
   cadastro( c: Curso){
@@ -59,7 +56,7 @@ export class CursoComponent implements OnInit {
     console.log("cadastro => curso.component.ts")
   }
 
-  // método seleção para aparecer no front end
+  // método seleção, seleciona todos os cursos para aparecer no front-end
   selecao(){
     this.curso_servico.obterCursos().subscribe(
       (res: Curso[]) => {
@@ -69,8 +66,7 @@ export class CursoComponent implements OnInit {
     console.log("metodo seleção => mostrar todos os cursos no front-End");
   }
 
-
-  // alterar
+  // alterar o curso selecionado, podendo modificar o nome e seu valor.
   alterar(c: Curso){
     this.curso_servico.atualizarCurso(this.curso)
     .subscribe( (res) => {
@@ -82,18 +78,17 @@ export class CursoComponent implements OnInit {
       // limpar valores do objeto
       this.curso.nomeCurso = '';
       this.curso.valorCurso = 0 ;
-      console.log("método alterar => limpar campo de texto atributos")
+      console.log("método alterar => limpando campo de texto de atributos")
 
       // atualiza a listagem
       this.selecao();
       console.log("método alterar =>atualizar o front-end")
 
     })
-    console.log("alterar => curso.component.ts")
 
   }
 
-  // método remover curso
+  // método remover, para remover o curso selecionado.
   remover(c: Curso){
     this.curso_servico.removerCurso(this.curso).subscribe(
       (res: Curso[] ) => {
@@ -116,9 +111,7 @@ export class CursoComponent implements OnInit {
     console.log("método remover => curso.component.ts")
   }
 
-
-
-  // método selecionar curso especifico
+  // método selecionar, um curso especifico para realizar modificações ou apagar do banco de dados.
   selecionarCurso(c: Curso ){
     this.curso.idCurso = c.idCurso;
     console.log("ID CURSO SELECIONADO =>  "+this.curso.idCurso);
@@ -132,8 +125,6 @@ export class CursoComponent implements OnInit {
 
     console.log("método selecionarCurso => ESTÁ SENDO EXECUTADO ...");
   }
-
-
 
 
 }

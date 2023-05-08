@@ -12,17 +12,13 @@ import { throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class CursoService  {
-  // url do banco de dados
+  // url do banco de dados api
   url = "http://localhost/api/php/";
-
-
-
-
 
   // vetor para guarda os dados obtidos
   vetor : Curso[] = [];
 
-
+  // cria um objeto
   curso = new Curso();
 
   // construtor
@@ -31,8 +27,7 @@ export class CursoService  {
 
   ) { }
 
-    // obter todos os cursos
-
+    // obter todos os cursos do banco de dados
     obterCursos():Observable<Curso[]> {
       return this.http.get(this.url+"listar").pipe
       ( map( (res: any) => {
@@ -53,16 +48,16 @@ export class CursoService  {
       );
     }
 
-    // método serviço remover curso
+    // método serviço, para remover o curso
     removerCurso(c: Curso): Observable<Curso[]> {
       if (!c || c.idCurso == null) {
         console.error('Curso inválido');
         return throwError('O curso informado é inválido.');
       }
-
+      // para pegar o id do curso e transformar em string
       const params = new HttpParams().set('idCurso', c.idCurso.toString());
 
-      console.log("método service remover curso => selecionando id  "+params)
+      console.log("método service remover curso => selecionando o id  "+params)
 
       return this.http.delete(this.url+'excluir', {params: params}).pipe(
         map((res: any) => {
@@ -86,15 +81,7 @@ export class CursoService  {
         })
       );
     }
-
-
-
-
-    getCursoById(idCurso: number): Observable<Curso> {
-      const params = new HttpParams().set('idCurso', idCurso.toString());
-      return this.http.get<Curso>(this.url, {params: params});
-    }
-
+    
       // atualizar curso
       atualizarCurso(c: Curso): Observable<Curso[]>{
 
