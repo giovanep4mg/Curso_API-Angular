@@ -67,7 +67,7 @@ export class CursoComponent implements OnInit {
         this.vetor = res;
       }
     )
-    console.log("metodo seleção => mostrar no front-End");
+    console.log("metodo seleção => mostrar todos no front-End");
   }
 
 
@@ -120,11 +120,16 @@ export class CursoComponent implements OnInit {
   // método selecionar curso especifico
   selecionarCurso(c: Curso ){
     this.curso.idCurso = c.idCurso;
+    console.log("ID CURSO SELECIONADO =>  "+this.curso.idCurso);
+
     this.curso.nomeCurso = c.nomeCurso;
+    console.log("NOME CURSO SELECIONADO => "+this.curso.nomeCurso);
+
     this.curso.valorCurso = c.valorCurso;
+    console.log("VALOR CURSO SELECIONADO =>  "+this.curso.valorCurso);
 
 
-    console.log("método selecionarCurso => para ...");
+    console.log("método selecionarCurso => ESTÁ SENDO EXECUTADO ...");
   }
 
 

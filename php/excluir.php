@@ -13,7 +13,7 @@ $extrair= json_decode($obterDados, true);
 echo "Extraindo dados do banco de dados...","<br>";
 var_dump($extrair);
 
-$idCurso = $extrair['idCurso'] ?? null;
+$idCurso = $extrair['curso']['idCurso'] ?? null;
 echo "pegando o id do curso selecionado ...","<br>";
 
 if (isset($extrair['idCurso'])) {
