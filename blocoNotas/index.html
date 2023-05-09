@@ -63,6 +63,22 @@
                 <b>PUT</b> => " Alterar dados ".<br>
                 <b>DELETE</b> => "Remover dados ".<br>
                 <br>
+                <br>
+                Essas são as linguagens e frameworks que são mais usadas:<br>
+                Na parte de cima estão as linguagens, para fornt-end.,<br>
+                na parte de baixo, são usadas para o back-end e/ frameworks.<br>
+                <br>
+                <div class="image">
+                    <img src="./imagens/linguagens-frameworks.png" alt="print do código">
+                </div>
+                <br>
+                <br>
+                Iremos ultilizar o <b>Angular</b> para fazermos o front-end,<br>
+                e o <b>php</b> para o back-end.<br>
+                <br>
+                É bom ter um pouco de conhecimento sobre essas duas linguagens para fazermos a API.<br>
+                <br>
+                <br>
                 </h2>
             </section>
         </section>
@@ -72,15 +88,15 @@
             <header class="title"><h1> Quais software serão usados ?</h1></header>
             <section class="description">
             <h2>
-                Para o banco de dados usaremos:<br>
+                Para fazermos nossa <b>API</b> usaremos:<br>
                 <br>
-                <b>Xampp</b> que é para trabalhar com banco de dados, usando o mysql, junto com PHP.<br>
+                <b>Xampp</b> => que é para trabalhar com banco de dados, usando o mysql, junto com PHP.<br>
                 <br>
-                <b>Node.js</b> é para trabalhar com o "angular".<br>
+                <b>Node.js</b> => é para trabalhar com o "angular".<br>
                 <br>
-                <b>Angular</b> facil de instalar depois do Node.js .<br>
+                <b>Angular</b> => fácil de instalar depois do Node.js .<br>
                 <br>
-                <b>VScode</b> que é o editor, pode ser usado outro mas aqui será usado o VScode.<br>
+                <b>VScode</b> => que é o editor, pode ser usado outro mas aqui será usado o VScode.<br>
                 <br>
             </h2>    
             </section>
@@ -102,10 +118,17 @@
                 Dentro da pasta "xampp", encontre a pasta <b>htdocs</b>, e dentro dessa pasta crie outra pasta com o nome <b>api</b>.<br>
                 Que onde vamos criar nosso api.<br>
                 <br>
-                Agora abra o VScode, vai em arquivo e escolha "Abrir pasta" e escolha a pasta que acabamos de criar.<br>
+                Agora abra o VScode, vai em arquivo e escolha "Abrir pasta" e escolha a pasta que acabamos de criar => "API".<br>
                 <br>
                 Abra o terminal do VScode, e coloque esse comando <b>ng new projeto-api</b>, vai criar esse novo projeto.<br>
-                Vai te pedir para escolher se deseja adicionar "rotas", escolha sim => "y", clique em enter.<br>
+                <br>
+                <div class="image">
+                    <img src="./imagens/terminal-iniciando-projeto.png" alt="print do código">
+                </div>
+                <br>
+                <br>
+                Vai te pedir para escolher se deseja adicionar rotas "Angular routing", escolha sim => "y", clique em enter.<br>
+                <br>
                 Vai pedir para escolher qual padrão de estilo você quer, escolha "CSS", clique em enter.<br>
                 <br>
                 Agora sim ele vai começar a criar o projeto, pode demorar de acordo com sua internet.<br>
@@ -123,10 +146,12 @@
                 Dentro da pasta desse projeto "blocoNotas", tem uma pasta com o nome "htaccess",<br>
                 copie o arquivo que está dentro dela <b>.htaccess</b>.<br>
                 <br>
-                Abra a pasta que criamos "htdocs", dentro da pasta "api", agora terá outra pasta lá dentro do nosso projeto <b>projeto-api</b>.<br>
+                Abra a pasta que criamos "htdocs", e dentro da pasta "api",<br>
+                agora terá outra pasta lá dentro do nosso projeto <b>projeto-api</b> que acabamos de criar no VScode.<br>
+                <br>
                 Crie outra pasta com o nome <b>php</b>, abra ela e cole/coloque o arquivo ".htaccess" dentro dela.<br> 
                 <br>
-                Esse arquivo vai liberar em nosso servidor as requisições:<br>
+                Esse arquivo vai liberar em nosso servidor para as requisições:<br>
                 <b>POST</b>, <b>GET</b>, <b>OPTIONS</b>, <b>DELETE</b>, <b>PUT</b> .<br>
                 <br>
                 E vai poder usar o PHP puro sem frameWork.<br>
@@ -141,11 +166,14 @@
             <header class="title"><h1> Configurar o <b>banco de dados</b> !</h1></header>
             <section class="description">
                 <h2>
+                    Com o <b>xampp</b> instalado e executando.<br>
+                    <br>
                     Na barra de navegação digite: <b>localhost</b> clique em enter.<br>
                     Abrirá a página de boas vindas do "Xampp", no canto superior clique em <b>PhpMyAdmin</b>.<br>
                     <div class="image">
                         <img src="./imagens/banco-de-dados-1.png" alt="print do código">
                     </div>
+                    <br>
                     <br>
                     Vai abrir a interface gráfica dele, para manipular base de dados e tabelas.<br>
                     Assim que abrir, clique em <b>Base de Dados</b>.<br>
@@ -153,28 +181,34 @@
                         <img src="./imagens/banco-de-dados-2.png" alt="print do código">
                     </div>
                     <br>
+                    <br>
                     Crie uma nova "Base de Dados", com o nome => <b>api</b>.<br>
                     <div class="image">
                         <img src="./imagens/banco-de-dados-3.png" alt="print do código">
                     </div>
+                    <br>
                     <br>
                     Dentro dessa base de dados, vai no botão <b>SQL</b> e vamos criar a tabela,<br>
                     <div class="image">
                         <img src="./imagens/banco-de-dados-4.png" alt="print do código">
                     </div>
                     <br>
+                    <br>
                     Para fazer o teste vê se está tudo certo, vamos adicionar um curso, clique em "SQL".<br>
                     <div class="image">
                         <img src="./imagens/banco-de-dados-5.png" alt="print do código">
                     </div>
+                    <br>
                     <br>
                     Depois clique na tabela curso, emcima ou do lado esquerdo, e veja como deveria ficar:<br>
                     <div class="image">
                         <img src="./imagens/banco-de-dados-6.png" alt="print do código">
                     </div>
                     <br>
-                    Prontinho nossa estrutura, nossa tabela de banco de dados foi criada.<br>
+                    <br>
+                    Prontinho nossa estrutura, nossa tabela de banco de dados <b>api</b> foi criada.<br>
                     Agora só implementar com o PHP.<br>
+                    <br>
                     <br>
                 </h2>
             </section>
