@@ -54,7 +54,7 @@ export class CursoService  {
         console.error('Curso inválido');
         return throwError('O curso informado é inválido.');
       }
-      // para pegar o id do curso e transformar em string
+
       const params = new HttpParams().set('idCurso', c.idCurso.toString());
 
       console.log("método service remover curso => selecionando o id  "+params)
@@ -65,23 +65,25 @@ export class CursoService  {
             return curso.idCurso !== c.idCurso;
           });
 
-          console.log("Fazendo uma filtragem nos ids. ");
-          return this.vetor = filtro;
+          console.log("Fazendo uma filtragem nos ids, e retornar o id. " + JSON.stringify(filtro));
+          this.vetor = [...filtro]; // fazer uma cópia do vetor filtrado
+
+          return this.vetor;
         }),
         catchError((error: HttpErrorResponse) => {
           if (error instanceof Error) {
-            // Erro de rede ou de servidor
             console.error('Erro ao remover curso:', error);
             return throwError('Ocorreu um erro ao tentar remover o curso.');
           } else {
-            // Erro no parse do retorno da API
             console.error('Erro ao remover curso:', error.error);
             return throwError('Ocorreu um erro ao tentar remover o curso. Verifique os dados informados.');
           }
         })
       );
     }
-    
+
+
+
       // atualizar curso
       atualizarCurso(c: Curso): Observable<Curso[]>{
 

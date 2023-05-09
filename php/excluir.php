@@ -5,19 +5,29 @@ include("conexao.php");
 
 $obterDados = file_get_contents("php://input");
 
-
 $extrair= json_decode($obterDados, true);
 
-$idCurso = $extrair['curso']['idCurso'] ?? null;
-// echo "pegando o id do curso selecionado ...","<br>";
+// $idCurso = $extrair['curso']['idCurso'] ?? null;
 
-if (isset($extrair['curso']['idCurso'])) {
-  $idCurso = $extrair['idCurso'];
-  // echo "Pegando o id do curso ... ";
-} else {
-  echo json_encode(array('error' => 'Dados inválidos.'));
-  exit();
+$curso = $extrair['curso'] ?? null;
+$idCurso = $curso['idCurso'] ?? null;
+
+if (!$curso || !$idCurso) {
+    echo json_encode(array('error' => 'Dados inválidos.'));
+    exit();
 }
+
+
+// echo "pegando o id do curso selecionado ...","<br>";
+if (isset($extrair['curso']['idCurso'])) {
+    $idCurso = $extrair['curso']['idCurso'];
+    echo "Pegou o id do curso ... ";
+} else {
+    echo json_encode(array('error' => 'Dados inválidos.'));
+    exit();
+}
+
+
 
 // selecionar qual é o curso que será apagado de acordo com o id
 $sql = "DELETE FROM cursos WHERE idCurso = $idCurso";
@@ -26,4 +36,3 @@ if (mysqli_query($conexao, $sql)) {
 } else {
   echo json_encode(array('error' => 'Erro ao remover registro: ' . mysqli_error($conexao)));
 }
-?>

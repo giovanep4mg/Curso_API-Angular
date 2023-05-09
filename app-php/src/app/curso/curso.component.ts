@@ -90,26 +90,26 @@ export class CursoComponent implements OnInit {
 
   // método remover, para remover o curso selecionado.
   remover(c: Curso){
-    this.curso_servico.removerCurso(this.curso).subscribe(
+    this.curso_servico.removerCurso(c).subscribe(
       (res: Curso[] ) => {
-        this.vetor = res;
-
-        console.log("método remover curso => removendo o curso"+res)
+        console.log("método remover curso => removendo o curso "+JSON.stringify(c));
 
         // atualizar os atributos
         this.curso.nomeCurso = '';
         this.curso.valorCurso = 0 ;
 
-        console.log("método remover curso => atualizando os atributos")
+        console.log("método remover curso => atualizando os atributos");
 
         // atualizar a listagem no front
-        this.selecao();
-
-        console.log("método remover curso => atualizando o front-End")
+        this.vetor = res;
+        console.log("método remover curso => atualizando o front-End "+JSON.stringify(this.vetor));
+      },
+      error => {
+        console.error(error);
       }
-    )
-    console.log("método remover => curso.component.ts")
+    );
   }
+
 
   // método selecionar, um curso especifico para realizar modificações ou apagar do banco de dados.
   selecionarCurso(c: Curso ){
