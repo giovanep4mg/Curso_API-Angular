@@ -36,3 +36,6 @@ if (mysqli_query($conexao, $sql)) {
 } else {
   echo json_encode(array('error' => 'Erro ao remover registro: ' . mysqli_error($conexao)));
 }
+
+
+?>
