@@ -25,6 +25,7 @@ $cursos = [
     'valorCurso' =>  $valorCurso,
 ];
 
+//para ser exportado e exibido na tela
 echo json_encode(['cursos' => $cursos]);
 // echo "guardando no json ";
 

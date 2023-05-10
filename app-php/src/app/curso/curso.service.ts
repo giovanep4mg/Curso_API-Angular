@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Curso } from './curso';
@@ -54,18 +54,19 @@ export class CursoService  {
         console.error('Curso inválido');
         return throwError('O curso informado é inválido.');
       }
-
+      // selecionando o id do curso selecionado
       const params = new HttpParams().set('idCurso', c.idCurso.toString());
-
       console.log("método service remover curso => selecionando o id  "+params)
 
-      return this.http.delete(this.url+'excluir', {params: params}).pipe(
+      return this.http.delete(this.url+'./excluir', {params: params}).pipe(
         map((res: any) => {
+          console.log("metodo curso serviço => filtrando os ids ");
           const filtro = this.vetor.filter((curso) => {
             return curso.idCurso !== c.idCurso;
+
           });
 
-          console.log("Fazendo uma filtragem nos ids, e retornar o id. " + JSON.stringify(filtro));
+          console.log("metodo curso serviço => fazer uma cópia do vetor filtrado " + JSON.stringify(filtro));
           this.vetor = [...filtro]; // fazer uma cópia do vetor filtrado
 
           return this.vetor;

@@ -17,10 +17,6 @@ $idCurso = isset($extrair['curso']['idCurso']) ? $extrair ['curso']['idCurso'] :
 $nomeCurso = isset($extrair['curso']['nomeCurso']) ? $extrair['curso']['nomeCurso'] : null;
 $valorCurso = isset($extrair['curso']['valorCurso']) ? $extrair['curso']['valorCurso'] : null;
 
-//$idCurso = $extrair['cursos']['idCurso'] ?? null;
-// $nomeCurso = $extrair['cursos']['nomeCurso'] ?? null;
-// $valorCurso = $extrair['cursos']['valorCurso'] ?? null;
-
 // sql
 $sql = " UPDATE cursos SET nomeCurso = '$nomeCurso', valorCurso = $valorCurso WHERE idCurso = $idCurso";
 mysqli_query($conexao, $sql);

@@ -63,7 +63,7 @@ export class CursoComponent implements OnInit {
         this.vetor = res;
       }
     )
-    console.log("metodo seleção => mostrar todos os cursos no front-End");
+    console.log("metodo seleção => Seleciona todos os cursos e mostra no front-End");
   }
 
   // alterar o curso selecionado, podendo modificar o nome e seu valor.
@@ -92,20 +92,20 @@ export class CursoComponent implements OnInit {
   remover(c: Curso){
     this.curso_servico.removerCurso(c).subscribe(
       (res: Curso[] ) => {
-        console.log("método remover curso => removendo o curso "+JSON.stringify(c));
+        console.log("método remover => removendo o curso "+JSON.stringify(c));
 
         // atualizar os atributos
         this.curso.nomeCurso = '';
         this.curso.valorCurso = 0 ;
-
-        console.log("método remover curso => atualizando os atributos");
+        console.log("método remover => atualizando os atributos");
 
         // atualizar a listagem no front
-        this.vetor = res;
-        console.log("método remover curso => atualizando o front-End "+JSON.stringify(this.vetor));
+        console.log("método remover => atualizando o front-End "+JSON.stringify(res));
+        return this.vetor = res;
+
       },
       error => {
-        console.error(error);
+        console.error(error+" Erro no método remover");
       }
     );
   }

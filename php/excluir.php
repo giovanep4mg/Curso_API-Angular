@@ -1,41 +1,41 @@
 <?php
+
 // incluir a conexão
 include("conexao.php");
-// echo "Conectando ao banco de dados api... ","<br>";
+// echo "Conectando ao banco de dados api... ";
 
+// obter dados "dados que serão enviados"
 $obterDados = file_get_contents("php://input");
+// echo "Obtendo dados do banco de dados api...";
 
-$extrair= json_decode($obterDados, true);
-
-// $idCurso = $extrair['curso']['idCurso'] ?? null;
-
-$curso = $extrair['curso'] ?? null;
-$idCurso = $curso['idCurso'] ?? null;
-
-if (!$curso || !$idCurso) {
-    echo json_encode(array('error' => 'Dados inválidos.'));
-    exit();
+/*
+//verificaação se está recebendo algo ou não.
+if($obterDados == null){
+  echo "Obter dados está como null";
 }
+*/
+
+// extrair os dados do JSON
+$extrair = json_decode($obterDados, true);
+// echo "Extraindo dados do banco de dados..","<br>";
+
+// para saber o que está sendo recebido aqui
+//echo +$extrair;
+
+// fazer a verificação se foi extraido curso e nome, do banco de dados 
+$idCurso = isset($extrair['curso']['idCurso']) ? $extrair ['curso']['idCurso'] : null;
+
+// para saber o que está sendo recebido aqui
+//echo +$idCurso;
+
+// sql
+$sql = " DELETE FROM cursos WHERE idCurso = $idCurso";
+mysqli_query($conexao, $sql);
 
 
-// echo "pegando o id do curso selecionado ...","<br>";
-if (isset($extrair['curso']['idCurso'])) {
-    $idCurso = $extrair['curso']['idCurso'];
-    echo "Pegou o id do curso ... ";
-} else {
-    echo json_encode(array('error' => 'Dados inválidos.'));
-    exit();
-}
 
-
-
-// selecionar qual é o curso que será apagado de acordo com o id
-$sql = "DELETE FROM cursos WHERE idCurso = $idCurso";
-if (mysqli_query($conexao, $sql)) {
-  echo json_encode(array('success' => 'Registro removido com sucesso'));
-} else {
-  echo json_encode(array('error' => 'Erro ao remover registro: ' . mysqli_error($conexao)));
-}
-
+/**
+ * echo desativado para evitar dá erro quando for retorna um json.
+ */
 
 ?>
