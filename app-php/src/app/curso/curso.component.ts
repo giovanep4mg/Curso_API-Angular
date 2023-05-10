@@ -101,6 +101,7 @@ export class CursoComponent implements OnInit {
 
         // atualizar a listagem no front
         console.log("método remover => atualizando o front-End "+JSON.stringify(res));
+        this.selecao();
         return this.vetor = res;
 
       },

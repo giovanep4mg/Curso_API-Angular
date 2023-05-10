@@ -1,41 +1,59 @@
 <?php
+header('Content-Type: application/json');
 
-// incluir a conexão
+// Incluir a conexão com o banco de dados
 include("conexao.php");
-// echo "Conectando ao banco de dados api... ";
 
-// obter dados "dados que serão enviados"
-$obterDados = file_get_contents("php://input");
-// echo "Obtendo dados do banco de dados api...";
+// Obter o ID do curso a ser removido da query string
+$idCurso = $_GET['idCurso'];
 
-/*
-//verificaação se está recebendo algo ou não.
-if($obterDados == null){
-  echo "Obter dados está como null";
+// Verificar se o ID do curso está presente
+if (!$idCurso) {
+  $response = array(
+    'success' => false,
+    'message' => 'ID do curso não fornecido'
+  );
+  echo json_encode($response);
+  exit;
 }
-*/
 
-// extrair os dados do JSON
-$extrair = json_decode($obterDados, true);
-// echo "Extraindo dados do banco de dados..","<br>";
+// Preparar a declaração SQL para remover o curso
+$sql = "DELETE FROM cursos WHERE idCurso = ?";
 
-// para saber o que está sendo recebido aqui
-//echo +$extrair;
+// Preparar a declaração
+$stmt = $conexao->prepare($sql);
 
-// fazer a verificação se foi extraido curso e nome, do banco de dados 
-$idCurso = isset($extrair['curso']['idCurso']) ? $extrair ['curso']['idCurso'] : null;
+// Verificar se a preparação da declaração falhou
+if (!$stmt) {
+  $response = array(
+    'success' => false,
+    'message' => 'Erro na preparação da declaração SQL'
+  );
+  echo json_encode($response);
+  exit;
+}
 
-// para saber o que está sendo recebido aqui
-//echo +$idCurso;
+// Vincular o parâmetro ID do curso à declaração
+$stmt->bind_param('i', $idCurso);
 
-// sql
-$sql = " DELETE FROM cursos WHERE idCurso = $idCurso";
-mysqli_query($conexao, $sql);
+// Executar a declaração
+if ($stmt->execute()) {
+  // Remoção bem-sucedida
+  $response = array(
+    'success' => true,
+    'message' => 'Curso removido com sucesso'
+  );
+  echo json_encode($response);
+} else {
+  // Erro ao remover o curso
+  $response = array(
+    'success' => false,
+    'message' => 'Erro ao remover o curso'
+  );
+  echo json_encode($response);
+}
 
-
-
-/**
- * echo desativado para evitar dá erro quando for retorna um json.
- */
-
+// Fechar a declaração e a conexão com o banco de dados
+$stmt->close();
+$conexao->close();
 ?>

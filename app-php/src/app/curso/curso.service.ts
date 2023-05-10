@@ -58,7 +58,7 @@ export class CursoService  {
       const params = new HttpParams().set('idCurso', c.idCurso.toString());
       console.log("método service remover curso => selecionando o id  "+params)
 
-      return this.http.delete(this.url+'./excluir', {params: params}).pipe(
+      return this.http.delete(this.url+'excluir', {params: params}).pipe(
         map((res: any) => {
           console.log("metodo curso serviço => filtrando os ids ");
           const filtro = this.vetor.filter((curso) => {
