@@ -14,18 +14,17 @@ $extrair = json_decode($obterDados, true);
   $nomeCurso = isset($extrair['curso']['nomeCurso']) ? $extrair['curso']['nomeCurso'] : null;
   $valorCurso = isset($extrair['curso']['valorCurso']) ? $extrair['curso']['valorCurso'] : null;
 
-
 // sql para entrar no banco de dados e inserir os dados 
 $sql = "INSERT INTO cursos (nomeCurso, valorCurso) VALUES ('$nomeCurso', '$valorCurso')";
 mysqli_query($conexao, $sql);
 
-// exporta os dados cadatrados
+// cria um vetor/lista, com os dados atualizados
 $cursos = [
     'nomeCurso' => $nomeCurso,
     'valorCurso' =>  $valorCurso,
 ];
 
-//para ser exportado e exibido na tela
+// vai converter os dados em JSON, e exportar o JSON para o front-end
 echo json_encode(['cursos' => $cursos]);
 // echo "guardando no json ";
 

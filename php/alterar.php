@@ -1,5 +1,4 @@
 <?php
-
 // incluir a conexão
 include("conexao.php");
 // echo "Conectando ao banco de dados api... ";
@@ -17,12 +16,12 @@ $idCurso = isset($extrair['curso']['idCurso']) ? $extrair ['curso']['idCurso'] :
 $nomeCurso = isset($extrair['curso']['nomeCurso']) ? $extrair['curso']['nomeCurso'] : null;
 $valorCurso = isset($extrair['curso']['valorCurso']) ? $extrair['curso']['valorCurso'] : null;
 
-// sql
+// vai acessar o banco de dados e fazer as modificações nos dados selecionados.
 $sql = " UPDATE cursos SET nomeCurso = '$nomeCurso', valorCurso = $valorCurso WHERE idCurso = $idCurso";
+// faz a conexão e executa a ação de atualizar dados.
 mysqli_query($conexao, $sql);
 
-
-// exporta os dados cadatrados
+// cria um vetor, e salva os dados atualizados
 $cursos = [
     'idCurso' => $idCurso,
     'nomeCurso' => $nomeCurso,
@@ -30,16 +29,11 @@ $cursos = [
 ];
 // echo "exportando os dados cadastrados...";
 
-
-
-// mostra mas detalhes do está sendo exportado
+// converte os dados em JSON e depois envia 
 echo json_encode(['cursos' => $cursos]);
 
-// exibi no front end
-// json_encode(['curso' => $cursos]);
-// echo "exibir os dados dados...";
-
 /**
+ * echo => serve para mostrar o que está sendo feito no código.
  * echo desativado para evitar dá erro quando for retorna um json.
  */
 
