@@ -82,7 +82,7 @@ export class CursoComponent implements OnInit {
 
       // atualiza a listagem
       this.selecao();
-      console.log("método alterar =>atualizar o front-end")
+      console.log("método alterar => atualizar o front-end")
 
     })
 
@@ -124,7 +124,7 @@ export class CursoComponent implements OnInit {
     console.log("VALOR CURSO SELECIONADO =>  "+this.curso.valorCurso);
 
 
-    console.log("método selecionarCurso => ESTÁ SENDO EXECUTADO ...");
+    console.log("método selecionarCurso => O curso => "+ this.curso.nomeCurso+" foi selecionado.");
   }
 
 

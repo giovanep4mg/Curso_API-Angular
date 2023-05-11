@@ -13,10 +13,12 @@
     <button (click)="alterar(this.curso)">Alterar</button>
     <button (click)="remover(this.curso)"> Excluir</button>
   </form>
-  <!--tabela-->
+  <!--tabela dos cursos adicionados-->
   <table class="tabela">
     <tr *ngFor="let v of vetor">
+      <h4>Nome:</h4> <br>
       <td>{{ v.nomeCurso }}</td>
+      <h4>valor:</h4><br>
       <td>{{ v.valorCurso }}</td>
       <td> <button (click)="selecionarCurso(v)"> Selecionar curso </button> </td>
     </tr>
