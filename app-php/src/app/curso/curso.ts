@@ -1,6 +1,4 @@
 
-// classe
-
 export class Curso {
 
     // atributos

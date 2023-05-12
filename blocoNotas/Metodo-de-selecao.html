@@ -20,9 +20,6 @@
                 <h2 id="h2" data-text="API" class="fill-animation">API</h2>
             </p>
                 <br>
-                <!--LINK AULA 1-->
-                <a href="./index.html">Configurando o banco de dados</a> </a><br>
-                <br>
                  <!--LINK AULA 2-->
                 <a href="./Configurando-Angular.html">Configurando o Angular </a><br>
                 <br>
@@ -36,7 +33,7 @@
                 <a href="./criando-metodo-cadastro.html">Criando método de Cadastrar </a><br>
                 <br>
                 <!--LINK AULA 6-->
-                <a href="./Estrutura-de-servico.html">Algum link </a><br>
+                <a href="./Criar-metodo-exclusao.html">Método de Exclussão </a><br>
                 <br>
                 <br>
                  <!---Link dentro da própria página-----><!---Figurinha mas é texto-->
@@ -58,7 +55,7 @@
                     // url para ter acesso ao dados do banco de dados <br>
                     <b>url = "http://localhost/api/php/";</b> <br>
                     <br>
-                    Agora crie um vetor, para ter acesso ao dados e armazenar eles.<br>
+                    Agora crie um vetor, para armazenar eles, e depois ter acesso a esses dados.<br>
                     <br>
                     <b>vetor: Curso = [] = [ ] ; </b> <br>
                     <br>
@@ -77,12 +74,19 @@
                     <br>
                     Agora vamos criar o método, para obter todos os cursos.<br>
                     <br>
-                    // obter todos os cursos <br>
+                    Use o <b>Observable</b> para ver o que tem dentro do "Curso[]".<br>
+                    <br>
+                    Use o <b>map</b> que irá percorrer todas as linhas da tabela.<br>
+                    <br>
+                    Veja como será o método:<br>
+                    <br>
+                    <div class="destaque">
+                        // obter todos os cursos <br>
                     <b>
                         obterCursos( ):Observable< Curso[ ] > { <br>
                         <br>
                         _______ return this.http.get( this.url+"listar" ).pipe( <br>
-                        _______ map( (res) => { <br>
+                        _______ map( (res: any) => { <br>
                         _______________ this.vetor = res; <br>
                         <br>
                         _______________ return this.vetor; <br>
@@ -90,6 +94,7 @@
                         _ ) <br>
                         _ } <br>
                     </b>
+                    </div>
                     <br>
                     Veja o código como é :<br>
                     <div class="image">
@@ -114,21 +119,26 @@
                     Vai no componente <b>curso.component.ts</b>, no constructor:<br>
                     adicione o parâmetro:<br>
                     <br>
-                    <b>private curso_servico: CursoService</b>=> um auxilio para obter dados.<br>
+                    <div class="destaque">
+                        // será um auxilio para obter dados.
+                        <b>private curso_servico: CursoService</b> <br>
+                    </div>
                     <br>
                     <br>
                     Depois localize o método "selecao", apague o "alert", que estiver lá dentro.<br>
                     Coloque isso:<br>
                     <br>
-                    <b>
-                        selecao(){ <br>
-                        ____ this.curso_servico.obterCursos().subscribe( <br>
-                        ________ (res: Curso[ ]) => { <br>
-                        _________ this.vetor = res; <br>
-                        ______ } <br>
-                        ____ ) <br>
-                        __ } <br>
-                    </b>
+                    <div class="destaque">
+                        <b>
+                            selecao(){ <br>
+                            ____ this.curso_servico.obterCursos().subscribe( <br>
+                            ________ (res: Curso[ ]) => { <br>
+                            _________ this.vetor = res; <br>
+                            ______ } <br>
+                            ____ ) <br>
+                            __ } <br>
+                        </b>
+                    </div>
                     <br>
                     Veja o código como é :<br>
                     <div class="image">
@@ -138,15 +148,25 @@
                     Agora todo conteúdo será guardado dentro da variável "vetor" .<br>
                     <br>
                     <br>
-                    Agora vamos colocar no <b>ngOnInit( ){ } </b>, para quando iniciar o programa,<br>
-                    já seja carregado a lista de dados, do nosso banco de dados.<br>
+                    Agora vamos colocar no <b>ngOnInit( ){ } </b>,<br>
+                    para que quando iniciar o programa, seja carregado a lista de dados,<br>
+                    do nosso banco de dados.<br>
                     <br>
                     Coloque esse comando dentro do "ngOnInit( ){*}":<br>
                     <br>
-                    // ao iniciar o sistema, deverá listar os cursos <br>
+                    // ao iniciar o sistema, deverá listar os cursos no front-end "página" <br>
                     <b>this.selecao();</b> <br>
                     <br>
                     <br>
+                    ficando assim:<br>
+                    <div class="destaque">
+                        <b>
+                            ngOnInit() { <br>
+                            ____// ao iniciar o sistema, listar todos os cursos no front-end <br>
+                            ____this.selecao(); <br>
+                            __} <br>
+                        </b>
+                    </div>
                     <br>
                 </h2>
             </section>

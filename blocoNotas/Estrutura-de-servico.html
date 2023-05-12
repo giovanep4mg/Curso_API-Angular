@@ -35,9 +35,6 @@
                 <!--LINK AULA 5-->
                 <a href="./criando-metodo-cadastro.html">Criando método de cadastro </a><br>
                 <br>
-                <!--LINK AULA 6-->
-                <a href="./Estrutura-de-servico.html">Algum link </a><br>
-                <br>
                 <br>
                  <!---Link dentro da própria página-----><!---Figurinha mas é texto-->
                 <a href="#sobreMim"><i class="fa-solid fa-user-tie"></i></a><br>
@@ -205,9 +202,9 @@
                         // atributos <br>
                         <b>
                             <br>
-                            ________nomeCurso: string, <br>
-                            ________valorCurso: number, <br>
-                            ________idCurso: number <br>
+                            ________nomeCurso!: string, <br>
+                            ________valorCurso!: number, <br>
+                            ________idCurso?: number <br>
                             <br>
                         </b>
                         <br>
@@ -221,11 +218,12 @@
                     </div>
                     <br>
                     <br>
-                    <div style="border: 1px solid black; margin: 10px; padding: 10px;">
-                        É importante colocar o nome e o valor por que provavelmente será usado,<br>
-                        e colocar o acento "!", que vai receber algo concerteza.<br>
+                    <div class="destaque">
+                        É importante colocar  o acento <b>!</b>, no nome e o valor ,<br>
+                        por que será usado para ser adicionado, removido ou modificado.<br>
                         <br>
-                        Já o id, ás vezes precisa e as vezes não, por isso coloca a interrogação <b>?</b>.<br>
+                        Já o ponto de interrogação <b>?</b> será colocado no id,<br>
+                        por que pode ser que tenha ou não.<br>
                     </div>
                     <br>
                     <br>
@@ -305,10 +303,11 @@
                         <img src="./imagens/base-url-2.png" alt="print do código">
                     </div>
                     <br>
-                    <div style="border: 1px solid black; margin: 10px; padding: 10px;">
-                        <b>vetor </b> é uma variável.<br>
-                        <b>Curso</b> é o modelo, a interface. <br>
-                        <b>[ ]</b> é pra conter vários não só um, uma lista. <br>
+                    <div class="destaque">
+                        <b>vetor </b> => é uma variável.<br>
+                        <b>Curso</b> => é o modelo, a interface. <br>
+                        <b>[ ]</b> => é pra conter vários não só um, mais uma lista de coisas. <br>
+                        <b> = [ ]</b> => para iniciar essa lista vazia. <br>
                     </div>
                     <br>
                     <br>
@@ -321,7 +320,8 @@
             <header class="title"><h1> Serviços </h1></header>
             <section class="description">
                 <h2>
-                    Serve como um intermediário, para enviar para as camadas de serviço. <br>
+                    Serve como um intermediário, para enviar seus dados, comandos,<br> 
+                    para as camadas de serviço. <br>
                     <br>
                     Para criar esse serviço, vai no pront de comando do "VScode",<br>
                     certifique que você está dentro da pasta do programa, coloque:<br>
@@ -335,7 +335,7 @@
                     <br>
                     Explicando o código:<br>
                     <br>
-                    <div style="border: 1px solid black; margin: 10px; padding: 10px;">
+                    <div class="destaque">
                         <b>ng</b> => comando do Angular.<br>
                         <b>g</b> => generate , gerar algo. <br>
                         <b>s</b> => service, diz que será um serviço. <br>
@@ -353,7 +353,7 @@
             <header class="title"><h1> Adicionar o Http Client Module</h1></header>
             <section class="description">
                 <h2>
-                    Responsável por criar a transição de informações entre o php e o angular, vice-versa. <br>
+                    Responsável por criar a transição de informações entre o php e o angular, e vice-versa. <br>
                     <br>
                     Para isso vai no componente <b>curso.service.ts</b>,<br>
                     e dentro do "constructor", adicione esse parâmetro:<br>
