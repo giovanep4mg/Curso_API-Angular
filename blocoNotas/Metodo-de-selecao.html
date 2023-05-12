@@ -172,16 +172,20 @@
             </section>
         </section>
         <br>
-        <!--Exibir o "curso" selecionado no front-end-->
+        <!--Exibir os "cursos" selecionado no front-end-->
         <section id="aula1" class="aula">
-            <header class="title"><h1> Exibir no front-end (página) </h1></header>
+            <header class="title"><h1> Exibir os cursos no front-end (página) </h1></header>
             <section class="description">
                 <h2>
+                    Vamos exibir os cursos no front-end.<br>
+                    <br>
                     No componente <b>curso.component.ts</b> adicione um objeto.<br>
                     <br>
-                    <b>curso = new Curso( );</b> <br>
+                    Vamos criar um objeto, da classe "curso" para poder instânciar,<br>
+                    Para pode usar todos os dados que estão lá: id, nomeCurso, valorCurso.<br>
                     <br>
-                    Para pode exibir todos os dados: id, nomeCurso, valorCurso.<br>
+                    // objeto da classe curso <br>
+                    <b>curso = new Curso( );</b> <br>
                     <br>
                     <br>
                     Para exibir, vai no componente <b>curso.component.html</b>, <br>
@@ -192,11 +196,14 @@
                     <b>table border = "1" </b> => cria uma tabela, com borda.<br>
                     // vai percorre toda tabela <br>
                     <br>
+                    <div class="destaque">
                     __<b>tr *ngFor="let v of vetor" </b> => linha da tabela <br>
                     _____<b>td</b> { { v.nomeCurso } } <b>/td</b> => coluna da tabela. <br>
                     _____<b>td</b> { { v.valorCurso } } <b>/td</b> => coluna da tabela.<br>
                     __<b>tr</b> => fecha a linha da tabela.<br>
                     <b>table</b> => fecha a tabela <br>
+                    </div>
+                    <br>
                     <br>
                     Veja o código como é :<br>
                     <div class="image">

@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
-    <title>Criando método de Cadastro</title>
+    <title>Criando método de Atualizar</title>
 </head>
 <body>
     <main class="todaPagina" id="aula2">
@@ -19,12 +19,6 @@
             <p class="logo">
                 <h2 id="h2" data-text="API" class="fill-animation">API</h2>
             </p>
-                <br>
-                 <!--LINK AULA 2-->
-                <a href="./Configurando-Angular.html">Configurando o Angular </a><br>
-                <br>
-                <!--LINK AULA 3-->
-                <a href="./Estrutura-de-servico.html">Estrutura de Serviços </a><br>
                 <br>
                 <!--LINK AULA 4-->
                 <a href="./Metodo-de-selecao.html">Método de Seleção </a><br>
@@ -35,6 +29,13 @@
                 <!--LINK AULA 6-->
                 <a href="./Criar-metodo-exclusao.html">Criando método de Exclusão</a><br>
                 <br>
+                 <!--LINK AULA 2-->
+                <a href="./Criar-metodo-Atualizar.html">Criando método de Atualizar </a><br>
+                <br>
+                <br>
+                <!--LINK AULA 3-->
+                <a href="./index.html"> Inicio </a><br>
+                <br>
                 <br>
                  <!---Link dentro da própria página-----><!---Figurinha mas é texto-->
                 <a href="#sobreMim"><i class="fa-solid fa-user-tie"></i></a><br>
@@ -43,92 +44,45 @@
                 <a href="#contato"><i class="fa-regular fa-envelope"></i></a><br>
              <br>
         </div>
-        <!--Criar método serviço para cadastrar-->
+        <!--Criar método serviço para excluir-->
         <section id="aula1" class="aula">
-            <header class="title"><h1>Criar método serviço para cadastrar </h1></header>
+            <header class="title"><h1>Criar método de serviço para Atualizar  </h1></header>
             <section class="description">
                 <h2>
-                    Vamos criar método de serviço para realizar um cadastramento.<br>
-                    <br>
-                    Esse método terá que ter um objeto, que tem o nome e o valor do curso.<br>
+                    Vamos criar método de serviço para atualizar algum dado do banco de dado.<br>
                     <br>
                     Vai no componente service <b>curso.service.ts</b> e adicione:<br>
                     <br>
                     <br>
-                    // método serviço cadastrar <br>
+                    // método serviço para atualizar curso <br>
+                    <br>
                     <div class="destaque">
-                        <b>
-                            cadastrarCurso(c: Curso):Observable<Curso[]>{ <br>
-                            ____return this.http.post(this.url+'cadastrar', {cursos : c }).pipe <br>
-                            ____( map ((res) => { <br>
-                            ________this.vetor.push(res as Curso); <br>
-                            ________return this.vetor; <br>
-                            ________}))<br>
-                            ____} <br>
-                        </b> 
-                    </div>
+                    <b>atualizarCurso(c: Curso): Observable<Curso[]>{ </b> <br> 
                     <br>
-                    Veja o código como é :<br>
+                    ______// executa a alteração via url<br>
+                    ______<b>return this.http.put(this.url+'alterar', {curso: c})</b><br>
+                    <br>
+                    ______// percorre o vetor para saber qual é o id do curso alterado.<br>
+                    ______<b>.pipe(map((res) => {</b> <br>
+                    _____________<b>const cursoAlterado = this.vetor.find((item) => {</b> <br>
+                    __________________<b>item.idCurso === c.idCurso</b> <br>
+                    _____________<b>} ) ;</b> <br>
+                    <br>
+                    _______// alterar o valor do vetor local <br>
+                    _______<b></b>
+
+              
                     <div class="image">
-                        <img src="./imagens/metodo-cadastrar-1.png" alt="print do código">
+                        <img src="./imagens/metodo-remover-2-2.png" alt="print do código">
                     </div>
                     <br>
-                    <br>
-                    Agora estamos usando:<br>
-                    <b>post</b> => que é para enviar algo.<br>
-                    <br>
-                    <b>console.log()</b> => é para saber o que o código está fazendo.<br>
                     <br>
                     <br>
                 </h2>
             </section>
         </section>
         <br>
-        <!--Chamar o método cadastro-->
-        <section id="aula1" class="aula">
-            <header class="title"><h1>Chamar o método serviço para cadastrar </h1></header>
-            <section class="description">
-                <h2>
-                    Vamos chamar o método que criamos, o método <b>cadastrar</b>.<br>
-                    <br>
-                    <br>
-                    Vai no componente <b>curso.component.ts</b> e adicione:<br>
-                    <br>
-                    <br>
-                    // método cadastrar <br>
-                    <div class="destaque">
-                        <b>
-                            cadastrar(){ <br>
-                            ____this.curso_servico.cadastrarCurso(this.curso) <br>
-                            .subscribe( <br>
-                            ________(res: Curso[]) => { <br>
-                            <br>
-                            ________// adicionando dados ao vetor <br>
-                            ________this.vetor = res; <br>
-                            <br>
-                            ________// limpar os atributos <br>
-                            ________this.curso.nomeCurso = '' ; <br>
-                            ________this.curso.valorCurso = 0 ; <br>
-                            <br>
-                            ________// atualizar a listagem no front <br>
-                            ________this.selecao(); <br>
-                            _______}<br>
-                            ____) <br>
-                            __}<br>
-                        </b> <br>
-                    </div>
-                    <br>
-                    Veja o código como é :<br>
-                    <div class="image">
-                        <img src="./imagens/metodo-cadastrar-2.png" alt="print do código">
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                </h2>
-            </section>
-        </section>
+
         <br>
         <br>
         <div id="sobreMim" class="aula">      

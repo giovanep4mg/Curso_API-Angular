@@ -83,22 +83,17 @@ export class CursoService  {
       );
     }
 
-      // atualizar curso
+      // método serviço para atualizar curso
       atualizarCurso(c: Curso): Observable<Curso[]>{
-
         // executa a alteração via url
         return this.http.put(this.url+'alterar', {curso: c})
-
-
 
         // percorre o vetor para saber qual é o id do curso alterado
         .pipe(map((res) => {
             const cursoAlterado = this.vetor.find((item) => {
-              item.idCurso === c.idCurso;
-
+              item.idCurso === c.idCurso
             });
-
-            // altero o valor do vetor local
+            // alterar o valor do vetor local
             if(cursoAlterado){
               cursoAlterado ['nomeCurso'] = c ['nomeCurso'];
               cursoAlterado ['valorCurso'] = c ['valorCurso'];
@@ -106,9 +101,7 @@ export class CursoService  {
             }
             // retorna
             return this.vetor;
-
         }))
-
       }
 
 

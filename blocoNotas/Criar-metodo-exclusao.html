@@ -33,7 +33,7 @@
                 <a href="./Criar-metodo-exclusao.html">Criando método de Exclusão</a><br>
                 <br>
                  <!--LINK AULA 2-->
-                <a href="./">algum link </a><br>
+                <a href="./Criar-metodo-Atualizar.html">Criando método de Atualizar </a><br>
                 <br>
                 <br>
                  <!---Link dentro da própria página-----><!---Figurinha mas é texto-->
@@ -55,31 +55,55 @@
                     <br>
                     // método remover Curso <br>
                     <br>
+                    <div class="destaque">
                     <b>removerCurso(c: Curso):Observable<Curso[]> { </b> <br> 
                     <br>
+                    // para fazer uma verificação se tem o idCurso ou não.<br>
+                    if (!c || c.idCurso == null) {<br>
+                    ____console.error('Curso inválido');<br>
+                    ____return throwError('O curso informado é inválido.');<br>
+                    __}<br>
+                    <br>
                     ____// para pegar o id do curso dentro do banco de dados
-                    <b>const params = new HttpParams().set("idCurso", c.idCurso!.toString());</b> <br>
+                    <b>const params = new HttpParams().set('idCurso', c.idCurso.toString());;</b> <br>
                     <br>
                     <br>
                     _____<b>return this.http.delete(this.url+'excluir', {params : params}).pipe ( </b> <br>
-                    _____<b>(map( (res) => {</b> <br>
+                    _____<b>(map( (res: any) => {</b> <br>
                             <br>
                     ________// filtrar os ids para achar o que foi escolhido e exclui <br>
                     ________<b>const filtro = this.vetor.filter( (curso) => {</b> <br>
-                    ______________<b>return +['idCurso'] !== +c.idCurso!;</b> <br>
+                    ______________<b>return curso.idCurso !== c.idCurso;</b> <br>
                     ______________<b>} ) ; </b> <br>
                     <br>
                     <br>
                     ________// salva o id escolhido se foi encontrado excluido <br>
-                    ________<b>return this.vetor = filtro;</b> <br>
+                    ________<b>this.vetor = [...filtro];</b> <br>
+                    <br>
+                    ________<b>return this.vetor;</b> <br>
                     <br>
                     __<b>} ) )</b> <br>
+                    // verificação se o idCurso não for removido vai exiir essa mensagem<br>
+                    <br>
+                    catchError((error: HttpErrorResponse) => {<br>
+                    ____if (error instanceof Error) {<br>
+                    _______console.error('Erro ao remover curso:', error);<br>
+                    _______return throwError('Ocorreu um erro ao tentar remover o curso.');<br>
+                    ____} else {<br>
+                    ______console.error('Erro ao remover curso:', error.error);<br>
+                    ______return throwError('Ocorreu um erro ao tentar remover o curso. Verifique os dados informados.');<br>
+                    ____}<br>
+                    __})<br>
                     <b>)</b>
+                    </div>
                     <br>
                     <br>
                     Veja o código como é :<br>
                     <div class="image">
                         <img src="./imagens/metodo-remover-1.png" alt="print do código">
+                    </div>
+                    <div class="image">
+                        <img src="./imagens/metodo-remover-2-2.png" alt="print do código">
                     </div>
                     <br>
                     <br>
@@ -101,22 +125,34 @@
                     <br>
                     //  remover Curso <br>
                     <br>
-                    <b> remover(){ </b> <br> 
-                    <br>
-                    ____<b>this.curso_servico.removerCurso(this.curso).subscribe ( </b> <br>
-                    <br>
-                    __________<b>(res : Curso[] ) => { </b> <br>
-                    _____________<b> this.vetor = res;</b> <br>
+                    <div class="destaque">
+                        <b> remover(c: Curso){ </b> <br> 
                             <br>
+                            ____<b>this.curso_servico.removerCurso(c).subscribe(</b> <br>
                             <br>
-                    ________// atualiza os atributos <br>
-                    ________<b>this.curso.nomeCurso = '' ;</b> <br>
-                    ________<b>this.curso.valorCurso = 0 ;</b> <br>
-                    <br>
-                    <br>
-                    ______<b>} </b> <br>
-                    __<b> )</b> <br>
-                    <b>}</b>
+                            __________<b>(res : Curso[] ) => { </b> <br>
+                            _____________<b> this.vetor = res;</b> <br>
+                                    <br>
+                                    <br>
+                            ________// atualiza os atributos <br>
+                            ________<b>this.curso.nomeCurso = '' ;</b> <br>
+                            ________<b>this.curso.valorCurso = 0 ;</b> <br>
+                            <br>
+                            _______<b>// atualizar a listagem no front</b> <br>
+                            _______<b>this.selecao();</b> <br>
+                            <br>
+                            _______<b>return this.vetor = res;</b>
+                            <br>
+                            ______<b>}, </b> <br>
+                            <br>
+                            // verifica se o método está funcionando.<br>
+                            error => { <br>
+                            ________console.error(error+" Erro no método remover");<br>
+                            ___} <br>
+                            <br>
+                            __<b> )</b> <br>
+                            <b>}</b>
+                    </div>
                     <br>
                     <br>
                     Veja o código como é :<br>
@@ -141,15 +177,17 @@
                     Vai no componente <b>curso.component.ts</b>, no método "selecionar curso especifico",<br>
                     <br>
                     <br>
-                    // selecionar curso especifico <br>
+                    // selecionar curso especifico para fazer algo... <br>
                     <br>
-                    <b> selecionarCurso( c : Curso ){ </b> <br> 
-                    <br>
-                    ____<b>this.curso.idCurso = c.idCurso;</b> <br>
-                    ____<b>this.curso.idCurso = c.idCurso; </b> <br>
-                    ____<b> this.curso.idCurso = c.idCurso;</b> <br>
-                    <br>
-                    __<b>} </b> <br>
+                    <div class="destaque">
+                        <b> selecionarCurso( c : Curso ){ </b> <br> 
+                            <br>
+                        ____<b>this.curso.idCurso = c.idCurso;</b> <br>
+                        ____<b>this.curso.idCurso = c.idCurso; </b> <br>
+                        ____<b> this.curso.idCurso = c.idCurso;</b> <br>
+                        <br>
+                        __<b>} </b> <br>
+                    </div>
                     <br>
                     <br>
                     Veja o código como é :<br>
@@ -159,7 +197,7 @@
                     <br>
                     <br>
                     Agora vai no componente <b>curso.component.html</b>, e adicione um "button",<br>
-                    que ao clicar nele vao acionar o método.<br>
+                    que ao clicar nele vai acionar o método.<br>
                     <br>
                     Acrescente mais uma tag "td", e dentro dela um "button".<br>
                     <br>

@@ -93,17 +93,15 @@ export class CursoComponent implements OnInit {
     this.curso_servico.removerCurso(c).subscribe(
       (res: Curso[] ) => {
         console.log("método remover => removendo o curso "+JSON.stringify(c));
-
         // atualizar os atributos
         this.curso.nomeCurso = '';
         this.curso.valorCurso = 0 ;
         console.log("método remover => atualizando os atributos");
-
         // atualizar a listagem no front
         console.log("método remover => atualizando o front-End "+JSON.stringify(res));
         this.selecao();
-        return this.vetor = res;
 
+        return this.vetor = res;
       },
       error => {
         console.error(error+" Erro no método remover");
