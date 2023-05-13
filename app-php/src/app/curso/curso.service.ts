@@ -41,7 +41,7 @@ export class CursoService  {
     cadastrarCurso(c: Curso): Observable<Curso[]>{
       return this.http.post(this.url+'cadastrar', {curso: c }).pipe(
         map ((res) => {
-          console.log("curso serviço => cadastrar curso");
+
           this.vetor.push(res as Curso);
           return this.vetor;
         })
@@ -50,27 +50,25 @@ export class CursoService  {
 
     // método serviço, para remover o curso
     removerCurso(c: Curso): Observable<Curso[]> {
+      // verifica se o idCurso existe ou não
       if (!c || c.idCurso == null) {
         console.error('Curso inválido');
         return throwError('O curso informado é inválido.');
       }
       // selecionando o id do curso selecionado
       const params = new HttpParams().set('idCurso', c.idCurso.toString());
-      console.log("método service remover curso => selecionando o id  "+params)
 
       return this.http.delete(this.url+'excluir', {params: params}).pipe(
         map((res: any) => {
-          console.log("metodo curso serviço => filtrando os ids ");
           const filtro = this.vetor.filter((curso) => {
             return curso.idCurso !== c.idCurso;
-
           });
 
-          console.log("metodo curso serviço => fazer uma cópia do vetor filtrado " + JSON.stringify(filtro));
           this.vetor = [...filtro]; // fazer uma cópia do vetor filtrado
 
           return this.vetor;
         }),
+
         catchError((error: HttpErrorResponse) => {
           if (error instanceof Error) {
             console.error('Erro ao remover curso:', error);
@@ -97,15 +95,11 @@ export class CursoService  {
             if(cursoAlterado){
               cursoAlterado ['nomeCurso'] = c ['nomeCurso'];
               cursoAlterado ['valorCurso'] = c ['valorCurso'];
-              console.log("fazendo if no atualizar curso => curso.service.ts")
+
             }
             // retorna
             return this.vetor;
         }))
       }
-
-
-
-
 
 }

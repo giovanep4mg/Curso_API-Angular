@@ -10,16 +10,17 @@ import { CursoService } from './curso.service';
 
 export class CursoComponent implements OnInit {
 
-    // url base da api, banco de dados
+    // url para ter acesso ao banco de dados "api"
     url = "http://localhost/api/php/"
 
-    // vetor de cursos
+    // vetor de cursos para savlar os cursos
     vetor: Curso[] = [] ;
 
 
-    // objeto da classe curso
+    // cria um objeto da classe curso
     curso = new Curso();
 
+    // variável vazia para guarda erros
     errorMessage = '';
 
   // construtor
@@ -38,22 +39,17 @@ export class CursoComponent implements OnInit {
     this.curso_servico.cadastrarCurso(this.curso).subscribe(
       (res: Curso[]) => {
 
-      // adicionando dados ao vetor
+      // adicionando os dados na var "vetor"
       this.vetor = res;
-      console.log("método cadastro => adicionando dados ao vetor");
 
       // limpar os campos de texto atributos
       this.curso.nomeCurso = '' ;
       this.curso.valorCurso = 0 ;
-      console.log("método cadastro => limpar campo de texto atributos")
 
-      // atualizar a listagem no front
+      // atualizar a listagem no front-end
       this.selecao();
-      console.log("método cadastro =>atualizar o front-end")
-
       }
     )
-    console.log("cadastro => curso.component.ts")
   }
 
   // método seleção, seleciona todos os cursos para aparecer no front-end
@@ -63,7 +59,6 @@ export class CursoComponent implements OnInit {
         this.vetor = res;
       }
     )
-    console.log("metodo seleção => Seleciona todos os cursos e mostra no front-End");
   }
 
   // alterar o curso selecionado, podendo modificar o nome e seu valor.
@@ -83,7 +78,6 @@ export class CursoComponent implements OnInit {
       // atualiza a listagem
       this.selecao();
       console.log("método alterar => atualizar o front-end")
-
     })
 
   }
@@ -92,17 +86,18 @@ export class CursoComponent implements OnInit {
   remover(c: Curso){
     this.curso_servico.removerCurso(c).subscribe(
       (res: Curso[] ) => {
-        console.log("método remover => removendo o curso "+JSON.stringify(c));
+
         // atualizar os atributos
         this.curso.nomeCurso = '';
         this.curso.valorCurso = 0 ;
-        console.log("método remover => atualizando os atributos");
+
         // atualizar a listagem no front
-        console.log("método remover => atualizando o front-End "+JSON.stringify(res));
         this.selecao();
 
+        // salva no vetor
         return this.vetor = res;
       },
+      // se der erro exibe essa mensagem
       error => {
         console.error(error+" Erro no método remover");
       }
@@ -113,17 +108,10 @@ export class CursoComponent implements OnInit {
   // método selecionar, um curso especifico para realizar modificações ou apagar do banco de dados.
   selecionarCurso(c: Curso ){
     this.curso.idCurso = c.idCurso;
-    console.log("ID CURSO SELECIONADO =>  "+this.curso.idCurso);
 
     this.curso.nomeCurso = c.nomeCurso;
-    console.log("NOME CURSO SELECIONADO => "+this.curso.nomeCurso);
 
     this.curso.valorCurso = c.valorCurso;
-    console.log("VALOR CURSO SELECIONADO =>  "+this.curso.valorCurso);
 
-
-    console.log("método selecionarCurso => O curso => "+ this.curso.nomeCurso+" foi selecionado.");
   }
-
-
 }

@@ -52,7 +52,12 @@ main{
     background-color: rgba(8, 211, 45, 0.515);
     font-family: sans-serif;
     font-size: 18px;
+    
+    margin-left: -40px;
+    margin-right: 5px;
+    padding-left: 35px;
 }
+
 
 b{
     color: rgba(255, 0, 0, 0.631);

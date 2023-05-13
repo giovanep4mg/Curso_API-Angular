@@ -24,17 +24,17 @@
                 <a href="./Metodo-de-selecao.html">Método de Seleção </a><br>
                 <br>
                 <!--LINK AULA 5-->
-                <a href="./criando-metodo-cadastro.html">Criando método de cadastro </a><br>
+                <a href="./criando-metodo-cadastro.html"> Método de Cadastro </a><br>
                 <br>
                 <!--LINK AULA 6-->
-                <a href="./Criar-metodo-exclusao.html">Criando método de Exclusão</a><br>
+                <a href="./Criar-metodo-exclusao.html"> Método de Exclusão</a><br>
                 <br>
                  <!--LINK AULA 2-->
-                <a href="./Criar-metodo-Atualizar.html">Criando método de Atualizar </a><br>
+                <a href="./Criar-metodo-Atualizar.html"> Método de Atualizar </a><br>
                 <br>
                 <br>
                 <!--LINK AULA 3-->
-                <a href="./index.html"> Inicio </a><br>
+                <a href="./index.html"> Inicio  </a><br>
                 <br>
                 <br>
                  <!---Link dentro da própria página-----><!---Figurinha mas é texto-->
@@ -44,8 +44,8 @@
                 <a href="#contato"><i class="fa-regular fa-envelope"></i></a><br>
              <br>
         </div>
-        <!--Criar método serviço para excluir-->
-        <section id="aula1" class="aula">
+        <!--Criar método serviço para alterar-->
+        <section class="aula">
             <header class="title"><h1>Criar método de serviço para Atualizar  </h1></header>
             <section class="description">
                 <h2>
@@ -57,23 +57,33 @@
                     // método serviço para atualizar curso <br>
                     <br>
                     <div class="destaque">
-                    <b>atualizarCurso(c: Curso): Observable<Curso[]>{ </b> <br> 
+                        <b>atualizarCurso(c: Curso): Observable<Curso[]>{ </b> <br> 
+                        <br>
+                        ______// executa a alteração via url<br>
+                        ______<b>return this.http.put(this.url+'alterar', {curso: c})</b><br>
+                        <br>
+                        ______// percorrer o vetor para saber qual é o id do curso alterado.<br>
+                        ______<b>.pipe(map((res) => {</b> <br>
+                        _____________<b>const cursoAlterado = this.vetor.find((item) => {</b> <br>
+                        __________________<b>item.idCurso === c.idCurso</b> <br>
+                        _____________<b>} ) ;</b> <br>
+                        <br>
+                        _______// alterar o valor do vetor local <br>
+                        _______<b>if(cursoAlterado){</b> <br>
+                        ____________<b>cursoAlterado ['nomeCurso'] = c ['nomeCurso'];</b><br>
+                        ____________<b>cursoAlterado ['valorCurso'] = c ['valorCurso'];</b><br>
+                        ____________<b> }</b> <br>
+                        <br>
+                        ____________<b>// retorna</b> <br>
+                        ____________<b>return this.vetor;</b><br>
+                        __<b>}))</b> <br>
+                        <br>
+                        _<b>}</b> <br>
+                    </div>    
                     <br>
-                    ______// executa a alteração via url<br>
-                    ______<b>return this.http.put(this.url+'alterar', {curso: c})</b><br>
-                    <br>
-                    ______// percorre o vetor para saber qual é o id do curso alterado.<br>
-                    ______<b>.pipe(map((res) => {</b> <br>
-                    _____________<b>const cursoAlterado = this.vetor.find((item) => {</b> <br>
-                    __________________<b>item.idCurso === c.idCurso</b> <br>
-                    _____________<b>} ) ;</b> <br>
-                    <br>
-                    _______// alterar o valor do vetor local <br>
-                    _______<b></b>
-
-              
+                    Veja como é o código:<br>
                     <div class="image">
-                        <img src="./imagens/metodo-remover-2-2.png" alt="print do código">
+                        <img src="./imagens/metodo-servico-alterar-1.png" alt="print do código">
                     </div>
                     <br>
                     <br>
@@ -82,7 +92,80 @@
             </section>
         </section>
         <br>
-
+        <!--Criar método para chamar o serviço para Alterar-->
+        <section class="aula">
+            <header class="title"><h1>Criar método para chamar o serviço para Alterar </h1></header>
+            <section class="description">
+                <h2>
+                    Vamos criar um método para acionar/chamar o método de serviço para atualizar.<br>
+                    <br>
+                    Vai no componente <b>curso.component.ts</b> e adicione:<br>
+                    <br>
+                    <br>
+                    // alterar o curso selecionado, podendo modificar o nome e seu valor. <br>
+                    <br>
+                    <div class="destaque">
+                        __<b>alterar(c: Curso){</b> <br> 
+                        ______// <br>
+                        ______<b>this.curso_servico.atualizarCurso(this.curso)</b><br>
+                        ______<b>.subscribe( (res) => {</b> <br>
+                        <br>
+                        ________// atualizar vetor<br>
+                        ________<b>this.vetor = res;</b> <br>
+                        <br>
+                        _______// limpar valores do objeto <br>
+                        _______<b>this.curso.nomeCurso = '';</b> <br>
+                        _______<b>this.curso.valorCurso = 0 ;</b><br>
+                        <br>
+                        _______// atualiza a listagem <br>
+                        ____________<b>this.selecao();</b> <br>
+                        <br>
+                        ________<b>})</b><br>
+                        <br>
+                        <br>
+                    </div>    
+                    <br>
+                    Veja como é o código:<br>
+                    <div class="image">
+                        <img src="./imagens/metodo-chamar-metodo-servico-1.png" alt="print do código">
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </h2>
+            </section>
+        </section>
+        <br>
+        <!--Criar o formulário, a página inicial-->
+        <section class="aula">
+            <header class="title"><h1>Criar o formulário, a página inicial </h1></header>
+            <section class="description">
+                <h2>
+                    Vamos criar o formulário a página principal do site.<br>
+                    <br>
+                    Vai no componente <b>curso.component.html</b> e adicione:<br>
+                    <br>
+                    Crie uma <b>Div</b> com a classe "formulario", dentro dela:<br>
+                    crie a tag <b>form class="form" method="post" </b> <br>
+                    <br>
+                    <div class="destaque">
+                        <b>class="form"</b> => será usada no CSS.<br>
+                        <b>method="post"</b> => método que usamos para enviar dados para API.<br>
+                    </div>    
+                    <br>
+                    Veja como é o código completo:<br>
+                    <div class="image">
+                        <img src="./imagens/form-1.png" alt="print do código">
+                    </div>
+                    <div class="image">
+                        <img src="./imagens/form-2.png" alt="print do código">
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </h2>
+            </section>
+        </section>
         <br>
         <br>
         <div id="sobreMim" class="aula">      
