@@ -4,36 +4,60 @@
     margin-bottom: 5px; 
     padding: 0.1em;
 }
-main{
+
+html{
     margin: 0px;
-    
+    padding: 0px;
+    border: 2px solid black;
 }
 
-.aula {
-    /* espaço entre o conteúdo e a borda, lado direito*/
-    padding-left: 25%;
-    /* espaço entre o conteúdo e a borda, lado esquerdo*/
-    padding-right: 15%;
-    /* alinhamento vertical, do texto */
-    vertical-align: top;
+body{
+    margin: 0px;
+    padding: 0px;
 }
+
+main{
+    margin: 0px;
+    padding: 0px;
+}
+
+
 .todaPagina{
     margin: 0px;
     padding: 0px;
     background-color: rgba(0, 255, 255, 0.383);
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 16px;
-}
-
-.aula{
-    margin: 0px;
-    padding: 0px;
-    border: 1px solid black;
-    background-color: rgba(137, 43, 226, 0.331);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
+    margin-right: -240px;
+}
+
+.description{
+    margin: 0px;
+    padding: 10px;
+    border: 2px solid black;
+    background-color: rgba(8, 211, 45, 0.515);
+
+    
+    margin-left: -25px;
+    margin-right: 5px;
+    padding-left: 10px;
+}
+
+
+.aula{
+        /* espaço entre o conteúdo e a borda, lado direito*/
+        padding-left: 25%;
+        /* espaço entre o conteúdo e a borda, lado esquerdo*/
+        padding-right: 15%;
+        /* alinhamento vertical, do texto */
+        vertical-align: top;
+    margin: 0px;
+    padding: 0px;
+    background-color: rgba(137, 43, 226, 0.331);
+    
     padding-left: 160px;
     margin-left: 85px;
+    margin-right: 240px;
 }
 
 .title{
@@ -41,29 +65,21 @@ main{
     padding: 5px;
     color: blue;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 20px;
-    text-align: center;
-}
-
-.description{
-    margin: 15px;
-    padding: 26px;
-    border: 2px solid black;
-    background-color: rgba(8, 211, 45, 0.515);
-    font-family: sans-serif;
-    font-size: 16px;
-    
-    margin-left: -40px;
-    margin-right: 5px;
-    padding-left: 35px;
+    font-size: 25px;
+   
 }
 
 
+
+
+/* destaque de texto */
 b{
     color: rgba(255, 0, 0, 0.631);
-    font-size: 33px;
+    font-size: 30px;
     font-family: 'Times New Roman', Times, serif;
 }
+
+/* imagens usadas nos prints */
 .image {
     display: inline-flex;
     
@@ -73,6 +89,7 @@ b{
    width: 100%;
 }
 
+/* destaque nos texto, um retângulo com borda*/
 .destaque{
     border: 1px solid black;
     margin: 10px;
@@ -80,25 +97,26 @@ b{
     padding: 0.1em;
 }
 
+/* menu */
 .menu{
     background-color: #1d1d22;
     /* largura do conteúdo */
     width: 12%;
     /* espaço entre o conteúdo e a borda */
-    padding: 35px;
-    vertical-align: top;
-    text-align: center;
-    position: fixed;
-    height: 100%;
+        padding: 35px;
+        vertical-align: top;
+        text-align: center;
+        position: fixed;
+        height: 100%;
 
-    padding-top: 25px;
-    margin-top: -15px;
+        padding-top: 25px;
+        margin-top: -15px;
 
-    font-family: sans-serif;
-    font-size: 20px;
-
-    
+        font-family: sans-serif;
+        font-size: 18px;
 }
+
+
 .menu a {
     color: white;
     text-decoration: none;
@@ -111,6 +129,7 @@ b{
 
 .menu i {
     font-size: 25px;
+    padding-top: 0.1px;
 }
 
 .menu .logo {
@@ -178,9 +197,10 @@ b{
     /* cor de fundo */
     background-color: #0404201e;
     /* espaço entre o conteúdo e a borda  */
-    padding: 30px;
+    padding: 25px;
     /* arredonda a borda */
-    border-radius: 30px;
+    border-radius: 65px;
+    margin-left: -40px;
 }
 
 .flexbox {
@@ -208,6 +228,7 @@ b{
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .contact-item-icon :hover{
@@ -226,33 +247,225 @@ b{
     color: rgb(103, 226, 15);
 }
 
-/* ajuste tamanho da tela */
-@media (width: 2560px) {
-    .aula {
-        padding-left: 130px;
-        margin-left: 85px;
-        width: 81%;
-    }
-    .description {
-        margin-left: 200px;
-        margin-right: 5px;
-        padding-left: 35px;
-    }
-    .todaPagina {
-        margin-left: -5px;
-        padding-right: 0px;
-        width: 113%;
-    }
-}
 
-@media (width: 1440px) {
+
+/* ajuste tamanho da tela */
+@media screen and (width: 3000px) {
     *{
         margin: 0px;
         padding: 0px;
-        display: inline-flexbox;
+        margin-bottom: 5px; 
+        padding: 0.1em;
+    }
+    
+    html{
+        margin: 0px;
+        padding: 0px;
+        border: 4px solid black;
+    }
+    
+    body{
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    main{
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    
+    .todaPagina{
+        font-size: 46px;
+        margin-right: 0px;
+        margin-left: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    
+    .description{
+        margin: 0px;
+        padding: 10px;
+        margin-left: 220px;
+        margin-right: -230px;
+        padding-left: 30px;
+    
+    }
+    .aula{
+          /* espaço entre o conteúdo e a borda, lado direito*/
+          padding-left: 25%;
+          /* espaço entre o conteúdo e a borda, lado esquerdo*/
+          padding-right: 15%;
+          /* alinhamento vertical, do texto */
+          vertical-align: top;
+        margin: 0px;
+        padding: 0px;
+        
+        padding-left: 160px;
+        margin-left: 85px;
+        margin-right: 240px;
+    }
+    
+    .title{
+        margin: 0px;
+        padding: 15px;
+        font-size: 60px;
+        margin-left: 290px;
+    }
+
+    /* destaque de texto */
+    b{
+        font-size: 33px;
+    }
+    
+    /* imagens usadas nos prints */
+    .image {
+        display: inline-flex;
+        
+    }
+    .image img{
+       display: inline-block;
+       width: 100%;
+    }
+    
+    /* destaque nos texto, um retângulo com borda*/
+    .destaque{
+        border: 1px solid black;
+        margin: 10px;
+        padding: 10px;
+        padding: 0.1em;
+    }
+    
+    /* menu */
+    .menu{
+        font-size: 45px;
+        width: 13%;
+        padding: 31px;
+    }
+    
+    
+    .menu a {
+        text-decoration: none;
+    }
+    
+    .menu a:hover {
+        font-size: 55px;
+    }
+    
+    .menu i {
+        font-size: 100px;
+    }
+    
+    .menu .logo {
+        font-size: 45px;
+        font-weight: 600;
+    }
+    #sobreMim,
+    #experiencia,
+    #contato {
+        scroll-margin-top: 50px;
+        margin-bottom: 80px;
+        margin-top: 80px;
+    }
+    
+    .card-box {
+        /* mostrar */
+        display: flex;
+    }
+    
+    .card-box-img img {
+        height: 200px;
+        border-radius: 50%;
+    }
+    
+    .card-box-body {
+        margin-left: 20px;
+    }
+    .card {
+        /* cor de fundo */
+        background-color: #0404201e;
+        /* espaço entre o conteúdo e a borda  */
+        padding: 30px;
+        /* arredonda a borda */
+        border-radius: 30px;
+    }
+    
+    .flexbox {
+        display: flex;
+    }
+    
+    .flexbox-item {
+        width: 50%;
+    }
+    
+    .contact-item {
+        text-align: center;
+        flex-direction: column;
+        width: 50%;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .contact-item-icon {
+        font-size: 30px;
+        border: 1px solid #25ca7f;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    
+    .contact-item-icon :hover{
+        text-decoration: underline;
+        color: rgb(103, 226, 15);
+        font-size: 45px;
+    }
+    
+    .contact-item-value a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    .contact-item-value a:hover {
+        text-decoration: underline;
+        color: rgb(103, 226, 15);
+    }
+    #h2.fill-animation {
+        position: relative;
+        color: #252839;
+        -webkit-text-stroke: 1px white;
+        text-transform: uppercase;
+        font-size: 120px;
+    }
+    
+    #h2.fill-animation::before {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        color: #01fe87;
+        -webkit-text-stroke: 0vw #383d52;
+        overflow: hidden;
+        animation: animate 6s linear infinite;
+    }
+
+    
+}
+
+@media screen and (width: 2560px) {
+    *{
+        margin: 0px;
+        padding: 0px;
+       
     }
     .todaPagina {
-        width: -webkit-fill-available;
+        font-size: 35px;
+        
     }
     body{
         margin: 0px;
@@ -274,6 +487,8 @@ b{
     }
 }
 
+
+/*
 @media (width: 600px) {
     .aula {
         margin: 0px;
@@ -294,3 +509,4 @@ b{
         margin-left: -50px;
     }
 }
+*/
