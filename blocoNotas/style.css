@@ -249,8 +249,88 @@ b{
 }
 
 /* ajuste tamanho da tela */
+@media ( max-width: 768px) {
+    *{
+        margin: 0px;
+        padding: 0px;
+        margin-bottom: 5px; 
+        padding: 0.1em;
+    }
+    
+    html{
+        width: 100%;
+        display: contents;
+    }
+    
+    body{
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    main{
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    
+    .todaPagina{
+        width: 100%;
+    }
+    
+    .description{
+        margin-left: -65px;
+        margin-right: 0px;
+        padding-left: 10px;
+        width: 150%;
+    }
+    
+    
+    .aula{
+        padding-left: 30%;
+        padding-left: -41px;
+        margin-right: 0px;
+        padding-right: 20%;
+        margin: 2px;
+        margin-left: 0px;
+    }
+    
+    .title{
+       
+        font-size: 30px;
+        margin-top: -5px;
+        text-align: center;
+       
+    }
+    
+    /* menu */
+    .menu{
+        background-color: #1d1d22;
+        /* largura do conteúdo */
+        width: 12%;
+        /* espaço entre o conteúdo e a borda */
+        padding: 35px;
+        vertical-align: top;
+        text-align: center;
+        position: fixed;
+        height: 100%;
 
-@media screen and ( max-width: 500px) {
+        padding-top: 25px;
+        margin-top: -15px;
+
+        font-family: sans-serif;
+        font-size: 18px;
+    }
+
+    #h2.fill-animation {
+        position: relative;
+        color: #252839;
+        -webkit-text-stroke: 1px white;
+        text-transform: uppercase;
+        font-size: 25px;
+    }
+}
+
+@media ( max-width: 500px) {
     *{
         margin: 0px;
         padding: 0px;
@@ -340,4 +420,5 @@ b{
         font-size: 25px;
     }
 }
+
 
