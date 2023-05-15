@@ -249,32 +249,95 @@ b{
 }
 
 /* ajuste tamanho da tela */
+
 @media screen and ( max-width: 500px) {
-    html{
-        border: 2px solid black;
+    *{
+        margin: 0px;
+        padding: 0px;
+        margin-bottom: 5px; 
+        padding: 0.1em;
     }
     
-    .title{
-        display: contents;
-        font-size: 20px;
-        padding-left: 380px;
+    html{
+        border: 2px solid black;
+        margin: 0px;
+        padding: 0px;
+        width: 122%;
     }
-    .menu{
-        width: 20%;
-        padding: 30px;
+    
+    body{
+        margin: 0px;
+        padding: 0px;
     }
-    .aula{
-        margin-left: -20px;
-        margin-right: 0px;
-        padding-left: 17px;
+    
+    main{
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    
+    .todaPagina{
+        margin: 0px;
+        padding: 0px;
+        background-color: rgba(0, 255, 255, 0.383);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 16px;
+        
         padding-right: 0px;
+        padding-left: 0px;
     }
-    .description {
+    
+    .description{
         margin: 0px;
         padding: 10px;
-        margin-left: -75px;
-        padding-right: 60px;
+        border: 3px solid black;
+        background-color: rgba(8, 211, 45, 0.515);
+    
+        
+        margin-left: -25px;
+        margin-right: 0px;
         padding-left: 10px;
         width: 100%;
     }
+    
+    
+    .aula{
+        margin: 0px;
+        padding: 0px;
+        background-color: rgba(137, 43, 226, 0.331);
+        padding-left: 25px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    
+    .title{
+        margin: 0px;
+        padding: 5px;
+        color: blue;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 30px;
+        margin-top: -5px;
+        text-align: center;
+       
+    }
+    
+    /* menu */
+    .menu{
+        padding: 10px;
+        display: inline-flex;
+        text-align: center;
+        margin-top: -5px;
+        width: initial;
+        position: relative;
+        font-size: 10px;
+    }
+
+    #h2.fill-animation {
+        position: relative;
+        color: #252839;
+        -webkit-text-stroke: 1px white;
+        text-transform: uppercase;
+        font-size: 25px;
+    }
 }
+
