@@ -56,6 +56,68 @@ div{
 }
 
 /* modifica o tamanho */
+@media (max-width: 2580px) {
+  *{
+    font-size: 20px;
+  }
+
+  .formulario{
+    display: block;
+  }
+  .form{
+
+    margin: 10px;
+    padding: 20px;
+    font-size: 20px;
+    margin-left: 120px;
+    margin-right: 120px;
+  }
+
+  .tabela{
+    display: block;
+    padding: 20px;
+    margin-left: 120px;
+    margin-right: 120px;
+  }
+
+  label{
+    font-size: 40px;
+  }
+
+  button {
+    padding: 0.1em;
+    margin: 1.1em;
+    font-size: 40px;
+  }
+  button:hover{
+    color: rgba(16, 17, 16, 0.305);
+    font-size: 45px;
+    border: 2px solid #dec129;
+  }
+
+  tr{
+    display: flex;
+    flex-direction: row;
+    padding: 0.1em;
+    font-size: 65px;
+    border: 2px solid black;
+  }
+  tr h4{
+    font-size: 40px;
+  }
+
+  td{
+    padding: 1.1em;
+    font-size: 45px;
+  }
+
+  input {
+    width: 66%;
+    font-size: 50px;
+  }
+}
+
+
 @media (max-width: 370px) {
 
   .formulario{
